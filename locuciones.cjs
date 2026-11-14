@@ -1,0 +1,40 @@
+const fs=require('fs');
+const path=require('path');
+// Frases pensadas para los intervalos reales, sin leer las etiquetas de la interfaz.
+const lines={
+ presupuestos:['¿Todavía tienes ese presupuesto por enviar?','Tu cliente espera. Tú sigues buscando tarifas.','En jota eme dos montamos una herramienta con tus precios y tus servicios.','Preparas el presupuesto, revisas los importes y lo envías. Adaptado a tu forma de trabajar.'],
+ citas:['Tu próxima cita no se presenta.','La sala preparada. Ese hueco ya se ha perdido.','En jota eme dos montamos recordatorios de citas adaptados a tu consulta.','El aviso sale antes de la cita y tu paciente puede confirmar. Tú te centras en atender.'],
+ datos:['¿El mismo dato en tres programas?','Tu equipo vuelve a escribir lo que ya estaba.','En jota eme dos conectamos las herramientas que utiliza tu negocio.','Introduces la información una vez. Clientes, pedidos y facturación reciben los datos, sin volver a teclear.'],
+ informes:['Cierras la tienda. ¿Y empieza el Excel?','La persiana baja. Tú sigues reuniendo cifras.','En jota eme dos creamos informes automáticos con los datos de tu negocio.','Ventas, gastos y resultados, juntos para revisar. Dedica el tiempo a decidir, en vez de copiar cifras.'],
+ documentos:['Lo guardaste. Pero, ¿dónde está?','Tu cliente espera mientras buscas entre versiones.','En jota eme dos montamos un buscador para los documentos de tu negocio.','Busca por cliente o por contenido. Localiza el documento, revisa que es el correcto y compártelo.'],
+ pedidos:['Ese pedido se quedó sin apuntar.','Entró por el chat, pero no llegó a tu lista.','En jota eme dos montamos un sistema que organiza los encargos que recibes.','Cliente, producto y cantidad pasan a un borrador. Tú revisas los datos y confirmas el pedido.'],
+ bocateria:['¿Cocinas o atiendes el teléfono?','Dos de pollo. ¿Cuál era sin cebolla?','En jota eme dos montamos una web de pedidos con la carta de tu bocatería.','Tu cliente elige los bocadillos y sus ingredientes. El pedido llega al WhatsApp de tu tienda, listo para preparar.'],
+ tpv:['El cliente quiere su ticket. Ya.','Y la cola sigue creciendo mientras haces la cuenta.','En jota eme dos montamos tu sistema de tickets, adaptado a tu tienda.','Tus productos, tus precios y tu impresora. Añades los artículos, generas la factura simplificada e imprimes el ticket.'],
+ cobros:['Mucho trabajo. Pero, ¿y el dinero?','No es solo facturar. Hay que controlar qué queda por cobrar.','En jota eme dos montamos tu control de cobros y recordatorios de pago.','Ves los importes pendientes y sus vencimientos. Envías los avisos y confirmas el cobro cuando se realiza el pago.'],
+ conciliacion:['¿Este cobro de quién es?','El banco por un lado. Las facturas por otro.','En jota eme dos montamos tu conciliación bancaria a medida. Importas los movimientos del banco y las facturas.','El sistema propone qué movimiento encaja con cada factura, comparando el importe y la referencia. Tú revisas la coincidencia.','Confirmas las propuestas correctas. Los movimientos sin una coincidencia clara quedan pendientes, sin asignarse a una factura.'],
+ facturas:['¿Tu día acaba copiando facturas?','Abres un PDF. Copias los datos. Y otra vez.','Automatizamos la lectura de tus facturas.','Los datos pasan al registro. Tú revisas el resultado.'],
+ presentacion:['¿Tu día se va en copiar?','Abrir, copiar y volver a empezar. Cada día.','Creamos herramientas para automatizar tus tareas.','Como leer facturas y preparar los datos. Tú revisas.']
+};
+const normalClosing='En jota eme dos creamos herramientas a medida para tu negocio. Cuéntanos tu caso por WhatsApp.';
+const shortClosing='En jota eme dos creamos herramientas a medida. Cuéntanos tu caso.';
+const escape=s=>s.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
+function stamp(seconds,separator='.'){const ms=Math.round(seconds*1000);return [Math.floor(ms/3600000),Math.floor(ms/60000)%60,Math.floor(ms/1000)%60].map(n=>String(n).padStart(2,'0')).join(':')+separator+String(ms%1000).padStart(3,'0');}
+function visibleTime(seconds){return stamp(seconds).slice(3).replace(/\.000$/,'');}
+function buildNarration(type,story,marks,duration){
+ const narration=[...lines[type],story.voice?shortClosing:normalClosing];
+ if(narration.length!==marks.length-1)throw Error('La locución no coincide con las escenas: '+type);
+ const segments=narration.map((text,i)=>({text,start:marks[i],end:marks[i+1],duration:marks[i+1]-marks[i]}));
+ const instructions='Idioma: español de España. Voz cercana y profesional, con ritmo conversacional y sin tono de teletienda. Pronunciar JM2 como «jota eme dos». No leer los tiempos, números de escena ni instrucciones. Respetar las pausas y ajustar cada bloque a su intervalo. No añadir frases.';
+ const plain=narration.join('\n\n');
+ const timed=story.title+'\nDuración del vídeo: '+visibleTime(duration)+'\n\nINDICACIONES DE VOZ\n'+instructions+'\n\nGUION POR ESCENAS\n\n'+segments.map((s,i)=>`ESCENA ${i+1} · ${stamp(s.start)} → ${stamp(s.end)} (${s.duration.toFixed(3)} s)\n${s.text}`).join('\n\n');
+ const srt=segments.map((s,i)=>`${i+1}\n${stamp(s.start,',')} --> ${stamp(s.end,',')}\n${s.text}`).join('\n\n')+'\n';
+ fs.mkdirSync('guiones',{recursive:true});
+ const base=path.basename(story.file,'.html');
+ const files={timed:`guiones/${base}-creatify.txt`,plain:`guiones/${base}-locucion.txt`,srt:`guiones/${base}.srt`};
+ fs.writeFileSync(files.timed,timed+'\n');fs.writeFileSync(files.plain,plain+'\n');fs.writeFileSync(files.srt,srt);
+ const rows=segments.map((s,i)=>`<tr><td><button type="button" class="script-time" data-script-seek="${s.start}" aria-label="Ver escena ${i+1}">${visibleTime(s.start)} → ${visibleTime(s.end)}</button><small>${Number(s.duration.toFixed(2))} s · Escena ${i+1}</small></td><td>${escape(s.text)}</td></tr>`).join('');
+ const data=JSON.stringify({timed,plain,instructions}).replaceAll('<','\\u003c');
+ const html=`<section class="voice-script" id="guion" aria-labelledby="script-title"><header class="script-heading"><div><span class="script-kicker">LOCUCIÓN · LISTA PARA PREPARAR EN CREATIFY</span><h1 id="script-title">Guion de voz con tiempos</h1><p>${escape(story.title)} · ${segments.length} escenas · ${visibleTime(duration)}</p></div><a class="script-back" href="index.html">Volver al índice →</a></header><p class="script-help">Copia el guion con tiempos como referencia. Para generar la voz, usa «Solo locución» o genera cada bloque por separado y colócalo en su intervalo. La duración exacta depende de la voz elegida.</p><div class="script-actions"><button type="button" data-copy-script="timed">Copiar guion con tiempos</button><button type="button" data-copy-script="plain">Copiar solo locución</button><a href="${files.timed}" download>Descargar guion .txt</a><a href="${files.srt}" download>Descargar tiempos .srt</a></div><p class="script-feedback" role="status" id="script-feedback"></p><div class="script-table-wrap"><table class="script-table"><thead><tr><th scope="col">Tiempo en el vídeo</th><th scope="col">Texto para la voz</th></tr></thead><tbody>${rows}</tbody></table></div><details class="script-details"><summary>Indicaciones para la voz y texto continuo</summary><p>${escape(instructions)}</p><textarea id="script-plain" aria-label="Texto continuo de la locución" readonly>${escape(plain)}</textarea><a href="${files.plain}" download>Descargar solo locución .txt</a></details><script type="application/json" id="narration-data">${data}</script></section>`;
+ return {html,segments,files,timed,plain,instructions};
+}
+module.exports={buildNarration,lines,stamp};

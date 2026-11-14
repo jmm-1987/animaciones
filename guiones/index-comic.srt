@@ -1,0 +1,19 @@
+1
+00:00:00,000 --> 00:00:03,125
+¿Tu día acaba copiando facturas?
+
+2
+00:00:03,125 --> 00:00:07,625
+Abres un PDF. Copias los datos. Y otra vez.
+
+3
+00:00:07,625 --> 00:00:11,500
+Automatizamos la lectura de tus facturas.
+
+4
+00:00:11,500 --> 00:00:16,125
+Los datos pasan al registro. Tú revisas el resultado.
+
+5
+00:00:16,125 --> 00:00:22,388
+En jota eme dos creamos herramientas a medida. Cuéntanos tu caso.
