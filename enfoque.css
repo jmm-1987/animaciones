@@ -1,0 +1,53 @@
+/* Una frase y una acción. Sin notas que compitan por la atención. */
+.single-focus .heading,.single-focus .scene-heading,.single-focus .intro-copy,
+.single-focus .caption,.single-focus .note,.single-focus .bubble,
+.single-focus .footer,.single-focus .chapter,.single-focus .bottom-copy,
+.single-focus .tag,.single-focus .episode,.single-focus .kicker,
+.single-focus .scribble,.single-focus .queue-label{display:none!important}
+.single-focus>.masthead span,.single-focus .masthead>span{display:none!important}
+.single-focus .focus-title{position:absolute;top:430px;left:65px;right:65px;z-index:7;text-align:center;font:800 58px/1.15 'Segoe UI',Arial,sans-serif;letter-spacing:-2px;color:#1557f5;pointer-events:none}
+.single-focus.focus-intro .focus-title{top:760px;font-size:86px;line-height:1.1;letter-spacing:-3px}
+.single-focus.focus-intro .office,.single-focus.focus-intro .board,
+.single-focus.focus-intro .recognition,.single-focus.focus-intro .shop,
+.single-focus.focus-intro .screen,.single-focus.focus-intro .tap,
+.single-focus.focus-intro .preview-ticket,.single-focus.focus-intro .receipt-label,
+.single-focus.focus-intro .print-window,.single-focus.focus-intro .printer,
+.single-focus.focus-intro .workshop,.single-focus.focus-intro .dashboard,
+.single-focus.focus-intro .calendar-flow,.single-focus.focus-intro .reminder-rule,
+.single-focus.focus-intro .message-panel,.single-focus.focus-intro .inbox,
+.single-focus.focus-intro .manual-board,.single-focus.focus-intro .scan-area,
+.single-focus.focus-intro .transfer-stage{visibility:hidden}
+.single-focus.focus-intro .scene.active *{animation-play-state:paused!important}
+.single-focus .office{top:590px!important}
+.single-focus .board,.single-focus .recognition{top:630px!important}
+.single-focus.phase-2 .office,.single-focus.phase-3 .office,
+.single-focus.scene-2 .office,.single-focus.scene-3 .office{visibility:hidden}
+.single-focus .board-head,.single-focus .recognition-footer{display:none}
+.single-focus .board-head{font-size:22px;color:#657187}
+.single-focus .board{height:760px}
+.single-focus .demo{height:595px}
+.single-focus .s1 .inbox{top:600px}
+.single-focus .s2 .manual-board,.single-focus .s3 .scan-area,.single-focus .s4 .transfer-stage{top:590px}
+.single-focus .sent-status{font-size:27px}
+.single-focus .reminder-message{font-size:28px}
+/* Al cierre, marca y propuesta, después los datos de contacto. */
+.single-focus.focus-closing .focus-title,.single-focus.focus-closing .heading,
+.single-focus.focus-closing .closing h1,.single-focus.focus-closing .tagline,
+.single-focus.focus-closing .closing-site,.single-focus.focus-closing .website{display:none!important}
+.single-focus .s5 .brand-logo{top:380px}
+.single-focus .s5 .brand-address{top:820px}
+.single-focus .s5 .contact-cta{top:1030px}
+.single-focus .end-brand{top:430px!important}
+.single-focus .end-logo{top:400px!important}
+.single-focus .comic-address{top:760px}
+.single-focus>.contact-cta{top:980px}
+.single-focus .closing .closing-logo{top:400px}
+.single-focus .closing .brand-address{top:760px}
+.single-focus .closing .contact-cta{top:980px}
+.single-focus.focus-closing:not(.focus-contact) .brand-address,
+.single-focus.focus-closing:not(.focus-contact) .contact-cta>strong,
+.single-focus.focus-closing:not(.focus-contact) .contact-actions{visibility:hidden}
+.single-focus.focus-closing .contact-cta>p{font-size:42px}
+.single-focus.focus-closing .contact-cta>p>b{font-size:52px}
+.single-focus.focus-closing .step{display:none}
+.single-focus.focus-closing .end-brand>a{display:none}

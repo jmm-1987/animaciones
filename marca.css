@@ -1,0 +1,69 @@
+/* Paleta y cierre comunes de JM2 Tech Studio. */
+:root{--ink:#101725;--muted:#657187;--blue:#1557f5;--blue-2:#7395ff;--pale:#eaf0ff;--red:#f2453d;--paper:#fbfcff;--cream:#fbfcff;--yellow:#eaf0ff;--line:#dce4f3}
+body{background:#e9edf5;color:var(--ink)}
+.stage{background-color:var(--paper);background-image:radial-gradient(#aebbd2 1.6px,transparent 1.6px);background-size:30px 30px}
+.tag,.episode,.stamp{background:var(--pale);color:var(--blue)}
+.board,.recognition{background:var(--paper)}
+.controls{background:#fbfcfff5}
+.brand-address{font-style:normal;text-align:center;color:var(--muted);font-size:32px;line-height:1.6;font-weight:600;letter-spacing:0}
+.s5 .brand-address{position:absolute;top:950px;left:80px;right:80px}
+.s5 .tagline{top:1170px}
+.s5 .website{top:1350px}
+.s5 .closing-note{top:1510px}
+.phase-4,.scene-4{background:linear-gradient(180deg,#fbfcff,#f7f9fe)}
+.phase-4 .office,.phase-4 .bubble,.phase-4 .parcel,.phase-4 .footer,
+.scene-4 .office,.scene-4 .bubble,.scene-4 .stamp,.scene-4 .chapter{display:none}
+.phase-4 .end-brand{display:block;left:80px;top:640px;width:920px;text-align:center;z-index:6}
+.phase-4 .end-brand img{width:870px;height:300px;object-fit:contain}
+.phase-4 .end-brand .brand-address{margin:30px 0 42px}
+.phase-4 .end-brand a,.scene-4 .cta{display:inline-block;padding:20px 35px;background:white;border:2px solid #dbe5fb;border-radius:99px;font-size:29px;color:var(--blue);text-decoration:none}
+.scene-4 .end-logo{top:640px;left:105px;width:870px;height:300px;object-fit:contain}
+.comic-address{display:none;position:absolute;top:970px;left:80px;right:80px}
+.scene-4 .comic-address{display:block}
+.scene-4 .bottom-copy{top:1200px;text-align:center}
+@keyframes brand-finish{from{opacity:0;translate:0 25px}to{opacity:1;translate:0 0}}
+.phase-4 .end-brand,.scene-4 .comic-address{animation:brand-finish .65s ease-out both}
+/* Páginas de acceso. */
+.hero-art{background:var(--pale)}
+.sheet .line{background:#eaf0ff}
+.visual{background:linear-gradient(135deg,#eaf0ff,#fbfcff);border-top:3px solid var(--blue)}
+.collection{background:var(--pale)}
+a.card:hover{background:var(--pale)}
+.library-brand{margin:42px auto;text-align:center}
+.library-brand img{width:min(320px,80%);height:auto}
+.library-brand .brand-address{font-size:16px;margin:16px 0}
+@media(prefers-reduced-motion:reduce){.phase-4 .end-brand,.scene-4 .comic-address{animation:none}}
+.contact-cta{text-align:center;margin:26px 0 32px;color:var(--ink);font-size:30px;line-height:1.4}
+.contact-cta p{margin:0 0 12px;font-size:30px;color:var(--muted)}
+.contact-cta strong{display:block;font-size:42px;letter-spacing:-1px}
+.contact-actions{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin-top:24px}
+.contact-cta .contact-actions a{display:inline-flex;align-items:center;justify-content:center;gap:12px;border:2px solid var(--line);border-radius:15px;padding:18px 24px;background:white;color:var(--ink);font-size:26px;font-weight:750;text-decoration:none}
+.contact-cta .contact-actions .contact-whatsapp{border-color:#25d366;background:#f0fff5}
+.contact-cta .contact-actions img,.contact-cta .contact-actions svg{width:34px;height:34px;object-fit:contain;flex-shrink:0}
+.contact-call svg{fill:none;stroke:var(--blue);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.s5 .contact-cta{position:absolute;top:1140px;left:70px;right:70px}
+.s5 .tagline{top:1440px}
+.s5 .website{top:1610px}
+.s5 .closing-note{top:1760px}
+.stage>.contact-cta{display:none;position:absolute;top:1140px;left:70px;right:70px}
+.scene-4>.contact-cta{display:block}
+.scene-4 .bottom-copy{top:1450px}
+.library-brand .contact-cta{font-size:16px;margin:22px 0}
+.library-brand .contact-cta p{font-size:16px}
+.library-brand .contact-cta strong{font-size:24px;letter-spacing:0}
+.library-brand .contact-actions{gap:12px;margin-top:16px}
+.library-brand .contact-actions a{font-size:15px;padding:12px 16px}
+.library-brand .contact-actions img,.library-brand .contact-actions svg{width:24px;height:24px}
+.character.editorial-person .head{transform-origin:210px 80px}
+.editorial-person{stroke:none}
+/* Mensaje principal del cierre: mayor tamaño y contraste. */
+.contact-cta>p{padding:24px 22px;margin:0 0 24px;border-radius:18px;background:#1557f5;color:#fff;font-size:40px;font-weight:650;line-height:1.4;letter-spacing:-.6px;box-shadow:0 12px 28px #1557f520}
+.contact-cta>p>b{display:inline-block;font-size:50px;font-weight:900;letter-spacing:-1px}
+.s5 .tagline{top:1540px}
+.s5 .website{top:1710px}
+.s5 .closing-note{display:none}
+.scene-4 .bottom-copy{top:1550px}
+.player .closing .closing-site{top:1580px}
+.library-brand .contact-cta>p{max-width:720px;margin:0 auto 22px;padding:20px 24px;font-size:21px;letter-spacing:0}
+.library-brand .contact-cta>p>b{font-size:27px;letter-spacing:-.5px}
+@media(max-width:580px){.library-brand .contact-cta>p{font-size:17px;padding:18px 12px}.library-brand .contact-cta>p>b{font-size:22px}}
