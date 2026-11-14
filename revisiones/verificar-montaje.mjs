@@ -31,6 +31,8 @@ for(const file of files){
    if(file==='video-conciliacion.html'){
     const {result:copyResult}=await call('Runtime.evaluate',{expression:`(async()=>{document.querySelector('[data-copy-script="plain"]').click();await new Promise(resolve=>setTimeout(resolve,300));return document.querySelector('#script-feedback').textContent})()`,awaitPromise:true,returnByValue:true,userGesture:true});
     if(!copyResult.value)failures.push({file,copy:'Sin respuesta del botón'});
+    const {result:layoutResult}=await call('Runtime.evaluate',{expression:`(()=>{const fallback=document.querySelector('#copy-fallback');return {overflow:document.documentElement.scrollWidth>document.documentElement.clientWidth,selected:fallback?fallback.selectionEnd-fallback.selectionStart===fallback.value.length:true}})()`,returnByValue:true});
+    if(layoutResult.value.overflow||!layoutResult.value.selected)failures.push({file,scriptLayout:layoutResult.value});
     await call('Runtime.evaluate',{expression:`document.querySelector('#guion').scrollIntoView()`});
     const {data}=await call('Page.captureScreenshot',{format:'png'});fs.writeFileSync('revisiones/guion-conciliacion.png',Buffer.from(data,'base64'));
    }

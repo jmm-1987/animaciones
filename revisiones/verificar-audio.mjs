@@ -1,0 +1,29 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import {pathToFileURL} from 'node:url';
+let pages;for(let a=0;a<30;a++){try{pages=await(await fetch('http://127.0.0.1:9238/json/list')).json();break}catch(e){if(a===29)throw e;await new Promise(r=>setTimeout(r,100))}}
+const socket=new WebSocket(pages.find(p=>p.type==='page').webSocketDebuggerUrl);await new Promise(r=>socket.addEventListener('open',r,{once:true}));let sequence=0;const pending=new Map(),events=new Map();
+socket.addEventListener('message',({data})=>{const m=JSON.parse(data);if(m.id){const cb=pending.get(m.id);pending.delete(m.id);m.error?cb.reject(m.error):cb.resolve(m.result)}else for(const cb of events.get(m.method)||[])cb(m.params)});
+const call=(method,params={})=>new Promise((resolve,reject)=>{const id=++sequence;pending.set(id,{resolve,reject});socket.send(JSON.stringify({id,method,params}))});
+const once=name=>new Promise(resolve=>events.set(name,[params=>{events.delete(name);resolve(params)}]));
+const evaluate=async(expression)=>{const r=await call('Runtime.evaluate',{expression,awaitPromise:true,returnByValue:true,userGesture:true});if(r.exceptionDetails)throw Error(JSON.stringify(r.exceptionDetails));return r.result.value};
+const wait=async(predicate)=>evaluate(`new Promise((resolve,reject)=>{let n=0;const timer=setInterval(()=>{if(${predicate}){clearInterval(timer);resolve(true)}else if(++n>160){clearInterval(timer);reject(new Error('Timeout: '+document.querySelector('#audio-upload-status')?.textContent))}},50)})`);
+const navigate=async file=>{const done=once('Page.loadEventFired');await call('Page.navigate',{url:pathToFileURL(path.resolve(file)).href+'?t=0'});await done};
+const upload=async file=>{const {root}=await call('DOM.getDocument'),{nodeId}=await call('DOM.querySelector',{nodeId:root.nodeId,selector:'#story-audio'});await call('DOM.setFileInputFiles',{nodeId,files:[path.resolve(file)]});};
+function assert(value,message){if(!value)throw Error(message)}
+await call('Page.enable');await call('Runtime.enable');await call('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:1,mobile:true});
+// Un WAV sintético de 42 segundos permite verificar que no se corta la voz.
+const rate=8000,seconds=42,samples=rate*seconds,wav=Buffer.alloc(44+samples*2);wav.write('RIFF');wav.writeUInt32LE(wav.length-8,4);wav.write('WAVE',8);wav.write('fmt ',12);wav.writeUInt32LE(16,16);wav.writeUInt16LE(1,20);wav.writeUInt16LE(1,22);wav.writeUInt32LE(rate,24);wav.writeUInt32LE(rate*2,28);wav.writeUInt16LE(2,32);wav.writeUInt16LE(16,34);wav.write('data',36);wav.writeUInt32LE(samples*2,40);fs.writeFileSync('revisiones/audio-largo.wav',wav);fs.writeFileSync('revisiones/audio-invalido.mp3','not an audio file');
+await navigate('video-conciliacion.html');await upload('audio/audio1.wav');await wait(`document.querySelector('#audio-upload-status').textContent.includes('Audio listo')`);
+let state=await evaluate('window.jm2StoryPlayer.getState()');assert(state.voice&&state.audioRate===1&&state.duration===38,'Audio corto o ritmo original');
+await evaluate(`document.querySelector('#play-uploaded-audio').click()`);await wait(`window.jm2StoryPlayer.getState().elapsed>.05`);state=await evaluate('window.jm2StoryPlayer.getState()');assert(state.playing&&state.elapsed>.05,'Reproducción con audio');
+await evaluate(`window.jm2StoryPlayer.pause();document.querySelector('#seek').value=5;document.querySelector('#seek').dispatchEvent(new Event('input'))`);state=await evaluate('window.jm2StoryPlayer.getState()');assert(state.elapsed===5&&!state.playing,'Pausa y salto');
+await upload('revisiones/audio-largo.wav');await wait(`document.querySelector('#audio-upload-status').textContent.includes('Audio listo')`);state=await evaluate('window.jm2StoryPlayer.getState()');assert(state.duration===42&&state.audioDuration===42,'Extensión del cierre');
+await evaluate(`document.querySelector('#seek').value=41.8;document.querySelector('#seek').dispatchEvent(new Event('input'));document.querySelector('#play').click()`);await wait(`!window.jm2StoryPlayer.getState().playing`);state=await evaluate('window.jm2StoryPlayer.getState()');assert(state.elapsed>=41.99,'No cortar el final del audio');
+await navigate('video-cobros.html');await evaluate('new Promise(r=>setTimeout(r,300))');assert(await evaluate(`document.querySelector('#play-uploaded-audio').disabled`),'Audios separados por historia');
+await navigate('video-conciliacion.html');await wait(`document.querySelector('#audio-upload-status').textContent.includes('guardado está listo')`);state=await evaluate('window.jm2StoryPlayer.getState()');assert(state.audioDuration===42&&state.voice&&!state.playing,'Recuperación tras recargar');
+await upload('revisiones/audio-invalido.mp3');await wait(`document.querySelector('#audio-upload-status').textContent.includes('No se ha podido leer')`);assert((await evaluate('window.jm2StoryPlayer.getState()')).audioDuration===42,'Conservar el audio anterior si el nuevo falla');
+await evaluate(`document.querySelector('#audio').scrollIntoView()`);assert(await evaluate(`document.documentElement.scrollWidth<=document.documentElement.clientWidth`),'Anchura de móvil');const {data}=await call('Page.captureScreenshot',{format:'png'});fs.writeFileSync('revisiones/audio-movil.png',Buffer.from(data,'base64'));
+await evaluate(`document.querySelector('#remove-uploaded-audio').click()`);await wait(`document.querySelector('#audio-upload-status').textContent.includes('eliminado')`);await navigate('video-conciliacion.html');await evaluate('new Promise(r=>setTimeout(r,300))');assert(await evaluate(`document.querySelector('#play-uploaded-audio').disabled&&!window.jm2StoryPlayer.getState().voice`),'Borrado persistente');
+console.log('Audio verificado en móvil: carga, reproducción, pausa, salto, cierre completo, persistencia, aislamiento, archivo inválido y borrado.');
+await call('Browser.close');
