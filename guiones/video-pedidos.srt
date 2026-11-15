@@ -8,7 +8,7 @@ Entró por el chat, pero no llegó a tu lista.
 
 3
 00:00:08,000 --> 00:00:15,000
-En jota eme dos montamos un sistema que organiza los encargos que recibes.
+Montamos un sistema que organiza los encargos que recibes.
 
 4
 00:00:15,000 --> 00:00:23,000
@@ -16,4 +16,4 @@ Cliente, producto y cantidad pasan a un borrador. Tú revisas los datos y confir
 
 5
 00:00:23,000 --> 00:00:32,000
-En jota eme dos creamos herramientas a medida para tu negocio. Cuéntanos tu caso por WhatsApp.
+Creamos herramientas a medida para tu negocio. Cuéntanos tu caso por WhatsApp.

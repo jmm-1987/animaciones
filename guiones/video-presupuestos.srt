@@ -8,7 +8,7 @@ Tu cliente espera. Tú sigues buscando tarifas.
 
 3
 00:00:08,000 --> 00:00:15,000
-En jota eme dos montamos una herramienta con tus precios y tus servicios.
+Montamos una herramienta con tus precios y tus servicios.
 
 4
 00:00:15,000 --> 00:00:23,000
@@ -16,4 +16,4 @@ Preparas el presupuesto, revisas los importes y lo envías. Adaptado a tu forma 
 
 5
 00:00:23,000 --> 00:00:32,000
-En jota eme dos creamos herramientas a medida para tu negocio. Cuéntanos tu caso por WhatsApp.
+Creamos herramientas a medida para tu negocio. Cuéntanos tu caso por WhatsApp.

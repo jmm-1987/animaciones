@@ -10,7 +10,7 @@ LINES = [
     'Abres una. Copias los datos. Y vuelta a empezar.',
     '¿Y si dejaras de hacerlo? El sistema las lee por ti.',
     'Extrae los datos y los deja listos. Tú solo revisas.',
-    'Dedica tu tiempo a lo que importa. En jota eme dos, te ayudamos a automatizar.'
+    'Dedica tu tiempo a lo que importa. Te ayudamos a automatizar.'
 ]
 
 async def main():

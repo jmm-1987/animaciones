@@ -1,0 +1,19 @@
+1
+00:00:00,000 --> 00:00:04,000
+Ese pedido se quedó sin apuntar.
+
+2
+00:00:04,000 --> 00:00:08,000
+Entró por el chat, pero no llegó a tu lista.
+
+3
+00:00:08,000 --> 00:00:15,000
+Montamos un sistema que organiza los encargos que recibes.
+
+4
+00:00:15,000 --> 00:00:23,000
+Cliente, producto y cantidad pasan a un borrador. Tú revisas los datos y confirmas el pedido.
+
+5
+00:00:23,000 --> 00:00:32,000
+Creamos herramientas a medida para tu negocio. Cuéntanos tu caso por WhatsApp.

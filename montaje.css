@@ -5,6 +5,7 @@
 .shot-visual{flex:0 1 auto;padding:35px;max-height:1250px}
 .shot-caption{min-height:0;padding:28px 32px 32px;font-size:49px}
 .location-shot .shot-visual{padding:65px 0 0}
+.story-header[hidden]{display:none}
 /* Anuncios sociales: gancho inmediato, conversación y servicio a medida. */
 .social-phase-0{background:#1557f5;border-color:#1557f5}
 .social-phase-0 .shot-visual{padding:35px 30px}

@@ -1,0 +1,19 @@
+1
+00:00:00,000 --> 00:00:04,000
+Tu próxima cita no se presenta.
+
+2
+00:00:04,000 --> 00:00:08,000
+La sala preparada. Ese hueco ya se ha perdido.
+
+3
+00:00:08,000 --> 00:00:15,000
+Montamos recordatorios de citas adaptados a tu consulta.
+
+4
+00:00:15,000 --> 00:00:23,000
+El aviso sale antes de la cita y tu paciente puede confirmar. Tú te centras en atender.
+
+5
+00:00:23,000 --> 00:00:32,000
+Creamos herramientas a medida para tu negocio. Cuéntanos tu caso por WhatsApp.

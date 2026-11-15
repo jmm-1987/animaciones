@@ -3,7 +3,7 @@ const config=window.STORY_CONFIG;if(!config)return;
 const $=s=>document.querySelector(s),player=$('.story-player'),stage=$('#stage'),play=$('#play'),seek=$('#seek'),voiceButton=$('#voice'),scenes=[...document.querySelectorAll('[data-scene]')],nav=[...document.querySelectorAll('[data-go]')];
 const {marks}=config,lastPhase=marks.length-2,reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
 let duration=config.duration,audioRate=config.audioRate||1,audio=null,elapsed=0,playing=true,last=null,frame=0,voice=false;
-function defaultAudio(){if(!config.voice)return null;const element=new Audio('audio/audio1.wav');element.preload='auto';return element;}
+function defaultAudio(){if(!config.builtinAudio)return null;const element=new Audio(config.builtinAudio);element.preload='auto';return element;}
 audio=defaultAudio();if(audio){audio.playbackRate=audioRate;audio.preservesPitch=true;}
 const preview=new URLSearchParams(location.search).get('t');if(preview!==null){elapsed=Math.max(0,Math.min(duration,Number(preview)||0));playing=false;stage.classList.add('preview');}
 function fit(){stage.style.transform='scale('+player.clientWidth/1080+')'}new ResizeObserver(fit).observe(player);fit();
@@ -12,6 +12,8 @@ function render(){
  const end=phase===lastPhase?duration:marks[phase+1],p=Math.max(0,Math.min(1,(elapsed-marks[phase])/(end-marks[phase])));
  stage.dataset.phase=phase;stage.style.setProperty('--p',reduced?1:Math.min(1,p*1.6));stage.classList.toggle('contact-visible',phase===lastPhase&&elapsed-marks[lastPhase]>=1.25);
  scenes.forEach((scene,i)=>{const active=i===phase;scene.classList.toggle('active',active);scene.inert=!active;scene.setAttribute('aria-hidden',String(!active));if(active){scene.querySelectorAll('[data-at]').forEach(node=>{const on=reduced||p>=Number(node.dataset.at);node.style.opacity=on?'1':'0';node.style.transform=on?'translateY(0)':'translateY(12px)'});const steps=[...scene.querySelectorAll('[data-step]')];steps.forEach((node,j)=>node.hidden=j!==Math.min(steps.length-1,Math.floor(p*steps.length)))}});
+ // Si el plano ya lleva su logotipo, retirar el de la cabecera.
+ const header=$('.story-header');if(header)header.hidden=Boolean(scenes[phase]?.querySelector('img[src$="logo.png"]'));
  nav.forEach((n,i)=>n.setAttribute('aria-current',String(i===phase)));seek.max=duration;seek.value=elapsed;$('#time').textContent='0:'+String(Math.floor(elapsed)).padStart(2,'0')+' / 0:'+Math.ceil(duration);
 }
 function controls(){play.textContent=playing?'Ⅱ':'▶';play.setAttribute('aria-label',playing?'Pausar':'Reproducir');if(voiceButton){voiceButton.disabled=!audio;voiceButton.textContent=audio?(voice?'Silenciar voz':'Activar voz'):'Sin audio';voiceButton.setAttribute('aria-pressed',String(voice));}}

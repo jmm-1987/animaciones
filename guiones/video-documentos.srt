@@ -8,7 +8,7 @@ Tu cliente espera mientras buscas entre versiones.
 
 3
 00:00:08,000 --> 00:00:15,000
-En jota eme dos montamos un buscador para los documentos de tu negocio.
+Montamos un buscador para los documentos de tu negocio.
 
 4
 00:00:15,000 --> 00:00:23,000
@@ -16,4 +16,4 @@ Busca por cliente o por contenido. Localiza el documento, revisa que es el corre
 
 5
 00:00:23,000 --> 00:00:32,000
-En jota eme dos creamos herramientas a medida para tu negocio. Cuéntanos tu caso por WhatsApp.
+Creamos herramientas a medida para tu negocio. Cuéntanos tu caso por WhatsApp.

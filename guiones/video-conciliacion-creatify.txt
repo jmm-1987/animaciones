@@ -2,7 +2,7 @@ Tu banco y tus facturas, conectados
 Duración del vídeo: 00:38
 
 INDICACIONES DE VOZ
-Idioma: español de España. Voz cercana y profesional, con ritmo conversacional y sin tono de teletienda. Pronunciar JM2 como «jota eme dos». No leer los tiempos, números de escena ni instrucciones. Respetar las pausas y ajustar cada bloque a su intervalo. No añadir frases.
+Idioma: español de España. Voz cercana y profesional, con ritmo conversacional y sin tono de teletienda. No mencionar la marca en la locución: ya aparece en pantalla. No leer los tiempos, números de escena ni instrucciones. Respetar las pausas y ajustar cada bloque a su intervalo. No añadir frases.
 
 GUION POR ESCENAS
 
@@ -13,7 +13,7 @@ ESCENA 2 · 00:00:04.000 → 00:00:08.000 (4.000 s)
 El banco por un lado. Las facturas por otro.
 
 ESCENA 3 · 00:00:08.000 → 00:00:15.000 (7.000 s)
-En jota eme dos montamos tu conciliación bancaria a medida. Importas los movimientos del banco y las facturas.
+Montamos tu conciliación bancaria a medida. Importas los movimientos del banco y las facturas.
 
 ESCENA 4 · 00:00:15.000 → 00:00:23.000 (8.000 s)
 El sistema propone qué movimiento encaja con cada factura, comparando el importe y la referencia. Tú revisas la coincidencia.
@@ -22,4 +22,4 @@ ESCENA 5 · 00:00:23.000 → 00:00:30.000 (7.000 s)
 Confirmas las propuestas correctas. Los movimientos sin una coincidencia clara quedan pendientes, sin asignarse a una factura.
 
 ESCENA 6 · 00:00:30.000 → 00:00:38.000 (8.000 s)
-En jota eme dos creamos herramientas a medida para tu negocio. Cuéntanos tu caso por WhatsApp.
+Creamos herramientas a medida para tu negocio. Cuéntanos tu caso por WhatsApp.

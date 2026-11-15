@@ -69,3 +69,5 @@ a.card:hover{background:var(--pale)}
 @media(max-width:580px){.library-brand .contact-cta>p{font-size:17px;padding:18px 12px}.library-brand .contact-cta>p>b{font-size:22px}}
 .content .script-link{display:block;margin-top:14px;color:#1557f5;font-size:12px;font-weight:650;text-decoration:none;line-height:1.5}
 .content .script-link:hover{text-decoration:underline}
+.content .system-link{display:block;margin-top:15px;padding:12px;background:#eaf0ff;border:1px solid #c9d8fc;border-radius:8px;color:#1557f5;font-size:13px;line-height:1.5;font-weight:750;text-decoration:none;text-align:center}
+.content .system-link:hover{background:#dfe9ff}

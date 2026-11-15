@@ -8,7 +8,7 @@ Dos de pollo. ¿Cuál era sin cebolla?
 
 3
 00:00:08,000 --> 00:00:15,000
-En jota eme dos montamos una web de pedidos con la carta de tu bocatería.
+Montamos una web de pedidos con la carta de tu bocatería.
 
 4
 00:00:15,000 --> 00:00:23,000
@@ -16,4 +16,4 @@ Tu cliente elige los bocadillos y sus ingredientes. El pedido llega al WhatsApp 
 
 5
 00:00:23,000 --> 00:00:32,000
-En jota eme dos creamos herramientas a medida para tu negocio. Cuéntanos tu caso por WhatsApp.
+Creamos herramientas a medida para tu negocio. Cuéntanos tu caso por WhatsApp.

@@ -15,5 +15,5 @@ function applyPage(name,html){
  }
  return html;
 }
-module.exports={figure,office,visitor,replaceGroup,applyPage};
+module.exports={figure,face,office,visitor,replaceGroup,applyPage};
 if(require.main===module){const file='index-comic.html';fs.writeFileSync(file,applyPage(file,fs.readFileSync(file,'utf8')));console.log('Cómic de facturas actualizado al estilo editorial.');}

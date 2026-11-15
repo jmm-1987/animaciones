@@ -8,7 +8,7 @@ No es solo facturar. Hay que controlar qué queda por cobrar.
 
 3
 00:00:08,000 --> 00:00:15,000
-En jota eme dos montamos tu control de cobros y recordatorios de pago.
+Montamos tu control de cobros y recordatorios de pago.
 
 4
 00:00:15,000 --> 00:00:23,000
@@ -16,4 +16,4 @@ Ves los importes pendientes y sus vencimientos. Envías los avisos y confirmas e
 
 5
 00:00:23,000 --> 00:00:32,000
-En jota eme dos creamos herramientas a medida para tu negocio. Cuéntanos tu caso por WhatsApp.
+Creamos herramientas a medida para tu negocio. Cuéntanos tu caso por WhatsApp.

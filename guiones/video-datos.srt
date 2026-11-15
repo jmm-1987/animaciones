@@ -8,7 +8,7 @@ Tu equipo vuelve a escribir lo que ya estaba.
 
 3
 00:00:08,000 --> 00:00:15,000
-En jota eme dos conectamos las herramientas que utiliza tu negocio.
+Conectamos las herramientas que utiliza tu negocio.
 
 4
 00:00:15,000 --> 00:00:23,000
@@ -16,4 +16,4 @@ Introduces la información una vez. Clientes, pedidos y facturación reciben los
 
 5
 00:00:23,000 --> 00:00:32,000
-En jota eme dos creamos herramientas a medida para tu negocio. Cuéntanos tu caso por WhatsApp.
+Creamos herramientas a medida para tu negocio. Cuéntanos tu caso por WhatsApp.

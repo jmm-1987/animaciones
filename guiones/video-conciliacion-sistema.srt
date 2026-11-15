@@ -1,0 +1,23 @@
+1
+00:00:00,000 --> 00:00:04,000
+¿Este cobro de quién es?
+
+2
+00:00:04,000 --> 00:00:08,000
+El banco por un lado. Las facturas por otro.
+
+3
+00:00:08,000 --> 00:00:15,000
+Montamos tu conciliación bancaria a medida. Importas los movimientos del banco y las facturas.
+
+4
+00:00:15,000 --> 00:00:23,000
+El sistema propone qué movimiento encaja con cada factura, comparando el importe y la referencia. Tú revisas la coincidencia.
+
+5
+00:00:23,000 --> 00:00:30,000
+Confirmas las propuestas correctas. Los movimientos sin una coincidencia clara quedan pendientes, sin asignarse a una factura.
+
+6
+00:00:30,000 --> 00:00:38,000
+Creamos herramientas a medida para tu negocio. Cuéntanos tu caso por WhatsApp.

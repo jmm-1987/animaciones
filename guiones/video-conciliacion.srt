@@ -8,7 +8,7 @@ El banco por un lado. Las facturas por otro.
 
 3
 00:00:08,000 --> 00:00:15,000
-En jota eme dos montamos tu conciliación bancaria a medida. Importas los movimientos del banco y las facturas.
+Montamos tu conciliación bancaria a medida. Importas los movimientos del banco y las facturas.
 
 4
 00:00:15,000 --> 00:00:23,000
@@ -20,4 +20,4 @@ Confirmas las propuestas correctas. Los movimientos sin una coincidencia clara q
 
 6
 00:00:30,000 --> 00:00:38,000
-En jota eme dos creamos herramientas a medida para tu negocio. Cuéntanos tu caso por WhatsApp.
+Creamos herramientas a medida para tu negocio. Cuéntanos tu caso por WhatsApp.

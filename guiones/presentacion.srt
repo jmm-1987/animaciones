@@ -16,4 +16,4 @@ Como leer facturas y preparar los datos. Tú revisas.
 
 5
 00:00:16,125 --> 00:00:22,388
-En jota eme dos creamos herramientas a medida. Cuéntanos tu caso.
+Creamos herramientas a medida. Cuéntanos tu caso.

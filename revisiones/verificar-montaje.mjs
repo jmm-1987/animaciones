@@ -9,19 +9,39 @@ const call=(method,params={})=>new Promise((resolve,reject)=>{const id=++sequenc
 const once=event=>new Promise(resolve=>{events.set(event,[params=>{events.delete(event);resolve(params)}])});
 await call('Page.enable');await call('Runtime.enable');await call('Emulation.setDeviceMetricsOverride',{width:540,height:1000,deviceScaleFactor:1,mobile:false});
 await call('Page.addScriptToEvaluateOnNewDocument',{source:'window.__qaAudio=[];const NativeAudio=window.Audio;window.Audio=function(...args){const audio=new NativeAudio(...args);window.__qaAudio.push(audio);return audio};window.Audio.prototype=NativeAudio.prototype;'});
-const files=fs.readdirSync('.').filter(n=>(n.startsWith('video-')&&n.endsWith('.html'))||n==='index-comic.html'||n==='presentacion.html');
+const files=fs.readdirSync('.').filter(n=>n.endsWith('.html')&&(!process.argv[2]||n===process.argv[2])&&fs.readFileSync(n,'utf8').includes('window.STORY_CONFIG='));
 const failures=[];let count=0;
 for(const file of files){
  const config=JSON.parse(fs.readFileSync(file,'utf8').match(/window.STORY_CONFIG=(.*?);<\/script>/)[1]);
  const times=config.marks.slice(0,-1).map((mark,i)=>mark+(config.marks[i+1]-mark)*.6);
  for(let i=0;i<times.length;i++){
   const loaded=once('Page.loadEventFired');await call('Page.navigate',{url:pathToFileURL(process.cwd()+'/'+file).href+'?t='+times[i]});await loaded;
-  const {result}=await call('Runtime.evaluate',{expression:`(()=>{const s=document.querySelector('.story-scene.active'),stage=document.querySelector('.story-stage'),shot=s.querySelector('.shot'),visual=s.querySelector('.shot-visual');const problems=[];if(Number(s.dataset.scene)!==${i})problems.push('fase');if([...document.querySelectorAll('.story-scene')].filter(s=>!s.inert).length!==1)problems.push('inert');if(shot){const r=shot.getBoundingClientRect(),v=visual.getBoundingClientRect(),child=[...visual.children].find(n=>!n.classList.contains('local-label')),c=child?.getBoundingClientRect();if(r.bottom>document.querySelector('.story-controls').getBoundingClientRect().top)problems.push('solapa controles');if(c&&c.height>v.height+2)problems.push('visual recortado '+c.height+'/'+v.height);if(r.top<document.querySelector('.story-header').getBoundingClientRect().bottom)problems.push('solapa cabecera')}return {problems,phase:s.dataset.scene,caption:s.querySelector('.shot-caption')?.textContent}})()`,returnByValue:true});
+  const {result}=await call('Runtime.evaluate',{expression:`(()=>{const s=document.querySelector('.story-scene.active'),stage=document.querySelector('.story-stage'),shot=s.querySelector('.shot'),visual=s.querySelector('.shot-visual');const problems=[];const logos=[...stage.querySelectorAll('img[src$="logo.png"]')].filter(img=>img.getClientRects().length&&getComputedStyle(img).visibility!=='hidden');if(logos.length!==(document.body.dataset.promo==='facturas'&&s.dataset.scene==='1'?0:1))problems.push('logotipos visibles: '+logos.length);if(Number(s.dataset.scene)!==${i})problems.push('fase');if([...document.querySelectorAll('.story-scene')].filter(s=>!s.inert).length!==1)problems.push('inert');if(shot){const r=shot.getBoundingClientRect(),v=visual.getBoundingClientRect(),child=[...visual.children].find(n=>!n.classList.contains('local-label')),c=child?.getBoundingClientRect();if(r.bottom>document.querySelector('.story-controls').getBoundingClientRect().top)problems.push('solapa controles');if(c&&c.height>v.height+2)problems.push('visual recortado '+c.height+'/'+v.height);if(r.top<document.querySelector('.story-header').getBoundingClientRect().bottom)problems.push('solapa cabecera')}return {problems,phase:s.dataset.scene,caption:s.querySelector('.shot-caption')?.textContent}})()`,returnByValue:true});
   if(result.value.problems.length)failures.push({file,time:times[i],...result.value});count++;
-  if((file==='video-cobros.html'&&[0,2,4].includes(i))||(file==='video-bocateria.html'&&i===0)||(file==='video-conciliacion.html'&&[0,2,3,4,5].includes(i))){
+  if((file==='video-cobros.html'&&[0,2,4].includes(i))||(file==='video-bocateria.html'&&i===0)||(file==='video-conciliacion.html'&&[0,2,3,4,5].includes(i))||(file.includes('-sistema.html')&&[2,3].includes(i))||file==='piloto-bocateria.html'||file==='promo-facturas.html'){
    const {data}=await call('Page.captureScreenshot',{format:'png'});fs.writeFileSync('revisiones/rrss-'+file.replace('.html','')+'-'+i+'.png',Buffer.from(data,'base64'));
   }
-  if(config.voice&&i===4){
+  if(file==='piloto-bocateria.html'&&i===2){
+   const {result:order}=await call('Runtime.evaluate',{expression:`({quantity:document.querySelector('#pilot-quantity').textContent,total:document.querySelector('#pilot-total').textContent,ingredient:document.querySelector('.ingredient').classList.contains('selected')})`,returnByValue:true});
+   if(order.value.quantity!=='2'||!order.value.total.includes('12,00')||!order.value.ingredient)failures.push({file,order:order.value});
+  }
+  if(file==='promo-facturas.html'&&i===1){
+   const {result:clock}=await call('Runtime.evaluate',{expression:"({text:document.querySelector('.timer-beat h1').textContent,clock:!!document.querySelector('.billing-clock'),images:document.querySelector('.timer-beat').querySelectorAll('img').length,digits:document.querySelector('#billing-clock-time').textContent})",returnByValue:true});
+   if(!clock.value.clock||clock.value.images||clock.value.digits==='00:00')failures.push({file,clock:clock.value});
+  }
+  if(file==='promo-facturas.html'&&i===3){
+   const {result:integrations}=await call('Runtime.evaluate',{expression:`({count:document.querySelectorAll('[data-integration]').length,wires:document.querySelectorAll('[data-integration-wire]').length,visible:[...document.querySelectorAll('[data-integration]')].filter(n=>Number(n.style.opacity)>.95).length})`,returnByValue:true});
+   if(integrations.value.count!==6||integrations.value.wires!==6||integrations.value.visible!==6)failures.push({file,integrations:integrations.value});
+  }
+  if(file==='promo-facturas.html'&&i===2){
+   const {result:meeting}=await call('Runtime.evaluate',{expression:`(()=>{const m=document.querySelector('.process-meeting'),r=m.getBoundingClientRect();return {people:m.querySelectorAll('.meeting-person').length,gender:[...m.querySelectorAll('[data-gender]')].map(n=>n.dataset.gender),clipped:r.bottom>document.querySelector('.billing-reel.process-analysis').getBoundingClientRect().bottom,controls:r.bottom>document.querySelector('.story-controls').getBoundingClientRect().top}})()`,returnByValue:true});
+   if(meeting.value.people!==2||meeting.value.clipped||meeting.value.controls)failures.push({file,meeting:meeting.value});
+  }
+  if(file==='promo-facturas.html'&&i===0){
+   const {result:cover}=await call('Runtime.evaluate',{expression:`(()=>{const invoice=document.querySelector('.real-invoice.front'),caption=document.querySelector('.billing-hook-last');return {count:document.querySelectorAll('.real-invoice').length,overlap:invoice&&caption?invoice.getBoundingClientRect().bottom>caption.getBoundingClientRect().top:false}})()`,returnByValue:true});
+   if(cover.value.count!==2||cover.value.overlap)failures.push({file,cover:cover.value});
+  }
+  if(config.builtinAudio&&i===4){
    const {result:audioResult}=await call('Runtime.evaluate',{expression:`(()=>{const audio=window.__qaAudio[0],seek=document.querySelector('#seek');seek.value=10;seek.dispatchEvent(new Event('input'));return {rate:audio.playbackRate,pitch:audio.preservesPitch,currentTime:audio.currentTime,elapsed:Number(seek.value)}})()`,returnByValue:true});
    const a=audioResult.value;if(a.rate!==config.audioRate||!a.pitch||Math.abs(a.currentTime-10*config.audioRate)>.02)failures.push({file,audio:a});
   }
