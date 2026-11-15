@@ -1,0 +1,11 @@
+Cinco columnas para empezar a controlar tus cobros:
+
+1. Cliente.
+2. Número de factura.
+3. Vencimiento.
+4. Saldo pendiente.
+5. Última gestión, con fecha y acción.
+
+Una fila por factura. Si facturas 600 € y recibes un pago confirmado de 200 €, anota 400 € de saldo pendiente.
+
+Ordena por vencimiento. Antes de enviar otro aviso, comprueba el saldo y la última gestión.

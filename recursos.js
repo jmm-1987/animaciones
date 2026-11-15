@@ -1,0 +1,9 @@
+(()=>{
+const form=document.querySelector('#reminder-form');if(!form)return;
+const preview=document.querySelector('#reminder-preview'),feedback=document.querySelector('#reminder-feedback');
+function message(){const data=new FormData(form),raw=Number(data.get('balance')),amount=Number.isFinite(raw)&&raw>0?raw.toLocaleString('es-ES',{minimumFractionDigits:2,maximumFractionDigits:2})+' €':'[saldo pendiente]',date=String(data.get('due')||''),parsed=/^\d{4}-\d{2}-\d{2}$/.test(date)?new Date(date+'T12:00:00'):null,due=parsed&&!Number.isNaN(parsed.getTime())?parsed.toLocaleDateString('es-ES',{day:'numeric',month:'long',year:'numeric'}):'[vencimiento]',name=String(data.get('name')||'').trim()||'[nombre]',invoice=String(data.get('invoice')||'').trim()||'[número]',business=String(data.get('business')||'').trim();return `Hola, ${name}. Te escribo por la factura ${invoice}: quedan ${amount} pendientes desde el ${due}. Si ya pagaste, dime la referencia para comprobarlo. Gracias.${business?' '+business:''}`;}
+function update(){preview.value=message();feedback.textContent='';}
+form.addEventListener('input',update);form.addEventListener('submit',e=>e.preventDefault());update();
+document.querySelector('#copy-reminder').addEventListener('click',async()=>{const text=message();let copied=false;try{await navigator.clipboard.writeText(text);copied=true}catch{preview.focus();preview.select();try{copied=document.execCommand('copy')}catch{}}feedback.textContent=copied?'Mensaje copiado. Revisa los datos antes de enviarlo.':'Texto seleccionado. Pulsa Ctrl+C o mantén pulsado para copiar desde el móvil.';});
+document.querySelector('#download-reminder').addEventListener('click',()=>{const url=URL.createObjectURL(new Blob([message()+'\n'],{type:'text/plain;charset=utf-8'})),a=document.createElement('a');a.href=url;a.download='mi-recordatorio-de-pago.txt';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500);});
+})();

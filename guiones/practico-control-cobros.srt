@@ -1,0 +1,19 @@
+1
+00:00:00,000 --> 00:00:03,500
+¿Quién te debe y desde cuándo?
+
+2
+00:00:03,500 --> 00:00:10,000
+Cinco columnas: cliente, factura, vencimiento, saldo pendiente y última gestión. Una fila por factura.
+
+3
+00:00:10,000 --> 00:00:17,000
+Si facturas seiscientos y cobras doscientos, quedan cuatrocientos pendientes. Ese es el saldo que anotas.
+
+4
+00:00:17,000 --> 00:00:25,000
+Ordena por vencimiento y revisa los saldos abiertos. Antes de avisar otra vez, comprueba la última gestión y los pagos registrados.
+
+5
+00:00:25,000 --> 00:00:32,000
+Descarga la plantilla, mira el ejemplo y empieza con tus facturas. Tienes el archivo debajo del vídeo.

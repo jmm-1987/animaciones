@@ -1,0 +1,19 @@
+1
+00:00:00,000 --> 00:00:03,500
+Antes de cerrar el mes, mira estas tres cosas.
+
+2
+00:00:03,500 --> 00:00:09,000
+Primero, los cobros pendientes. Qué facturas siguen abiertas, cuánto falta por cobrar y cuándo vencen.
+
+3
+00:00:09,000 --> 00:00:15,500
+Después, los próximos pagos. Proveedores, importes y fechas, distinguiendo lo preparado de lo que ya está pagado.
+
+4
+00:00:15,500 --> 00:00:22,500
+Por último, el banco. Identifica los movimientos que siguen sin explicar y revisa los documentos que correspondan.
+
+5
+00:00:22,500 --> 00:00:28,000
+Cobros, pagos y banco. Tres vistas para revisar. Así simplificamos la gestión de tu negocio.

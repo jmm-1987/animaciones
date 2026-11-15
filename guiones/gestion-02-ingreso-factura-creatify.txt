@@ -1,0 +1,22 @@
+Este ingreso… ¿qué factura paga?
+Duración del vídeo: 00:28
+
+INDICACIONES DE VOZ
+Idioma: español de España. Voz cercana y profesional, con ritmo conversacional y sin tono de teletienda. No mencionar la marca en la locución: ya aparece en pantalla. No leer los tiempos, números de escena ni instrucciones. Respetar las pausas y ajustar cada bloque a su intervalo. No añadir frases.
+
+GUION POR ESCENAS
+
+ESCENA 1 · 00:00:00.000 → 00:00:03.500 (3.500 s)
+Este ingreso, ¿qué factura paga?
+
+ESCENA 2 · 00:00:03.500 → 00:00:09.000 (5.500 s)
+El importe, el cliente y la referencia del ingreso ayudan a localizar la factura.
+
+ESCENA 3 · 00:00:09.000 → 00:00:15.500 (6.500 s)
+El sistema propone la factura que coincide. Revisas el importe, el cliente y la referencia antes de confirmarla.
+
+ESCENA 4 · 00:00:15.500 → 00:00:22.500 (7.000 s)
+Una vez comprobada, confirmas el vínculo entre movimiento y factura. Las demás partidas siguen pendientes.
+
+ESCENA 5 · 00:00:22.500 → 00:00:28.000 (5.500 s)
+Cada ingreso, con su factura. Así simplificamos la gestión de tu negocio.

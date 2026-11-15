@@ -12,3 +12,7 @@ require('./catalogo-sistemas.cjs').createCatalog(stories);
 require('./piloto-bocateria.cjs');
 
 require('./promo-facturas.cjs');
+
+require('./serie-gestion.cjs').createSeries();
+
+require('./recursos-practicos.cjs').createResources();

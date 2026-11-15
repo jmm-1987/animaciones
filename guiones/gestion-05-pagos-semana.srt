@@ -1,0 +1,19 @@
+1
+00:00:00,000 --> 00:00:03,500
+¿Qué tienes que pagar esta semana?
+
+2
+00:00:03,500 --> 00:00:09,000
+Ordenas las facturas por vencimiento. Así ves a quién pagar, cuánto y en qué fecha.
+
+3
+00:00:09,000 --> 00:00:15,500
+Puedes preparar un pago, pero programarlo no significa que ya esté realizado. Mantén separados los estados.
+
+4
+00:00:15,500 --> 00:00:22,500
+Cuando compruebas el cargo, registras el pago. En este ejemplo, quedan seiscientos setenta y cinco euros pendientes.
+
+5
+00:00:22,500 --> 00:00:28,000
+Ordena por vencimiento y confirma cada pago. Así simplificamos la gestión de tu negocio.

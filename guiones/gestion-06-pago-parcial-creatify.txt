@@ -1,0 +1,22 @@
+Te han pagado una parte.
+Duración del vídeo: 00:28
+
+INDICACIONES DE VOZ
+Idioma: español de España. Voz cercana y profesional, con ritmo conversacional y sin tono de teletienda. No mencionar la marca en la locución: ya aparece en pantalla. No leer los tiempos, números de escena ni instrucciones. Respetar las pausas y ajustar cada bloque a su intervalo. No añadir frases.
+
+GUION POR ESCENAS
+
+ESCENA 1 · 00:00:00.000 → 00:00:03.500 (3.500 s)
+Te han pagado, pero solo una parte.
+
+ESCENA 2 · 00:00:03.500 → 00:00:09.000 (5.500 s)
+Entran doscientos euros para una factura de seiscientos. Compruebas el cliente y la referencia.
+
+ESCENA 3 · 00:00:09.000 → 00:00:15.500 (6.500 s)
+Registras únicamente el importe recibido. Quedan cuatrocientos euros pendientes, y la factura sigue abierta.
+
+ESCENA 4 · 00:00:15.500 → 00:00:22.500 (7.000 s)
+Ves por separado el importe facturado, lo cobrado y lo que falta. Así puedes continuar el seguimiento del saldo.
+
+ESCENA 5 · 00:00:22.500 → 00:00:28.000 (5.500 s)
+Registra lo cobrado y conserva lo pendiente. Así simplificamos la gestión de tu negocio.

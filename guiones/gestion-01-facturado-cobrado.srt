@@ -1,0 +1,19 @@
+1
+00:00:00,000 --> 00:00:03,500
+Has facturado. Pero, ¿has cobrado?
+
+2
+00:00:03,500 --> 00:00:09,000
+Una factura de seiscientos euros está emitida, pero su importe sigue pendiente de cobro.
+
+3
+00:00:09,000 --> 00:00:15,500
+Cuando entra el dinero, compruebas el cliente, la referencia y el importe para relacionarlo con esa factura.
+
+4
+00:00:15,500 --> 00:00:22,500
+Tras revisar y confirmar el ingreso, registras el cobro. El saldo pendiente pasa a cero.
+
+5
+00:00:22,500 --> 00:00:28,000
+Emitir una factura no confirma su cobro. Así simplificamos la gestión de tu negocio.

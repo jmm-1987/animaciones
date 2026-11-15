@@ -1,0 +1,32 @@
+const euros=cents=>(cents/100).toLocaleString('es-ES',{minimumFractionDigits:2,maximumFractionDigits:2})+' €';
+const parties=(client,issuer)=>`<div class="cover-parties"><div><span>EMISOR</span><b>${issuer}</b><small>NIF B00000000<br>Calle Ejemplo, 1 · Mérida</small></div><div><span>CLIENTE</span><b>${client}</b><small>Datos de ejemplo<br>Mérida · Badajoz</small></div></div>`;
+const head=(name,subtitle,type)=>`<header class="cover-doc-header"><div><b>${name}</b><small>${subtitle}</small></div><strong>${type}</strong></header>`;
+const meta=(number,date)=>`<div class="cover-meta"><div><span>REFERENCIA</span><b>${number}</b></div><div><span>FECHA</span><b>${date}</b></div></div>`;
+const footer=()=>'<footer class="cover-doc-footer"><span>Información de gestión</span><small>DOCUMENTO DE EJEMPLO</small></footer>';
+const wrap=(position,body,kind='')=>`<article class="cover-paper ${position} ${kind}">${body}</article>`;
+const summary=(rows,totalLabel,total)=>`<div class="cover-totals">${rows.map(r=>`<div><span>${r[0]}</span><b>${r[1]}</b></div>`).join('')}<div class="cover-grand"><span>${totalLabel}</span><strong>${total}</strong></div></div>`;
+function invoice(position,{number='F-147',client='Ana López',total=60000,kind='FACTURA',stamp='',stampClass='',date='12/11/2026',due='',concept='Servicios de mantenimiento',issuer='Servicios del Prado, S.L.',heading='SERVICIOS DEL PRADO'}){
+ const base=Math.round(total/1.21),tax=total-base;
+ return wrap(position,head(heading,'Servicios y suministros',kind)+meta(number,date)+parties(client,issuer)+`<table class="cover-lines"><thead><tr><th>Concepto</th><th>Ud.</th><th>Importe</th></tr></thead><tbody><tr><td>${concept}</td><td>1</td><td>${euros(base)}</td></tr></tbody></table>`+summary([['Base imponible',euros(base)],['IVA · 21 %',euros(tax)]],'TOTAL',euros(total))+(due?`<div class="cover-due">Vencimiento <b>${due}</b></div>`:'')+(stamp?`<div class="cover-stamp ${stampClass}">${stamp}</div>`:'')+footer(),kind==='PRESUPUESTO'?'quote-paper':'');
+}
+function bank(position,{title='EXTRACTO',date='18/11/2026',rows=[['18 nov','Transferencia Ana López · F-128','+435,60 €']],amount='+435,60 €',label='IMPORTE DEL MOVIMIENTO',foot='Referencia: F-128'}){
+return wrap(position,head('BANCA · OPERACIONES','Consulta de movimientos',title)+meta('CTA. •••• 4182',date)+`<div class="cover-bank-owner"><span>TITULAR</span><b>Servicios del Prado, S.L.</b><small>Cuenta de ejemplo · EUR</small></div><table class="cover-lines bank-lines"><thead><tr><th>Fecha</th><th>Concepto</th><th>Importe</th></tr></thead><tbody>${rows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join('')}</tbody></table><div class="cover-bank-amount"><span>${label}</span><strong>${amount}</strong></div><p class="cover-bank-note">${foot}</p>`+footer(),'bank-paper');
+}
+function management(position,{title,ref,rows,totalLabel,total,note=''}){
+return wrap(position,head('SERVICIOS DEL PRADO','Seguimiento administrativo',title)+meta(ref,'16/11/2026')+`<div class="cover-management-title">${title==='COBROS'?'Estado de la factura':title==='PAGOS'?'Vencimientos de proveedores':'Revisión del mes'}</div><table class="cover-lines management-lines"><thead><tr><th>Detalle</th><th>Importe / Estado</th></tr></thead><tbody>${rows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td></tr>`).join('')}</tbody></table>`+summary([],totalLabel,total)+(note?`<p class="cover-bank-note">${note}</p>`:'')+footer(),'management-paper');
+}
+function realisticCover(slug,title){
+ const covers={
+ 'facturado-cobrado':()=>management('back',{title:'COBROS',ref:'F-147 · ANA LÓPEZ',rows:[['Importe facturado','600,00 €'],['Cobro registrado','0,00 €'],['Estado','Pendiente']],totalLabel:'PENDIENTE',total:'600,00 €'})+invoice('front',{number:'F-147',total:60000,stamp:'PENDIENTE DE COBRO',stampClass:'amber'}),
+ 'ingreso-factura':()=>invoice('back',{number:'F-128',total:43560})+bank('front',{}),
+ 'presupuesto-aceptado':()=>management('back',{title:'ENCARGO',ref:'P-084 · ANA LÓPEZ',rows:[['Presupuesto','P-084'],['Cliente','Ana López'],['Respuesta','Aceptado']],totalLabel:'IMPORTE ACORDADO',total:'480,00 €',note:'Presupuesto vinculado al seguimiento del trabajo.'})+invoice('front',{number:'P-084',total:48000,kind:'PRESUPUESTO',stamp:'ACEPTADO',stampClass:'green'}),
+ 'factura-vencida':()=>management('back',{title:'COBROS',ref:'F-150 · ANA LÓPEZ',rows:[['Factura emitida','F-150'],['Vencimiento','06/11/2026'],['Pago confirmado','No']],totalLabel:'PENDIENTE',total:'240,00 €'})+invoice('front',{number:'F-150',total:24000,date:'02/11/2026',due:'06/11/2026 · Viernes',stamp:'VENCIDA',stampClass:'red'}),
+ 'pagos-semana':()=>invoice('back',{number:'MN-221',client:'Servicios del Prado, S.L.',total:27500,date:'10/11/2026',due:'18/11/2026',concept:'Suministro de materiales',issuer:'Materiales Norte, S.L.',heading:'MATERIALES NORTE'})+management('front',{title:'PAGOS',ref:'SEMANA · 16–20 NOV',rows:[['16 nov · Suministros Sur','125,00 €'],['18 nov · Materiales Norte','275,00 €'],['20 nov · Servicios Centro','400,00 €']],totalLabel:'TOTAL A REVISAR',total:'800,00 €',note:'Los importes mantienen su fecha y proveedor.'}),
+ 'pago-parcial':()=>invoice('back',{number:'F-152',total:60000})+bank('front',{title:'ABONO',rows:[['18 nov','Ana López · Pago parcial F-152','+200,00 €']],amount:'+200,00 €',foot:'Factura F-152: 600,00 € · Saldo pendiente: 400,00 €'}),
+ 'importe-coincide':()=>invoice('back',{number:'F-146',client:'Luis Martín',total:43560})+invoice('front',{number:'F-128',client:'Ana López',total:43560}),
+ 'cierre-mes':()=>bank('back',{rows:[['18 nov','Cargo sin referencia','−85,00 €'],['19 nov','Transferencia por identificar','+190,00 €']],amount:'2 movimientos',label:'PENDIENTES DE IDENTIFICAR',foot:'Origen y documentación pendientes de revisar.'})+management('front',{title:'RESUMEN',ref:'GESTIÓN · NOVIEMBRE',rows:[['Pendiente de cobro','900,00 €'],['Próximos pagos','800,00 €'],['Banco sin conciliar','2 movimientos']],totalLabel:'REVISIÓN',total:'Abierta',note:'Cobros, pagos y banco: tres vistas de gestión.'})
+ };
+ if(!covers[slug])throw Error('Portada pendiente: '+slug);
+ return `<div class="gestion-hook realistic-cover"><span>GESTIÓN AL DÍA</span><h1>${title}</h1><div class="gestion-cover-papers" aria-label="Documentos de ejemplo con emisor, cliente, fechas, referencias e importes">${covers[slug]()}</div></div>`;
+}
+module.exports={realisticCover,invoice,bank,management};

@@ -1,0 +1,19 @@
+1
+00:00:00,000 --> 00:00:03,500
+El importe coincide. ¿Es suficiente?
+
+2
+00:00:03,500 --> 00:00:09,000
+Hay dos facturas por cuatrocientos treinta y cinco euros con sesenta. Pertenecen a clientes distintos.
+
+3
+00:00:09,000 --> 00:00:15,500
+El movimiento indica quién ha pagado y la referencia de su factura. Esa información permite revisar la coincidencia.
+
+4
+00:00:15,500 --> 00:00:22,500
+La propuesta apunta a la factura correcta y queda lista para confirmar. La otra factura conserva su estado.
+
+5
+00:00:22,500 --> 00:00:28,000
+Comprueba importe, cliente y referencia. Así simplificamos la gestión de tu negocio.

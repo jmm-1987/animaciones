@@ -1,0 +1,9 @@
+¿Quién te debe y desde cuándo?
+
+Cinco columnas: cliente, factura, vencimiento, saldo pendiente y última gestión. Una fila por factura.
+
+Si facturas seiscientos y cobras doscientos, quedan cuatrocientos pendientes. Ese es el saldo que anotas.
+
+Ordena por vencimiento y revisa los saldos abiertos. Antes de avisar otra vez, comprueba la última gestión y los pagos registrados.
+
+Descarga la plantilla, mira el ejemplo y empieza con tus facturas. Tienes el archivo debajo del vídeo.

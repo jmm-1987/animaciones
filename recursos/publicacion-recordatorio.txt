@@ -1,0 +1,7 @@
+¿Una factura pendiente? Guarda este recordatorio y adáptalo.
+
+Hola, [nombre]. Te escribo por la factura [número]: quedan [saldo pendiente] pendientes desde el [vencimiento]. Si ya pagaste, dime la referencia para comprobarlo. Gracias. [tu negocio]
+
+Antes de enviarlo: comprueba la factura, su vencimiento, el saldo que falta por cobrar y los pagos ya identificados.
+
+Una fecha y una acción en tu registro ayudan a retomar el seguimiento.
