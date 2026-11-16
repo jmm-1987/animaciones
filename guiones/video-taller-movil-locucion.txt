@@ -1,0 +1,9 @@
+El cliente llega al taller con su coche.
+
+Registras la visita desde el móvil: cliente, vehículo y motivo.
+
+Añades la mano de obra y las piezas, con tus conceptos y precios guardados.
+
+Revisas, emites y entregas la factura. El cliente se va contento, con ella en su poder.
+
+Herramientas a medida. Todo desde el móvil.

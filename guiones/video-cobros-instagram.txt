@@ -1,0 +1,9 @@
+Enviar la factura es un paso. Saber qué queda por cobrar es otro.
+
+En la oficina, esa revisión puede acabar repartida entre correos, notas y fechas.
+
+En JM2 creamos un control de cobros con facturas, importes y vencimientos a la vista. Puedes preparar recordatorios y registrar los pagos que hayas comprobado.
+
+Sin confundir un aviso enviado con un cobro confirmado.
+
+#JM2TechStudio #Autonomos #ControlDeCobros #GestionDeNegocios #HerramientasAMedida

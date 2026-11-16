@@ -1,0 +1,9 @@
+El coche está listo. La factura puede seguir el mismo camino, desde el móvil.
+
+Cliente, trabajo realizado, mano de obra y recambios: en JM2 creamos una herramienta adaptada al taller para preparar la factura con esa información.
+
+Revisas los datos y los importes, la emites y la envías sin cambiar al ordenador.
+
+¿Qué gestión del taller te vendría bien resolver desde el móvil?
+
+#JM2TechStudio #TallerMecanico #Facturacion #GestionDeTaller #HerramientasAMedida

@@ -1,0 +1,5 @@
+Has enviado las facturas. ¿Sabes cuáles siguen pendientes?
+
+Importes, vencimientos y cobros confirmados en una vista. Creamos herramientas para que el seguimiento no dependa de notas sueltas.
+
+#Autonomos #ControlDeCobros #JM2TechStudio

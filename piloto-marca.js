@@ -1,5 +1,6 @@
 (()=>{
 const stage=document.querySelector('body[data-serie="marca-piloto"] #stage');if(!stage)return;
+if(window.STORY_CONFIG.file!=='piloto-marca.html')return;
 let previous='';
 function update(){
  const time=window.jm2StoryPlayer.getState().elapsed;

@@ -1,0 +1,19 @@
+1
+00:00:00,000 --> 00:00:02,759
+El trabajo terminado. ¿Y la factura?
+
+2
+00:00:02,759 --> 00:00:06,302
+Tu cliente, tus servicios y tus precios, guardados.
+
+3
+00:00:06,302 --> 00:00:10,548
+Desde el móvil, eliges el cliente y añades el trabajo y los materiales.
+
+4
+00:00:10,548 --> 00:00:14,151
+Revisas, emites y envías por WhatsApp o email. También puedes imprimirla.
+
+5
+00:00:14,151 --> 00:00:18,850
+Herramientas a medida. Menos papeleo.

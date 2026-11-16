@@ -1,0 +1,19 @@
+1
+00:00:00,000 --> 00:00:03,000
+El cliente llega al taller con su coche.
+
+2
+00:00:03,000 --> 00:00:07,000
+Registras la visita desde el móvil: cliente, vehículo y motivo.
+
+3
+00:00:07,000 --> 00:00:15,000
+Añades la mano de obra y las piezas, con tus conceptos y precios guardados.
+
+4
+00:00:15,000 --> 00:00:21,000
+Revisas, emites y entregas la factura. El cliente se va contento, con ella en su poder.
+
+5
+00:00:21,000 --> 00:00:24,000
+Herramientas a medida. Todo desde el móvil.

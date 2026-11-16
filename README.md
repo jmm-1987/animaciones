@@ -1,6 +1,35 @@
 # Vídeos de JM2
 
-Abre `index.html`: biblioteca con el estilo aprobado y el vídeo de facturas.
+Abre `index.html`: biblioteca con el estilo aprobado, el vídeo de recepción de facturas y cuatro piezas sobre negocios.
+
+## Planning y carruseles
+
+`planning.html` reúne nueve publicaciones durante tres semanas, los lunes, miércoles y viernes: cinco vídeos y cuatro carruseles. Un quinto carrusel queda en reserva para sustituir un vídeo pendiente de voz o comenzar la semana siguiente. Indica qué vídeos tienen voz y cuáles siguen pendientes. No publica en redes ni reserva horas automáticamente.
+
+Cada carrusel tiene seis imágenes PNG de 1080 × 1350, un ZIP descargable, vista previa y textos para Instagram y TikTok. Los archivos están en `carruseles/`; las páginas de revisión son `carrusel-*.html`.
+
+- `contenido-social.cjs`: guiones de los carruseles y textos de publicación.
+- `planning-datos.cjs`: fechas explícitas, temas y objetivos de las nueve publicaciones; los exportadores usan esas fechas también al cambiar de mes.
+- `crear-planning.cjs`: genera páginas, textos, CSV y calendario ICS.
+- `carruseles.css`: diseño de las diapositivas y vista previa.
+- `exportar-carruseles.mjs`: exporta los PNG mediante el Chrome local de revisión en el puerto 9241.
+
+Tras cambiar contenido, ejecuta `node crear-planning.cjs`, vuelve a exportar las imágenes y actualiza los ZIP. Cambiar el HTML no actualiza por sí solo los PNG ya exportados. `node construir-biblioteca.cjs` conserva el acceso al planning en la portada.
+
+## Serie de negocios
+
+- `video-fontanero.html`: preparar, revisar, emitir y enviar la factura después de una reparación.
+- `video-climatizacion.html`: presupuestos con equipo, instalación y tarifas.
+- `video-cobros.html`: pendientes, vencimientos y cobros confirmados, con el autónomo en su oficina.
+- `video-taller-movil.html`: facturar mano de obra y recambios desde el móvil.
+
+`negocios.cjs` contiene sus mensajes, guiones y textos de publicación; `escenas-negocios.cjs`, sus ilustraciones y demostraciones; `serie-negocios.css`, sus composiciones. Todas reutilizan la plantilla y la dirección visual aprobadas.
+
+```powershell
+node crear-negocios.cjs
+```
+
+Este comando reconstruye las cuatro piezas, sus guiones y la biblioteca. `node construir-biblioteca.cjs` reconstruye solo el índice. El estado de voz de cada tarjeta se obtiene del catálogo de audio. Las nuevas piezas duran 24 segundos de referencia, con guiones breves y apariciones rápidas. Al incorporar la voz se ajustan sus marcas, manteniendo una pronunciación natural.
 
 ## Trabajar en el vídeo
 

@@ -1,0 +1,82 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//JM2//Planning editorial//ES
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:jm2-20261116-0@local
+DTSTAMP:20261116T000000Z
+DTSTART;VALUE=DATE:20261116
+DTEND;VALUE=DATE:20261117
+SUMMARY:JM2 - Vídeo - Tus facturas\, en su sitio
+DESCRIPTION:Propuesta de publicacion manual. Abrir piloto-marca.html.
+END:VEVENT
+BEGIN:VEVENT
+UID:jm2-20261118-1@local
+DTSTAMP:20261116T000000Z
+DTSTART;VALUE=DATE:20261118
+DTEND;VALUE=DATE:20261119
+SUMMARY:JM2 - Carrusel - Tres entradas. Un mismo registro.
+DESCRIPTION:Propuesta de publicacion manual. Abrir carrusel-facturas.html
+ .
+END:VEVENT
+BEGIN:VEVENT
+UID:jm2-20261120-2@local
+DTSTAMP:20261116T000000Z
+DTSTART;VALUE=DATE:20261120
+DTEND;VALUE=DATE:20261121
+SUMMARY:JM2 - Vídeo - El trabajo terminado. ¿Y la factura?
+DESCRIPTION:Propuesta de publicacion manual. Abrir video-fontanero.html.
+END:VEVENT
+BEGIN:VEVENT
+UID:jm2-20261123-0@local
+DTSTAMP:20261116T000000Z
+DTSTART;VALUE=DATE:20261123
+DTEND;VALUE=DATE:20261124
+SUMMARY:JM2 - Vídeo - De la visita al presupuesto
+DESCRIPTION:Propuesta de publicacion manual. Abrir video-climatizacion.ht
+ ml.
+END:VEVENT
+BEGIN:VEVENT
+UID:jm2-20261125-1@local
+DTSTAMP:20261116T000000Z
+DTSTART;VALUE=DATE:20261125
+DTEND;VALUE=DATE:20261126
+SUMMARY:JM2 - Carrusel - Un presupuesto claro empieza antes del PDF
+DESCRIPTION:Propuesta de publicacion manual. Abrir carrusel-presupuestos.
+ html.
+END:VEVENT
+BEGIN:VEVENT
+UID:jm2-20261127-2@local
+DTSTAMP:20261116T000000Z
+DTSTART;VALUE=DATE:20261127
+DTEND;VALUE=DATE:20261128
+SUMMARY:JM2 - Vídeo - Del taller a la factura
+DESCRIPTION:Propuesta de publicacion manual. Abrir video-taller-movil.htm
+ l.
+END:VEVENT
+BEGIN:VEVENT
+UID:jm2-20261130-0@local
+DTSTAMP:20261116T000000Z
+DTSTART;VALUE=DATE:20261130
+DTEND;VALUE=DATE:20261201
+SUMMARY:JM2 - Vídeo - ¿Qué queda por cobrar?
+DESCRIPTION:Propuesta de publicacion manual. Abrir video-cobros.html.
+END:VEVENT
+BEGIN:VEVENT
+UID:jm2-20261202-1@local
+DTSTAMP:20261116T000000Z
+DTSTART;VALUE=DATE:20261202
+DTEND;VALUE=DATE:20261203
+SUMMARY:JM2 - Carrusel - Facturar y cobrar son pasos distintos
+DESCRIPTION:Propuesta de publicacion manual. Abrir carrusel-cobros.html.
+END:VEVENT
+BEGIN:VEVENT
+UID:jm2-20261204-2@local
+DTSTAMP:20261116T000000Z
+DTSTART;VALUE=DATE:20261204
+DTEND;VALUE=DATE:20261205
+SUMMARY:JM2 - Carrusel - ¿Dónde se te va el tiempo?
+DESCRIPTION:Propuesta de publicacion manual. Abrir carrusel-tareas-repeti
+ das.html.
+END:VEVENT
+END:VCALENDAR

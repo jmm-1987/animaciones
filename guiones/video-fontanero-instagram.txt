@@ -1,0 +1,9 @@
+El trabajo terminado. La factura, pendiente para esta noche. ¿Te suena?
+
+Da igual tu oficio: facturar puede empezar donde termina el trabajo, desde el móvil y con los datos del cliente y tus servicios habituales a mano.
+
+En este ejemplo lo vemos con un fontanero. En JM2 creamos una herramienta para preparar la factura, revisar trabajo, materiales e importes, emitirla y enviarla. Sin empezar desde cero en cada visita.
+
+¿Qué parte del papeleo acabas dejando para después?
+
+#JM2TechStudio #Autonomos #Profesionales #HerramientasAMedida #Facturacion

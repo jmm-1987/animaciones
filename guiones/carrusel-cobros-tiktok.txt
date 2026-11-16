@@ -1,0 +1,9 @@
+Una factura enviada no confirma que el dinero haya llegado.
+
+Separar lo emitido, lo pendiente, lo vencido y los cobros confirmados ayuda a ver qué hay que revisar. Antes de enviar un aviso, comprueba si el pago ya se ha recibido.
+
+En JM2 creamos herramientas para reunir facturas, vencimientos y seguimiento en una vista.
+
+Guarda este carrusel para tu próxima revisión.
+
+#JM2TechStudio #Autonomos #ControlDeCobros #GestionDeNegocios #HerramientasAMedida
