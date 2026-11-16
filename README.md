@@ -25,6 +25,6 @@ La página conserva la sincronización guardada. Si cambia la voz, hay que volve
 
 Una situación concreta del cliente, la herramienta que creamos y el cambio que aporta. Mostrar el proceso con ejemplos visuales; textos breves; blanco como base; robot secundario; cierre y logotipo centrados. Sin cifras de ahorro inventadas ni clientes ficticios presentados como reales.
 
-Para añadir otra pieza, reutilizar `createVideo(story, ending)` de `plantilla-video.cjs`, con su propio archivo, audio, marcas y escenas. Añadir su tarjeta al índice cuando esté lista. No se generan versiones alternativas ni series provisionales.
+Para añadir otra pieza, reutilizar `createVideo(story, ending)` de `plantilla-video.cjs`, con su propio archivo, audio, marcas y escenas. Cada pieza debe incluir `story.publications.instagram` y `story.publications.tiktok`: textos específicos para publicar junto al vídeo, con sus hashtags. La plantilla exige ambos, los muestra en «Texto para publicar» con botones de copia y guarda los TXT en `guiones/`. Añadir su tarjeta al índice cuando esté lista. No se generan versiones alternativas ni series provisionales.
 
 Los materiales anteriores se conservan únicamente en `archivo/versiones-anteriores.zip`, fuera de la biblioteca activa. No son necesarios para regenerar el vídeo actual.

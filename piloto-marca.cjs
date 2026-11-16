@@ -13,6 +13,26 @@ const shots=[
 `<div class="mp-scene mp-benefit"><span class="mp-kicker">EL CONTROL SIGUE SIENDO TUYO</span><h1>Tú revisas.<br><em>Y sigues.</em></h1><div class="mp-review"><span class="mp-review-icon">✓</span><div><small>FACTURA F-128</small><h3>Todo en su sitio.</h3><p>Proveedor, referencia e importe.</p></div><div class="mp-review-button">Revisar datos <span>→</span></div></div><div class="mp-benefit-copy"><span>MENOS COPIAR Y PEGAR</span><p>Más atención para<br>lo que necesita tu negocio.</p></div><p class="mp-example">Ejemplo ilustrativo · El resultado se revisa antes de utilizarlo.</p></div>`
 ];
 const story={file:'piloto-marca.html',audioKey:'piloto-marca.html',title:'Tu negocio no es copiar datos',variant:'marca',voice:false,timing:{duration:32,marks:[0,5,11,20,27,32]},copy:['Tu negocio no es copiar datos.','Abrir. Copiar. Volver a empezar.','Una factura entra. Los datos, listos.','Tú revisas. Y sigues.'],shots,narration:['Tu negocio no es copiar datos. Y, sin embargo, ahí se va parte del día.','Abrir una factura, buscar los datos, pasarlos al registro. Y volver a empezar.','En eso trabajamos: creamos una herramienta que lee tus facturas y prepara los datos en tu registro. Adaptada a tu forma de trabajar.','Tú revisas el resultado. Menos copiar y pegar, y más atención para lo que necesita tu negocio.','Sistemas y herramientas a medida. Para facilitar tu día a día.'],social:{keyword:'TU NEGOCIO',message:''}};
+story.publications={
+ instagram:`Tu negocio no es copiar datos. Pero, a veces, parte del día se va en eso.
+
+Una factura llega por email. Otra la tienes en un archivo. Otra, en una foto del móvil.
+
+En JM2 creamos herramientas que las reúnen en el mismo sitio, leen sus datos y los preparan en un registro. Tú revisas el resultado y mantienes el control.
+
+Menos copiar y pegar. Más atención para lo que necesita tu negocio.
+
+¿Qué tarea repetida te gustaría quitarte de encima?
+
+#JM2TechStudio #Automatizacion #HerramientasAMedida #PequeñosNegocios #Merida`,
+ tiktok:`Una factura por email, un archivo o una foto. Todo al mismo sitio y los datos preparados para revisar.
+
+Así creamos en JM2 herramientas a medida para que pases menos tiempo copiando y pegando.
+
+¿Qué tarea repites cada día en tu negocio?
+
+#JM2TechStudio #Automatizacion #Negocios`
+};
 story.narration=[
  'Tu negocio no es copiar datos. Y, sin embargo, ahí se va parte del día.',
  'Abrir una factura, buscar los datos, pasarlos al registro. Y volver a empezar.',
