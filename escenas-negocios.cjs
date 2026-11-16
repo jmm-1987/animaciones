@@ -11,6 +11,7 @@ const row=(label,value,i=0)=>`<div class="nv-row" data-at="${.06+i*.08}"><span>$
 function phone(title,body,footer=''){return `<div class="nv-phone"><div class="nv-phone-notch"></div><div class="nv-phone-top"><img src="brand_logo.png" alt=""><span>${title}</span></div><div class="nv-phone-body">${body}</div>${footer?`<div class="nv-phone-action">${footer}<span>→</span></div>`:''}<div class="nv-phone-bar"></div></div>`;}
 function frame(title,body){return `<div class="nv-window"><header><span>● ● ●</span><b>${title}</b></header>${body}</div>`;}
 function shots(e){
+ if(e.kind==='oficina')return require('./cobros-recorrido.cjs').shots(e);
  const hero=`<div class="nv-scene nv-hero"><span class="mp-kicker">${e.sector}</span><h1>${e.hook}</h1>${art(e.kind)}<p class="nv-subtitle">${e.problem}</p></div>`;
  let setup=`<div class="nv-scene"><span class="mp-kicker">LO QUE YA TIENES</span><h1>${e.setupTitle}</h1><div class="nv-inputs">${e.inputs.map((v,i)=>`<div data-at="${i*.1}"><span>0${i+1}</span><strong>${v[0]}</strong><p>${v[1]}</p></div>`).join('')}</div><p class="nv-subtitle">${e.setupFoot}</p></div>`;
  let demo,result;
@@ -25,11 +26,19 @@ function shots(e){
  demo=phone('Nueva factura',`<span class="nv-chip">BORRADOR</span><h2>${taller?'Trabajo de taller':'Reparación terminada'}</h2>${row('Cliente','Cliente de ejemplo',0)}${row('Servicio',taller?'Cambio de aceite':'Reparación de grifo',1)}${row(taller?'Recambios':'Materiales',taller?'Aceite y filtro':'Juntas y latiguillo',2)}<div class="nv-inline-note">Tus conceptos y precios guardados.</div>`,'Revisar factura');
  result=phone('Revisión y envío',`<span class="nv-chip">REVISIÓN FINAL</span><h2>Todo preparado.</h2>${row('Datos del cliente','Comprobados',0)}${row('Trabajo y materiales','Revisados',1)}${row('Importes e impuestos','Revisados',2)}<div class="nv-confirm" data-at=".3">Emitir y enviar desde el móvil</div>`,'Emitir factura');
  }
- const demoShot=`<div class="nv-scene nv-demo ${e.kind==='fontanero'||e.kind==='taller'?'nv-mobile-demo':''}"><span class="mp-kicker">LA HERRAMIENTA QUE CREAMOS</span><h1>${e.demoTitle}</h1>${demo}<p class="nv-example">Ejemplo ilustrativo · Herramienta adaptada a tu negocio.</p></div>`;
+ let demoShot=`<div class="nv-scene nv-demo ${e.kind==='fontanero'||e.kind==='taller'?'nv-mobile-demo':''}"><span class="mp-kicker">LA HERRAMIENTA QUE CREAMOS</span><h1>${e.demoTitle}</h1>${demo}<p class="nv-example">Ejemplo ilustrativo · Herramienta adaptada a tu negocio.</p></div>`;
  let resultShot=`<div class="nv-scene nv-demo ${e.kind==='fontanero'||e.kind==='taller'?'nv-mobile-demo':''}"><span class="mp-kicker">EL CONTROL SIGUE SIENDO TUYO</span><h1>${e.resultTitle}</h1>${result}${e.kind==='fontanero'?delivery:''}<p class="nv-example">${e.benefit}</p></div>`;
  if(e.kind==='taller'){
   setup=`<div class="nv-scene nv-demo nv-mobile-demo"><span class="mp-kicker">DEL CLIENTE AL TRABAJO</span><h1>Registras la visita.<br><em>Desde el móvil.</em></h1>${phone('Entrada al taller',`<span class="nv-chip">NUEVA VISITA</span><h2>Cliente recibido.</h2>${row('Cliente','Cliente de ejemplo',0)}${row('Vehículo','Turismo · 4821 ABC',1)}${row('Motivo','Aceite y filtro',2)}<div class="nv-confirm" data-at=".3">Visita registrada ✓</div>`,'Guardar visita')}<p class="nv-example">Cliente, vehículo y motivo del trabajo, en la misma ficha.</p></div>`;
   resultShot=`<div class="nv-scene nv-handover"><span class="mp-kicker">DEL TRABAJO TERMINADO AL CLIENTE</span><h1>El cliente, contento.<br><em>La factura, con él.</em></h1>${require('./taller-recorrido.cjs').departure}<div class="tw-delivered" data-at=".2"><span>✓</span><div><b>Factura entregada</b><p>En su móvil o impresa.</p></div></div><p class="nv-example">Revisas, emites y entregas antes de que se marche.</p></div>`;
+ }
+ if(e.kind==='fontanero'){
+  const recorrido=require('./fontanero-recorrido.cjs');
+  setup=recorrido.setup(e);demoShot=recorrido.demo(e,phone);resultShot=recorrido.result(e,delivery.replaceAll(' data-at=".2"','').replaceAll(' data-at=".28"',''));
+ }
+ if(e.kind==='clima'){
+  const recorrido=require('./clima-recorrido.cjs').shots(e);
+  setup=recorrido.setup;demoShot=recorrido.demo;resultShot=recorrido.result;
  }
  const all=[hero,setup,demoShot,resultShot];
  if(e.kind==='taller'){

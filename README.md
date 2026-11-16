@@ -57,3 +57,9 @@ Una situación concreta del cliente, la herramienta que creamos y el cambio que 
 Para añadir otra pieza, reutilizar `createVideo(story, ending)` de `plantilla-video.cjs`, con su propio archivo, audio, marcas y escenas. Cada pieza debe incluir `story.publications.instagram` y `story.publications.tiktok`: textos específicos para publicar junto al vídeo, con sus hashtags. La plantilla exige ambos, los muestra en «Texto para publicar» con botones de copia y guarda los TXT en `guiones/`. Añadir su tarjeta al índice cuando esté lista. No se generan versiones alternativas ni series provisionales.
 
 Los materiales anteriores se conservan únicamente en `archivo/versiones-anteriores.zip`, fuera de la biblioteca activa. No son necesarios para regenerar el vídeo actual.
+
+## Carruseles de LinkedIn
+
+`linkedin.html` es el apartado específico, enlazado desde la biblioteca y el planning. Incluye tres guías prácticas de seis diapositivas, su PDF para documento de LinkedIn, PNG individuales y texto de publicación. Los ejemplos se identifican como ilustrativos.
+
+`node crear-linkedin.cjs` regenera las páginas y textos. Con Chrome de revisión en el puerto 9241, `node exportar-linkedin.mjs` exporta las 18 imágenes y tres PDF, comprueba solapamientos y revisa las páginas en móvil. Tras cambiar contenido o estilos, ejecutar ambos comandos para actualizar también los descargables.
