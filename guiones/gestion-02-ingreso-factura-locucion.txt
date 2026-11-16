@@ -1,9 +1,0 @@
-Este ingreso, ¿qué factura paga?
-
-El importe, el cliente y la referencia del ingreso ayudan a localizar la factura.
-
-El sistema propone la factura que coincide. Revisas el importe, el cliente y la referencia antes de confirmarla.
-
-Una vez comprobada, confirmas el vínculo entre movimiento y factura. Las demás partidas siguen pendientes.
-
-Cada ingreso, con su factura. Así simplificamos la gestión de tu negocio.

@@ -1,5 +1,11 @@
 (()=>{
 const config=window.STORY_CONFIG;if(!config)return;
+const generated=window.JM2_AUDIO_CATALOG?.[config.file];
+if(generated&&generated.marks.length===config.marks.length){
+ Object.assign(config,generated);
+ document.querySelectorAll('[data-go]').forEach((button,i)=>{button.dataset.go=config.marks[i]});
+ document.querySelectorAll('[data-script-seek]').forEach((button,i)=>{button.dataset.scriptSeek=config.marks[i]});
+}
 const $=s=>document.querySelector(s),player=$('.story-player'),stage=$('#stage'),play=$('#play'),seek=$('#seek'),voiceButton=$('#voice'),scenes=[...document.querySelectorAll('[data-scene]')],nav=[...document.querySelectorAll('[data-go]')];
 const {marks}=config,lastPhase=marks.length-2,reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
 let duration=config.duration,audioRate=config.audioRate||1,audio=null,elapsed=0,playing=true,last=null,frame=0,voice=false;

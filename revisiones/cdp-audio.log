@@ -1,4 +1,0 @@
-[8796:28332:1114/171220.698:ERROR:chrome\installer\util\google_update_settings_win.cc:270] Failed opening key Software\Google\Update\ClientStateMedium\{8A69D345-D564-463c-AFF1-A69D9E530F96} to set usagestats; result: 5
-
-DevTools listening on ws://127.0.0.1:9238/devtools/browser/88db0802-89ba-424f-917a-91e284aac669
-[8796:24708:1114/171223.988:ERROR:services\device\public\cpp\geolocation\system_geolocation_source_win.cc:124] Failed to create IAppCapability: Acceso denegado. (0x80070005)

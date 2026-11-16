@@ -1,0 +1,9 @@
+Tu negocio no es copiar datos. Y, sin embargo, ahí se va parte del día.
+
+Abrir una factura, buscar los datos, pasarlos al registro. Y volver a empezar.
+
+En eso trabajamos. Creamos una herramienta que recibe tus facturas por email, te permite subir un archivo o añadir una foto desde el móvil. Lleguen como lleguen, las reúne en el mismo sitio, lee sus datos y los prepara en tu registro.
+
+Tú revisas el resultado. Menos copiar y pegar, y más atención para lo que necesita tu negocio.
+
+Sistemas y herramientas a medida. Para facilitar tu día a día.

@@ -1,3 +1,0 @@
-[31556:23772:1114/165619.906:ERROR:chrome\installer\util\google_update_settings_win.cc:270] Failed opening key Software\Google\Update\ClientStateMedium\{8A69D345-D564-463c-AFF1-A69D9E530F96} to set usagestats; result: 5
-
-DevTools listening on ws://127.0.0.1:9238/devtools/browser/8cedab02-4ad9-486a-8dee-87f3629db767

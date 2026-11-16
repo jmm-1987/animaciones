@@ -1,0 +1,19 @@
+1
+00:00:00,000 --> 00:00:05,651
+Tu negocio no es copiar datos. Y, sin embargo, ahí se va parte del día.
+
+2
+00:00:05,651 --> 00:00:11,273
+Abrir una factura, buscar los datos, pasarlos al registro. Y volver a empezar.
+
+3
+00:00:11,273 --> 00:00:25,079
+En eso trabajamos. Creamos una herramienta que recibe tus facturas por email, te permite subir un archivo o añadir una foto desde el móvil. Lleguen como lleguen, las reúne en el mismo sitio, lee sus datos y los prepara en tu registro.
+
+4
+00:00:25,079 --> 00:00:31,035
+Tú revisas el resultado. Menos copiar y pegar, y más atención para lo que necesita tu negocio.
+
+5
+00:00:31,035 --> 00:00:37,200
+Sistemas y herramientas a medida. Para facilitar tu día a día.
