@@ -17,6 +17,9 @@ const revisedNarration=['Comandas a mano, tachones y una letra que no se entiend
 createVideo({file:'video-bocateria.html',title:'Tu bocatería. Pedidos por WhatsApp.',stylesheet:'bocateria-video.css',copy:revisedCopy,shots:[notes,call,...demoShots.map(realisticDemo),realisticMessage(sendShot),arrivalShot],narration:revisedNarration,publications:{instagram:message,tiktok:message},timing:{duration:60,marks:[0,5,11,17,23,31,38,50,60]}},ending.replace('data-scene="6"','data-scene="7"'));
 let page=fs.readFileSync('video-bocateria.html','utf8').replace('</head>','<link rel="stylesheet" href="carta-bar/local-visual.css"></head>').replace('<div class="video-top">','<div class="video-top"><a href="video-bocateria.mp4" download>Descargar vídeo MP4 · sin voz</a>');
 page=page.replace('</head>','<link rel="stylesheet" href="bocateria-movil.css"></head>');
+let menuSegment=0;
+page=page.replace(/<iframe title="([^"]+)" src="demo-bocateria\/bocateria.html\?demo=\d+"><\/iframe>/g,(_,title)=>`<iframe title="${title}" data-menu-segment="${menuSegment}" src="demo-bocateria/bocateria.html?walkthrough=1&segment=${menuSegment++}"></iframe>`);
+page=page.replace('src="montaje.js"','src="montaje.js?v=menus-nav1"').replace('</body>','<script src="bocateria-navegacion.js"></script></body>');
 fs.writeFileSync('video-bocateria.html',page);
 fs.writeFileSync('guiones/video-bocateria-dm.txt',message+'\n');
 console.log('Vídeo de bocatería creado: comandas, llamada, móvil realista y pedidos claros.');

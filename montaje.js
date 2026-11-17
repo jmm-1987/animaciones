@@ -18,6 +18,7 @@ function render(){
  const end=phase===lastPhase?duration:marks[phase+1],p=Math.max(0,Math.min(1,(elapsed-marks[phase])/(end-marks[phase])));
  stage.dataset.phase=phase;stage.style.setProperty('--p',reduced?1:Math.min(1,p*1.6));stage.classList.toggle('contact-visible',phase===lastPhase&&elapsed-marks[lastPhase]>=1.25);
  scenes.forEach((scene,i)=>{const active=i===phase;scene.classList.toggle('active',active);scene.inert=!active;scene.setAttribute('aria-hidden',String(!active));if(active){scene.querySelectorAll('[data-at]').forEach(node=>{const on=reduced||p>=Number(node.dataset.at);node.style.opacity=on?'1':'0';node.style.transform=on?'translateY(0)':'translateY(12px)'});const steps=[...scene.querySelectorAll('[data-step]')];steps.forEach((node,j)=>node.hidden=j!==Math.min(steps.length-1,Math.floor(p*steps.length)))}});
+ window.jm2Navigation?.render(elapsed);
  // Si el plano ya lleva su logotipo, retirar el de la cabecera.
  const header=$('.story-header');if(header)header.hidden=Boolean(scenes[phase]?.querySelector('img[src$="logo.png"]'));
  nav.forEach((n,i)=>n.setAttribute('aria-current',String(i===phase)));seek.max=duration;seek.value=elapsed;$('#time').textContent='0:'+String(Math.floor(elapsed)).padStart(2,'0')+' / 0:'+Math.ceil(duration);

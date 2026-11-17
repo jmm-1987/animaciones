@@ -146,5 +146,5 @@ if(step===3){setFulfillment('delivery');$('street').value='Calle de ejemplo';$('
 window.open=(url)=>{const text=new URL(url).searchParams.get('text');document.body.innerHTML='<div style="padding:24px;background:#e9f5ec;min-height:100vh"><p style="font-size:13px">VISTA ILUSTRATIVA · MENSAJE PREPARADO</p><h2>WhatsApp de tu bocatería</h2><pre style="font:16px/1.65 system-ui;white-space:pre-wrap;background:white;border-radius:18px;padding:20px"></pre><p>El cliente pulsa enviar en WhatsApp.</p></div>';document.querySelector('pre').textContent=text;};
 if(step===4)send();
 document.addEventListener('click',e=>e.preventDefault(),true);
-</script></body>
+</script><script src="navegacion.js"></script></body>
 </html>
