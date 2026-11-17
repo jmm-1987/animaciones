@@ -1,28 +1,31 @@
 Tu bocatería. Pedidos por WhatsApp.
-Duración del vídeo: 00:56
+Duración del vídeo: 01:00
 
 INDICACIONES DE VOZ
 Idioma: español de España. Voz cercana y profesional, con ritmo conversacional y sin tono de teletienda. No mencionar la marca en la locución: ya aparece en pantalla. No leer los tiempos, números de escena ni instrucciones. Respetar las pausas y ajustar cada bloque a su intervalo. No añadir frases.
 
 GUION POR ESCENAS
 
-ESCENA 1 · 00:00:00.000 → 00:00:06.000 (6.000 s)
-Tu bocatería, a todo ritmo. Y los pedidos, desde el móvil.
+ESCENA 1 · 00:00:00.000 → 00:00:05.000 (5.000 s)
+Comandas a mano, tachones y una letra que no se entiende. ¿Qué había pedido este cliente?
 
-ESCENA 2 · 00:00:06.000 → 00:00:13.000 (7.000 s)
+ESCENA 2 · 00:00:05.000 → 00:00:11.000 (6.000 s)
+Y por teléfono, la llamada se alarga. Cambios, repeticiones y dudas mientras la barra espera.
+
+ESCENA 3 · 00:00:11.000 → 00:00:17.000 (6.000 s)
 El cliente ve tu carta y añade sus bocadillos, raciones y bebidas.
 
-ESCENA 3 · 00:00:13.000 → 00:00:19.000 (6.000 s)
+ESCENA 4 · 00:00:17.000 → 00:00:23.000 (6.000 s)
 Revisa las cantidades y el total. Todo claro antes de pedir.
 
-ESCENA 4 · 00:00:19.000 → 00:00:28.000 (9.000 s)
+ESCENA 5 · 00:00:23.000 → 00:00:31.000 (8.000 s)
 Elige recogida, con hora o lo antes posible, o entrega a domicilio. Completa sus datos y las notas.
 
-ESCENA 5 · 00:00:28.000 → 00:00:35.000 (7.000 s)
+ESCENA 6 · 00:00:31.000 → 00:00:38.000 (7.000 s)
 La web prepara el mensaje. El cliente lo envía por WhatsApp.
 
-ESCENA 6 · 00:00:35.000 → 00:00:47.000 (12.000 s)
+ESCENA 7 · 00:00:38.000 → 00:00:50.000 (12.000 s)
 En tu bocatería recibes los productos, el total y los datos de recogida o entrega. Así sabes qué preparar.
 
-ESCENA 7 · 00:00:47.000 → 00:00:56.000 (9.000 s)
+ESCENA 8 · 00:00:50.000 → 00:01:00.000 (10.000 s)
 Tu carta adaptada a tu bocatería. Cincuenta euros de desarrollo inicial y diez euros al mes. Escríbeme y lo vemos.
