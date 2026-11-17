@@ -2,11 +2,11 @@
 
 ## Bocaterías y carta de bares
 
-`video-bocateria.html` muestra el recorrido real de la demo de `menus`: carta, cantidades, total, recogida o domicilio y mensaje preparado para WhatsApp. Incluye el precio de 50 € de desarrollo inicial y 10 €/mes. El MP4 descargable es `video-bocateria.mp4` (1080 × 1920, 56 segundos, sin voz); guion y SRT están en `guiones/`.
+`video-bocateria.html` muestra el recorrido real de la demo de `menus`: carta, cantidades, total, recogida o domicilio y mensaje preparado para WhatsApp. Incluye una bocatería ilustrada y animada, el encargado atendiendo y la entrada de pedidos de ejemplo al WhatsApp del negocio. Mantiene el precio de 50 € de desarrollo inicial y 10 €/mes. El MP4 descargable es `video-bocateria.mp4` (1080 × 1920, 56 segundos, sin voz); guion y SRT están en `guiones/`.
 
-`carta-bar/bar.html` es una carta original para bares, con categorías, alérgenos ilustrativos, cantidades y preparación de pedidos para mesa o recogida. Los platos y precios son ejemplos. La demo permite ver y copiar el mensaje; no envía pedidos a ningún negocio. `productos.json` contiene la carta editable. Esta misma carta se incorpora al proyecto `menus` como `bar.html`.
+`carta-bar/bar.html` es una carta original para bares, con local ilustrado, comida en color, categorías, alérgenos ilustrativos, cantidades y preparación de pedidos para mesa o recogida. Los platos y precios son ejemplos. La demo permite ver y copiar el mensaje y representar cómo llega al negocio; no envía pedidos reales. `productos.json` contiene la carta editable. Esta misma carta se incorpora al proyecto `menus` como `bar.html`. La ilustración original compartida está en `local-comida.cjs`; `crear-comida-visual.cjs` genera las imágenes SVG de las categorías. `bar-local.js` controla la recepción simulada de pedidos.
 
-Para regenerar: `node crear-bocateria.cjs`, `node crear-carta-bar.cjs`, `node construir-biblioteca.cjs` y `node publicar-preparar.cjs`. `node revisar-bar.mjs` revisa el pedido y el diseño con el servidor local en 8766 y Chrome de revisión en 9243. `node exportar-bocateria.mjs` exporta el MP4 con ese Chrome y FFmpeg.
+Para regenerar: `node crear-comida-visual.cjs`, `node crear-bocateria.cjs`, `node crear-carta-bar.cjs`, `node construir-biblioteca.cjs` y `node publicar-preparar.cjs`. `node servir-preview.cjs` sirve la revisión local en 8767. `node revisar-bar.mjs` revisa el diseño, las imágenes y el pedido con Chrome de revisión en 9243 (o `CHROME_REVIEW_PORT`). `node exportar-bocateria.mjs` exporta el movimiento de las siete escenas mediante ese Chrome y FFmpeg; `--review-only` solo comprueba encuadres y captura las escenas.
 
 Abre `index.html`: biblioteca con el estilo aprobado, el vídeo de recepción de facturas y cuatro piezas sobre negocios.
 

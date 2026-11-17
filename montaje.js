@@ -39,7 +39,7 @@ function useAudio(element){
  audio.addEventListener('error',()=>{pause();voice=false;controls();$('#status').textContent='No se pudo reproducir este audio. Selecciona otro archivo.'});
 }
 function resetAudio(){pause();disposeAudio();audio=defaultAudio();audioRate=config.audioRate||1;if(audio){audio.playbackRate=audioRate;audio.preservesPitch=true;}duration=config.duration;voice=false;elapsed=0;last=null;controls();render();}
-window.jm2StoryPlayer={useAudio,resetAudio,pause,playFromStart(){elapsed=0;start()},getState(){return {elapsed,duration,playing,voice,audioRate,audioDuration:audio?.duration||0}}};
+window.jm2StoryPlayer={useAudio,resetAudio,pause,seekTo(seconds){pause();elapsed=Math.max(0,Math.min(duration,Number(seconds)||0));last=null;render();sync();},playFromStart(){elapsed=0;start()},getState(){return {elapsed,duration,playing,voice,audioRate,audioDuration:audio?.duration||0}}};
 play.onclick=()=>playing?pause():start();$('#restart').onclick=()=>{elapsed=0;start()};seek.oninput=()=>{elapsed=Number(seek.value);last=null;render();sync()};nav.forEach(button=>button.onclick=()=>{elapsed=Number(button.dataset.go);last=null;render();sync()});
 if(voiceButton)voiceButton.onclick=()=>{if(!audio)return;voice=!voice;controls();sync()};
 document.addEventListener('keydown',e=>{if(e.code==='Space'&&!['BUTTON','INPUT','A','TEXTAREA','SUMMARY'].includes(document.activeElement.tagName)){e.preventDefault();play.click()}});window.addEventListener('pagehide',()=>audio?.pause());controls();render();if(playing)frame=requestAnimationFrame(tick);

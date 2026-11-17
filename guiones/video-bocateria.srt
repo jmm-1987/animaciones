@@ -1,23 +1,27 @@
 1
 00:00:00,000 --> 00:00:06,000
-Así podrían hacer los pedidos en tu bocatería, desde el móvil.
+Tu bocatería, a todo ritmo. Y los pedidos, desde el móvil.
 
 2
-00:00:06,000 --> 00:00:14,000
-El cliente consulta tu carta, ve los precios y añade bocadillos, raciones y bebidas.
+00:00:06,000 --> 00:00:13,000
+El cliente ve tu carta y añade sus bocadillos, raciones y bebidas.
 
 3
-00:00:14,000 --> 00:00:21,000
-Puede cambiar las cantidades y revisar el total antes de continuar.
+00:00:13,000 --> 00:00:19,000
+Revisa las cantidades y el total. Todo claro antes de pedir.
 
 4
-00:00:21,000 --> 00:00:32,000
-Elige recogida, con hora o lo antes posible, o entrega a domicilio. Añade sus datos y las notas del pedido.
+00:00:19,000 --> 00:00:28,000
+Elige recogida, con hora o lo antes posible, o entrega a domicilio. Completa sus datos y las notas.
 
 5
-00:00:32,000 --> 00:00:45,000
-La web prepara el mensaje con los productos, el total y los datos. El cliente lo envía por WhatsApp y tú lo recibes.
+00:00:28,000 --> 00:00:35,000
+La web prepara el mensaje. El cliente lo envía por WhatsApp.
 
 6
-00:00:45,000 --> 00:00:56,000
-Adaptado a tu bocatería. Cincuenta euros de desarrollo inicial y diez euros al mes. ¿Lo vemos con tu carta?
+00:00:35,000 --> 00:00:47,000
+En tu bocatería recibes los productos, el total y los datos de recogida o entrega. Así sabes qué preparar.
+
+7
+00:00:47,000 --> 00:00:56,000
+Tu carta adaptada a tu bocatería. Cincuenta euros de desarrollo inicial y diez euros al mes. Escríbeme y lo vemos.
