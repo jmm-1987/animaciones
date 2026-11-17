@@ -1,0 +1,11 @@
+Así podrían hacer los pedidos en tu bocatería, desde el móvil.
+
+El cliente consulta tu carta, ve los precios y añade bocadillos, raciones y bebidas.
+
+Puede cambiar las cantidades y revisar el total antes de continuar.
+
+Elige recogida, con hora o lo antes posible, o entrega a domicilio. Añade sus datos y las notas del pedido.
+
+La web prepara el mensaje con los productos, el total y los datos. El cliente lo envía por WhatsApp y tú lo recibes.
+
+Adaptado a tu bocatería. Cincuenta euros de desarrollo inicial y diez euros al mes. ¿Lo vemos con tu carta?

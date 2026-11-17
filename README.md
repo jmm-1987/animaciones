@@ -1,5 +1,13 @@
 # Vídeos de JM2
 
+## Bocaterías y carta de bares
+
+`video-bocateria.html` muestra el recorrido real de la demo de `menus`: carta, cantidades, total, recogida o domicilio y mensaje preparado para WhatsApp. Incluye el precio de 50 € de desarrollo inicial y 10 €/mes. El MP4 descargable es `video-bocateria.mp4` (1080 × 1920, 56 segundos, sin voz); guion y SRT están en `guiones/`.
+
+`carta-bar/bar.html` es una carta original para bares, con categorías, alérgenos ilustrativos, cantidades y preparación de pedidos para mesa o recogida. Los platos y precios son ejemplos. La demo permite ver y copiar el mensaje; no envía pedidos a ningún negocio. `productos.json` contiene la carta editable. Esta misma carta se incorpora al proyecto `menus` como `bar.html`.
+
+Para regenerar: `node crear-bocateria.cjs`, `node crear-carta-bar.cjs`, `node construir-biblioteca.cjs` y `node publicar-preparar.cjs`. `node revisar-bar.mjs` revisa el pedido y el diseño con el servidor local en 8766 y Chrome de revisión en 9243. `node exportar-bocateria.mjs` exporta el MP4 con ese Chrome y FFmpeg.
+
 Abre `index.html`: biblioteca con el estilo aprobado, el vídeo de recepción de facturas y cuatro piezas sobre negocios.
 
 ## Planning y carruseles

@@ -1,0 +1,13 @@
+import fs from 'node:fs';
+const pages=await(await fetch('http://127.0.0.1:9243/json/list')).json();const ws=new WebSocket(pages.find(p=>p.type==='page').webSocketDebuggerUrl);await new Promise(r=>ws.addEventListener('open',r,{once:true}));let id=0;const pending=new Map();ws.addEventListener('message',({data})=>{const m=JSON.parse(data);if(m.id){const p=pending.get(m.id);pending.delete(m.id);m.error?p.reject(m.error):p.resolve(m.result);}});const call=(method,params={})=>new Promise((resolve,reject)=>{const n=++id;pending.set(n,{resolve,reject});ws.send(JSON.stringify({id:n,method,params}));});
+const evaluate=async expression=>{const r=await call('Runtime.evaluate',{expression,returnByValue:true,awaitPromise:true});if(r.exceptionDetails)throw Error(JSON.stringify(r.exceptionDetails));return r.result.value;};
+await call('Page.enable');
+for(const width of [390,1365]){
+ await call('Emulation.setDeviceMetricsOverride',{width,height:900,deviceScaleFactor:1,mobile:width<700});
+ await call('Page.navigate',{url:'http://127.0.0.1:8766/carta-bar/bar.html'});await new Promise(r=>setTimeout(r,1800));
+ const state=await evaluate(`({overflow:document.documentElement.scrollWidth>innerWidth,products:document.querySelectorAll('.dish').length})`);if(state.overflow||state.products!==12)throw Error(JSON.stringify(state));
+ const {data}=await call('Page.captureScreenshot',{format:'png',captureBeyondViewport:false});fs.writeFileSync('revisiones/bar-'+width+'.png',Buffer.from(data,'base64'));
+}
+const result=await evaluate(`(()=>{document.querySelector('[data-cat=tapas]').click();const filtered=document.querySelectorAll('.dish').length;document.querySelector('[data-change="0"][data-delta="1"]').click();document.querySelector('[data-change="0"][data-delta="1"]').click();document.querySelector('#cart-bar').click();document.querySelector('[name=customer]').value='Prueba';document.querySelector('[name=table]').value='4';document.querySelector('#order-form').requestSubmit();const message=document.querySelector('#message').textContent;document.querySelector('input[value=recoger]').click();const pickup=!document.querySelector('#time-field').hidden&&document.querySelector('[name=time]').required;return {filtered,message,pickup};})()`);
+if(result.filtered!==4||!result.message.includes('9,00')||!result.message.includes('Mesa: 4')||!result.pickup)throw Error(JSON.stringify(result));
+console.log(JSON.stringify({ok:true,...result}));await call('Browser.close');

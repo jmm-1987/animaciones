@@ -1,0 +1,11 @@
+const fs=require('fs');
+let page=fs.readFileSync('video-bocateria.html','utf8');
+if(!page.includes('download>Descargar vídeo MP4'))page=page.replace('<div class="video-top">','<div class="video-top"><a href="video-bocateria.mp4" download>Descargar vídeo MP4 · sin voz</a>');
+fs.writeFileSync('video-bocateria.html',page);
+let index=fs.readFileSync('index.html','utf8');
+if(!index.includes('carta-bar/bar.html'))index=index.replace('<a href="linkedin.html">Carruseles LinkedIn</a>','<a href="linkedin.html">Carruseles LinkedIn</a><a href="carta-bar/bar.html">Carta de bar ↗</a>');
+fs.writeFileSync('index.html',index);
+let generator=fs.readFileSync('construir-biblioteca.cjs','utf8');
+if(!generator.includes('carta-bar/bar.html'))generator=generator.replace('<a href="linkedin.html">Carruseles LinkedIn</a>','<a href="linkedin.html">Carruseles LinkedIn</a><a href="carta-bar/bar.html">Carta de bar ↗</a>');
+fs.writeFileSync('construir-biblioteca.cjs',generator);
+fs.writeFileSync('carta-bar/index.html','<!doctype html><html lang="es"><head><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=bar.html"><title>Carta de bar</title></head><body><a href="bar.html">Abrir carta de bar</a></body></html>');
