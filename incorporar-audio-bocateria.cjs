@@ -1,0 +1,10 @@
+const fs=require('fs'),crypto=require('crypto');
+const file='audio/generados/bocateria.mp3';
+const hash=crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex').slice(0,10);
+const catalog=JSON.parse(fs.readFileSync('audio/generados/catalogo.json','utf8'));
+catalog['video-bocateria.html']={builtinAudio:'video-bocateria.mp4?v='+hash,sourceAudio:file,marks:[0,5.85,12.28,16.78,20.85,27.36,31.02,33.45,37.18,40.36,46],duration:46,audioRate:1};
+fs.writeFileSync('audio/generados/catalogo.json',JSON.stringify(catalog,null,2)+'\n');
+fs.writeFileSync('audio/catalogo.js','window.JM2_AUDIO_CATALOG='+JSON.stringify(catalog)+';\n');
+require('./crear-bocateria.cjs');
+require('./construir-biblioteca.cjs');
+console.log('Audio incorporado: 42,84 s de voz y cierre visual hasta 46 s.');

@@ -2,6 +2,9 @@
 .env.*
 !.env.example
 
+# Grabación original local; la publicación usa la pista del MP4 renderizado.
+/audio/generados/bocateria.mp3
+
 # Perfiles temporales de Chrome y capturas de revisión generadas.
 /revisiones/chrome-*/
 /revisiones/bocateria/

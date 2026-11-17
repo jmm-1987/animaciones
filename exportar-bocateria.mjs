@@ -16,6 +16,11 @@ fs.mkdirSync(reviewFolder,{recursive:true});
 await call('Page.navigate',{url:'http://127.0.0.1:8767/'+target+'?t=0'});await new Promise(r=>setTimeout(r,2200));
 await evaluate(`(async()=>{await document.fonts.ready;document.querySelector('.story-player').style.cssText='width:1080px;height:1920px;position:fixed;inset:0;margin:0;z-index:999';document.querySelector('.story-controls').style.display='none';document.querySelector('.scene-nav').style.display='none';document.querySelector('.story-stage').style.transform='none';document.querySelector('.story-stage').classList.remove('preview');})()`);
 const timing=await evaluate('window.STORY_CONFIG');
+if(timing.builtinAudio){
+ const audioDuration=await evaluate(`new Promise((resolve,reject)=>{const a=new Audio(${JSON.stringify(timing.builtinAudio)});const timeout=setTimeout(()=>reject(new Error('No carga el audio')),10000);a.onloadedmetadata=()=>{clearTimeout(timeout);resolve(a.duration);};a.onerror=()=>{clearTimeout(timeout);reject(new Error('Audio no compatible'));};a.load();})`);
+ if(!Number.isFinite(audioDuration)||audioDuration/(timing.audioRate||1)>timing.duration+.15)throw Error('La voz queda fuera de la duración del vídeo');
+ console.log('Audio verificado en navegador: '+audioDuration.toFixed(2)+' s.');
+}
 const reviewTimes=timing.marks.slice(0,-1).map((start,i)=>start+(timing.marks[i+1]-start)*.8);
 for(const [i,t] of reviewTimes.entries()){
  await evaluate(`window.jm2StoryPlayer.seekTo(${t});document.getAnimations().forEach(a=>{a.pause();a.currentTime=${t*1000};});`);
@@ -27,7 +32,10 @@ for(const [i,t] of reviewTimes.entries()){
 console.log(reviewTimes.length+' escenas revisadas y capturadas.');
 if(process.argv.includes('--review-only')){ws.close();process.exit(0);}
 const fps=12,duration=timing.duration;
-const encoder=spawn('ffmpeg',['-y','-loglevel','error','-f','image2pipe','-framerate',String(fps),'-i','pipe:0','-vf','fps=24,format=yuv420p','-c:v','libx264','-preset','fast','-crf','20','-t',String(duration),'-movflags','+faststart',mp4],{stdio:['pipe','inherit','inherit']});
+const audioFile=timing.sourceAudio||timing.builtinAudio?.split('?')[0];
+if(audioFile&&(!/^audio\/[\w./-]+\.mp3$/.test(audioFile)||!fs.existsSync(audioFile)))throw Error('Audio incorporado no válido');
+const audioInputs=audioFile?['-i',audioFile,'-map','0:v:0','-map','1:a:0','-af',`atempo=${timing.audioRate||1},apad`,'-c:a','aac','-b:a','160k']:[];
+const encoder=spawn('ffmpeg',['-y','-loglevel','error','-f','image2pipe','-framerate',String(fps),'-i','pipe:0',...audioInputs,'-vf','fps=24,format=yuv420p','-c:v','libx264','-preset','fast','-crf','20','-t',String(duration),'-movflags','+faststart',mp4],{stdio:['pipe','inherit','inherit']});
 let encoderError;encoder.on('error',e=>encoderError=e);encoder.stdin.on('error',e=>encoderError=e);const finished=once(encoder,'exit');
 for(let frame=0;frame<fps*duration;frame++){
  if(encoderError)throw encoderError;const time=frame/fps;

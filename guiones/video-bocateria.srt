@@ -1,39 +1,39 @@
 1
-00:00:00,000 --> 00:00:05,000
+00:00:00,000 --> 00:00:05,850
 Comandas a mano, tachones y una letra que no se entiende. ¿Qué había pedido este cliente?
 
 2
-00:00:05,000 --> 00:00:11,000
+00:00:05,850 --> 00:00:12,280
 Y por teléfono, la llamada se alarga. Cambios, repeticiones y dudas mientras la barra espera.
 
 3
-00:00:11,000 --> 00:00:17,000
+00:00:12,280 --> 00:00:16,780
 El cliente ve tu carta y añade sus bocadillos, raciones y bebidas.
 
 4
-00:00:17,000 --> 00:00:23,000
+00:00:16,780 --> 00:00:20,850
 Revisa las cantidades y el total. Todo claro antes de pedir.
 
 5
-00:00:23,000 --> 00:00:31,000
+00:00:20,850 --> 00:00:27,360
 Elige recogida, con hora o lo antes posible, o entrega a domicilio. Completa sus datos y las notas.
 
 6
-00:00:31,000 --> 00:00:38,000
+00:00:27,360 --> 00:00:31,020
 La web prepara el mensaje. El cliente lo envía por WhatsApp.
 
 7
-00:00:38,000 --> 00:00:42,000
+00:00:31,020 --> 00:00:33,450
 El pedido llega al WhatsApp de tu negocio.
 
 8
-00:00:42,000 --> 00:00:46,000
+00:00:33,450 --> 00:00:37,180
 ¿Usas ordenador? Podemos preparar tu propio panel de pedidos.
 
 9
-00:00:46,000 --> 00:00:50,000
+00:00:37,180 --> 00:00:40,360
 O adaptarlo a una tablet para tenerlo a mano en la barra.
 
 10
-00:00:50,000 --> 00:01:00,000
-Tu carta adaptada a tu bocatería. Cincuenta euros de desarrollo inicial y diez euros al mes. Escríbeme y lo vemos.
+00:00:40,360 --> 00:00:46,000
+Tu carta adaptada a tu bocatería.

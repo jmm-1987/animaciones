@@ -24,5 +24,24 @@
     ],
     "duration": 18.85,
     "audioRate": 1
+  },
+  "video-bocateria.html": {
+    "builtinAudio": "video-bocateria.mp4?v=897aefcfc6",
+    "sourceAudio": "audio/generados/bocateria.mp3",
+    "marks": [
+      0,
+      5.85,
+      12.28,
+      16.78,
+      20.85,
+      27.36,
+      31.02,
+      33.45,
+      37.18,
+      40.36,
+      46
+    ],
+    "duration": 46,
+    "audioRate": 1
   }
 }
