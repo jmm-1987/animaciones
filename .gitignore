@@ -5,4 +5,5 @@
 # Perfiles temporales de Chrome y capturas de revisión generadas.
 /revisiones/chrome-*/
 /revisiones/bocateria/
+/revisiones/facturacion-oficios/
 /revisiones/bar-*.png

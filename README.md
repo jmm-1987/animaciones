@@ -1,5 +1,13 @@
 # Vídeos de JM2
 
+## Facturación a medida para oficios
+
+`video-facturacion-oficios.html` y su MP4 muestran una demo de 60 segundos dirigida a fontaneros, electricistas, instaladores y pintores. Empieza con el trabajo terminado y apuntes pendientes; después muestra selección de cliente, mano de obra y materiales, importes, revisión, emisión simulada, presupuesto convertible a factura y PDF. Incluye ilustraciones originales de los cuatro oficios y un móvil realista. No lleva precio comercial ni voz incorporada.
+
+La demostración se basa en las funciones descritas en el proyecto `Trabajos/Facturas` y en la serie existente. Usa datos ficticios, no accede a su base de datos, no emite facturas fiscales y no envía documentos. Las cantidades e impuestos son un ejemplo visual, no una tarifa para el cliente.
+
+`node crear-facturacion-oficios.cjs` regenera el vídeo, los guiones y la biblioteca. `oficios-arte.cjs` contiene las ilustraciones y `facturacion-oficios.js` sincroniza la demostración. Con el servidor local en 8767 y Chrome de revisión en 9243, `node revisar-facturacion.mjs` comprueba el recorrido y los cálculos. `node exportar-bocateria.mjs --file=video-facturacion-oficios.html` exporta el MP4; `--review-only` comprueba el encuadre sin exportar.
+
 ## Bocaterías y carta de bares
 
 `video-bocateria.html` empieza con comandas manuscritas difíciles de leer y una llamada que se alarga entre cambios y dudas. Después muestra el recorrido real de la demo de `menus`: carta, cantidades, total, recogida o domicilio y mensaje preparado para WhatsApp. Incluye una bocatería ilustrada y animada, el encargado atendiendo y la entrada de pedidos de ejemplo al WhatsApp del negocio. Los móviles tienen carcasa, cámara, barra de estado y botones laterales. Mantiene el precio de 50 € de desarrollo inicial y 10 €/mes. El MP4 descargable es `video-bocateria.mp4` (1080 × 1920, 60 segundos, sin voz); guion y SRT están en `guiones/`. `bocateria-problema.cjs` contiene las escenas iniciales y `movil-realista.cjs` el teléfono compartido.
