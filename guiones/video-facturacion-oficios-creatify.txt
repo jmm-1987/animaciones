@@ -22,7 +22,7 @@ ESCENA 5 · 00:00:30.000 → 00:00:39.000 (9.000 s)
 Compruebas los datos, los conceptos y los impuestos. Revisas la factura antes de emitirla.
 
 ESCENA 6 · 00:00:39.000 → 00:00:45.000 (6.000 s)
-Y si la necesitas en papel, imprimes la factura. Lista para entregarla al cliente.
+Imprimes la factura o la compartes por WhatsApp o por email. Como tú quieras.
 
 ESCENA 7 · 00:00:45.000 → 00:00:53.000 (8.000 s)
 Si necesitas presupuesto, lo preparas primero. Cuando se acepta, puedes convertirlo en factura.

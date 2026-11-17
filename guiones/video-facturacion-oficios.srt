@@ -20,7 +20,7 @@ Compruebas los datos, los conceptos y los impuestos. Revisas la factura antes de
 
 6
 00:00:39,000 --> 00:00:45,000
-Y si la necesitas en papel, imprimes la factura. Lista para entregarla al cliente.
+Imprimes la factura o la compartes por WhatsApp o por email. Como tú quieras.
 
 7
 00:00:45,000 --> 00:00:53,000
