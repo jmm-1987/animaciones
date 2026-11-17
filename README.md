@@ -8,7 +8,9 @@
 
 La aplicación del móvil navega durante el vídeo: categorías, desplazamiento, productos, cambios de cantidades y total, apertura del carrito y escritura de datos. `bocateria-navegacion.js` sincroniza los tres planos con el reproductor; `demo-bocateria/navegacion.js` aplica el recorrido a la carta real y muestra las pulsaciones. El recorrido también funciona al pausar, avanzar y rebobinar. `node revisar-navegacion.mjs` comprueba categorías, importes, datos, modalidades y rebobinado con el servidor y Chrome de revisión activos. No se realizan envíos.
 
-Para regenerar: `node crear-comida-visual.cjs`, `node crear-bocateria.cjs`, `node crear-carta-bar.cjs`, `node construir-biblioteca.cjs` y `node publicar-preparar.cjs`. `node servir-preview.cjs` sirve la revisión local en 8767. `node revisar-bar.mjs` revisa el diseño, las imágenes y el pedido con Chrome de revisión en 9243 (o `CHROME_REVIEW_PORT`). `node exportar-bocateria.mjs` exporta el movimiento de las ocho escenas mediante ese Chrome y FFmpeg; `--review-only` solo comprueba encuadres y captura las escenas.
+La recepción se representa en tres escenas separadas: WhatsApp en móvil, panel propio en ordenador y panel en tablet. Las dos vistas de panel son propuestas visuales de una opción a desarrollar, no una integración implementada en `menus`. `bocateria-recepcion.cjs` y `bocateria-recepcion.css` contienen los tres dispositivos y el pedido de ejemplo. El vídeo tiene diez escenas y conserva 60 segundos de duración.
+
+Para regenerar: `node crear-comida-visual.cjs`, `node crear-bocateria.cjs`, `node crear-carta-bar.cjs`, `node construir-biblioteca.cjs` y `node publicar-preparar.cjs`. `node servir-preview.cjs` sirve la revisión local en 8767. `node revisar-bar.mjs` revisa el diseño, las imágenes y el pedido con Chrome de revisión en 9243 (o `CHROME_REVIEW_PORT`). `node exportar-bocateria.mjs` exporta el movimiento de las diez escenas mediante ese Chrome y FFmpeg; `--review-only` solo comprueba encuadres y captura las escenas.
 
 Abre `index.html`: biblioteca con el estilo aprobado, el vídeo de recepción de facturas y cuatro piezas sobre negocios.
 

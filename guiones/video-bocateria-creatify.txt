@@ -24,8 +24,14 @@ Elige recogida, con hora o lo antes posible, o entrega a domicilio. Completa sus
 ESCENA 6 · 00:00:31.000 → 00:00:38.000 (7.000 s)
 La web prepara el mensaje. El cliente lo envía por WhatsApp.
 
-ESCENA 7 · 00:00:38.000 → 00:00:50.000 (12.000 s)
-En tu bocatería recibes los productos, el total y los datos de recogida o entrega. Así sabes qué preparar.
+ESCENA 7 · 00:00:38.000 → 00:00:42.000 (4.000 s)
+El pedido llega al WhatsApp de tu negocio.
 
-ESCENA 8 · 00:00:50.000 → 00:01:00.000 (10.000 s)
+ESCENA 8 · 00:00:42.000 → 00:00:46.000 (4.000 s)
+¿Usas ordenador? Podemos preparar tu propio panel de pedidos.
+
+ESCENA 9 · 00:00:46.000 → 00:00:50.000 (4.000 s)
+O adaptarlo a una tablet para tenerlo a mano en la barra.
+
+ESCENA 10 · 00:00:50.000 → 00:01:00.000 (10.000 s)
 Tu carta adaptada a tu bocatería. Cincuenta euros de desarrollo inicial y diez euros al mes. Escríbeme y lo vemos.

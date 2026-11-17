@@ -23,9 +23,17 @@ Elige recogida, con hora o lo antes posible, o entrega a domicilio. Completa sus
 La web prepara el mensaje. El cliente lo envía por WhatsApp.
 
 7
-00:00:38,000 --> 00:00:50,000
-En tu bocatería recibes los productos, el total y los datos de recogida o entrega. Así sabes qué preparar.
+00:00:38,000 --> 00:00:42,000
+El pedido llega al WhatsApp de tu negocio.
 
 8
+00:00:42,000 --> 00:00:46,000
+¿Usas ordenador? Podemos preparar tu propio panel de pedidos.
+
+9
+00:00:46,000 --> 00:00:50,000
+O adaptarlo a una tablet para tenerlo a mano en la barra.
+
+10
 00:00:50,000 --> 00:01:00,000
 Tu carta adaptada a tu bocatería. Cincuenta euros de desarrollo inicial y diez euros al mes. Escríbeme y lo vemos.
