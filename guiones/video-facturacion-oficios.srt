@@ -19,13 +19,17 @@ Añades la mano de obra y los materiales. Ajustas cantidades y precios y ves có
 Compruebas los datos, los conceptos y los impuestos. Revisas la factura antes de emitirla.
 
 6
-00:00:39,000 --> 00:00:47,000
-Si necesitas presupuesto, lo preparas primero. Cuando se acepta, puedes convertirlo en factura.
+00:00:39,000 --> 00:00:45,000
+Y si la necesitas en papel, imprimes la factura. Lista para entregarla al cliente.
 
 7
-00:00:47,000 --> 00:00:54,000
-Generas el PDF y tienes tus clientes, facturas y presupuestos organizados. También desde ordenador o tablet.
+00:00:45,000 --> 00:00:53,000
+Si necesitas presupuesto, lo preparas primero. Cuando se acepta, puedes convertirlo en factura.
 
 8
-00:00:54,000 --> 00:01:00,000
+00:00:53,000 --> 00:01:00,000
+Generas el PDF y tienes tus clientes, facturas y presupuestos organizados. También desde ordenador o tablet.
+
+9
+00:01:00,000 --> 00:01:06,000
 Facturación a tu medida. Cuéntame tu oficio y cómo trabajas. Escríbeme y lo vemos.

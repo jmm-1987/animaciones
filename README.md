@@ -2,7 +2,7 @@
 
 ## Facturación a medida para oficios
 
-`video-facturacion-oficios.html` y su MP4 muestran una demo de 60 segundos dirigida a fontaneros, electricistas, instaladores y pintores. Empieza con el trabajo terminado y apuntes pendientes; después muestra selección de cliente, mano de obra y materiales, importes, revisión, emisión simulada, presupuesto convertible a factura y PDF. Incluye ilustraciones originales de los cuatro oficios y un móvil realista. No lleva precio comercial ni voz incorporada.
+`video-facturacion-oficios.html` y su MP4 muestran una demo de 66 segundos dirigida a fontaneros, electricistas, instaladores y pintores. Empieza con el trabajo terminado y apuntes pendientes; después muestra selección de cliente, mano de obra y materiales, importes, revisión, emisión simulada, una factura saliendo de la impresora, presupuesto convertible a factura y PDF. Incluye ilustraciones originales de los cuatro oficios y un móvil realista. No lleva precio comercial ni voz incorporada.
 
 La demostración se basa en las funciones descritas en el proyecto `Trabajos/Facturas` y en la serie existente. Usa datos ficticios, no accede a su base de datos, no emite facturas fiscales y no envía documentos. Las cantidades e impuestos son un ejemplo visual, no una tarifa para el cliente.
 
