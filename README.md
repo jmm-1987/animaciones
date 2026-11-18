@@ -1,5 +1,7 @@
 # Vídeos de JM2
 
+En los vídeos de JM2, representa WhatsApp con su [logotipo oficial verde](https://www.meta.com/es-es/brand/resources/whatsapp/whatsapp-brand/) (`whatsapp-logo-green.svg`) y el correo electrónico con un sobre acompañado por su etiqueta. La locución debe explicar qué hace el espectador en cada escena y qué le facilita ese paso.
+
 ## Facturación a medida para oficios
 
 `video-facturacion-oficios.html` y su MP4 muestran una demo de 66 segundos dirigida a fontaneros, electricistas, instaladores y pintores. Empieza con el trabajo terminado y apuntes pendientes; después muestra selección de cliente, mano de obra y materiales, importes, revisión, emisión simulada, una factura saliendo de la impresora, presupuesto convertible a factura y PDF. Incluye ilustraciones originales de los cuatro oficios y un móvil realista. No lleva precio comercial ni voz incorporada.

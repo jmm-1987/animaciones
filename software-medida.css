@@ -1,0 +1,136 @@
+body[data-serie=marca-piloto] .story-stage:has(.jm-scene) { background: #fff7e9 }
+.story-stage:has(.jm-scene) .story-header span { display: none }
+.story-stage:has(.jm-scene) .story-scene { top: 205px; bottom: 160px }
+
+.jm-scene {
+  position: relative;
+  height: 100%;
+  isolation: isolate;
+  color: #203c53;
+  display: flex;
+  flex-direction: column;
+}
+.jm-glow {
+  position: absolute;
+  z-index: -1;
+  inset: 320px -65px 80px;
+  background: radial-gradient(ellipse at 68% 54%, #ffdb8b 0, #ffe9bd 36%, transparent 69%);
+}
+body[data-serie=marca-piloto] .story-player[aria-label="Tu aplicación debe evolucionar"] .story-stage {
+  background: #f5f9fd;
+}
+.story-player[aria-label="Tu aplicación debe evolucionar"] .jm-glow {
+  background: radial-gradient(ellipse at 68% 54%, #c3ddf5 0, #deedf9 37%, transparent 70%);
+}
+.story-player[aria-label="Tu aplicación debe evolucionar"] .jm-progress {
+  background: #d9e5f0;
+}
+.jm-mark {
+  align-self: flex-start;
+  background: #ffcf61;
+  border: 2px solid #203c53;
+  border-radius: 28px;
+  padding: 12px 20px;
+  font-size: 23px;
+  font-weight: 850;
+  letter-spacing: 2px;
+}
+.jm-scene h1 {
+  font-size: 78px;
+  font-weight: 850;
+  letter-spacing: -3.7px;
+  line-height: 1.04;
+  margin: 38px 0 48px;
+  min-height: 162px;
+}
+.jm-scene h1 em { color: #ad4b35; font-style: normal }
+.story-player[aria-label="Tu aplicación debe evolucionar"] [data-scene="0"] h1 {
+  font-size: 72px;
+  max-width: 910px;
+}
+.jm-options {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  flex-direction: column;
+  justify-content: center;
+  gap: 28px;
+  padding: 0 34px;
+}
+.jm-option {
+  display: grid;
+  grid-template-columns: 105px 1fr;
+  gap: 26px;
+  align-items: center;
+  min-height: 168px;
+  padding: 26px 32px;
+  background: #fffdf8;
+  border: 2px solid #203c53;
+  border-radius: 32px;
+  box-shadow: 9px 11px #203c53;
+  transform: rotate(var(--tilt));
+}
+.jm-icon {
+  display: grid;
+  place-items: center;
+  width: 96px;
+  height: 96px;
+  border-radius: 25px;
+  background: #ffcf61;
+  color: #203c53;
+  font: 800 52px/1 'Segoe UI Symbol', 'Segoe UI', sans-serif;
+}
+.jm-option:nth-child(2) .jm-icon { background: #cce7dc }
+.jm-option:nth-child(3) .jm-icon { background: #ffd9cc }
+.jm-option .jm-icon--whatsapp { background: transparent }
+.jm-option .jm-icon--email { background: #dcecff }
+.jm-icon img, .jm-icon svg { display: block; width: 63px; height: 63px }
+.jm-icon--whatsapp img { width: 82px; height: 82px; object-fit: contain }
+.jm-icon svg { fill: none; stroke: currentColor; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round }
+.jm-option strong { display: block; font-size: 45px; line-height: 1.1; letter-spacing: -1px }
+.jm-option small { display: block; margin-top: 10px; color: #486176; font-size: 29px; line-height: 1.2 }
+.jm-closing .jm-option:last-child { background: #ffcf61 }
+.jm-closing .jm-option:last-child .jm-icon { background: #fff7e9 }
+.jm-caption {
+  min-height: 106px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  margin: 40px 0 28px;
+  padding: 16px 30px;
+  border-radius: 25px;
+  color: white;
+  background: #203c53;
+  font-size: 37px;
+  font-weight: 750;
+  line-height: 1.15;
+}
+.jm-closing .jm-caption { color: #203c53; background: #ffcf61; border: 2px solid #203c53 }
+.jm-progress { height: 9px; background: #eadbc9; border-radius: 8px; overflow: hidden }
+.jm-progress i { display: block; height: 100%; width: var(--progress); background: #ad4b35; border-radius: inherit }
+
+.active .jm-scene h1 { animation: jm-title-in .46s ease-out both }
+.active .jm-option { animation: jm-card-in .58s cubic-bezier(.16,.82,.26,1.16) var(--delay) both }
+.active .jm-caption { animation: jm-title-in .4s ease-out .69s both }
+.active .jm-glow { animation: jm-glow-in 1.25s ease-out both }
+.active .jm-progress i { animation: jm-progress-in .9s ease-out both }
+
+@keyframes jm-title-in {
+  from { opacity: 0; transform: translateY(28px) }
+  to { opacity: 1; transform: translateY(0) }
+}
+@keyframes jm-card-in {
+  from { opacity: 0; transform: translate(95px, 42px) rotate(6deg) scale(.88) }
+  to { opacity: 1; transform: rotate(var(--tilt)) }
+}
+@keyframes jm-glow-in {
+  from { opacity: .45; transform: scale(.83) }
+  to { opacity: 1; transform: scale(1) }
+}
+@keyframes jm-progress-in {
+  from { transform: scaleX(.15); transform-origin: left }
+  to { transform: scaleX(1); transform-origin: left }
+}
+@media (prefers-reduced-motion: reduce) {
+  .active .jm-scene * { animation: none }
+}

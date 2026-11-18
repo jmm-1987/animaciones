@@ -1,0 +1,27 @@
+1
+00:00:00,000 --> 00:00:06,000
+¿Cómo facturas en tu negocio? Te preparamos una herramienta que sigue tus pasos.
+
+2
+00:00:06,000 --> 00:00:13,000
+Si el cliente vuelve, recuperas sus datos en segundos. Si es puntual, los escribes al hacer la factura.
+
+3
+00:00:13,000 --> 00:00:20,000
+Puedes juntar los trabajos de un cliente en una sola factura a fin de mes, o facturar cada trabajo al terminar.
+
+4
+00:00:20,000 --> 00:00:27,000
+Para lo que vendes a menudo, elige un artículo con su precio. Si el trabajo es distinto, escribe el concepto y el importe.
+
+5
+00:00:27,000 --> 00:00:34,000
+Cuando te aceptan un presupuesto, lo pasas a factura sin copiar las líneas. También puedes emitir una factura directamente.
+
+6
+00:00:34,000 --> 00:00:40,000
+Con la factura lista, puedes imprimirla o enviar el PDF por correo electrónico o por WhatsApp.
+
+7
+00:00:40,000 --> 00:00:49,000
+Cuéntanos cómo facturas. Lo dejamos listo para tu negocio y mantenemos el software actualizado por una cuota mensual, sin grandes costes iniciales.

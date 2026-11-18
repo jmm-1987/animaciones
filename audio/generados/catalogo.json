@@ -43,5 +43,34 @@
     ],
     "duration": 46,
     "audioRate": 1
+  },
+  "video-facturacion-a-tu-manera.html": {
+    "builtinAudio": "audio/generados/facturacion-a-tu-manera.mp3?v=fd0f9e390c",
+    "marks": [
+      0,
+      6,
+      13,
+      20,
+      27,
+      34,
+      40,
+      49
+    ],
+    "duration": 49,
+    "audioRate": 1
+  },
+  "video-software-que-crece-contigo.html": {
+    "builtinAudio": "audio/generados/software-que-crece-contigo.mp3?v=5d39d11858",
+    "marks": [
+      0,
+      8,
+      15,
+      22,
+      30,
+      37,
+      43
+    ],
+    "duration": 43,
+    "audioRate": 1
   }
 }
