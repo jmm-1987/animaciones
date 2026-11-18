@@ -44,9 +44,98 @@ body[data-serie=marca-piloto] .story-player[aria-label="Tu aplicación debe evol
   min-height: 162px;
 }
 .jm-scene h1 em { color: #ad4b35; font-style: normal }
-.story-player[aria-label="Tu aplicación debe evolucionar"] [data-scene="0"] h1 {
+.story-player[aria-label="Tu aplicación debe evolucionar"] [data-scene="1"] h1 {
   font-size: 72px;
   max-width: 910px;
+}
+.jm-chaos { padding-top: 65px }
+.jm-desk {
+  position: relative;
+  height: 1320px;
+  border-radius: 38px;
+  overflow: hidden;
+  background: repeating-linear-gradient(8deg, #b9875e22 0 2px, transparent 3px 15px), linear-gradient(130deg, #e3bc92, #af7650);
+  box-shadow: inset 0 0 110px #53342230;
+}
+.jm-paper {
+  position: absolute;
+  width: 520px;
+  height: 660px;
+  padding: 58px 45px;
+  background: #fffdf7;
+  color: #36516a;
+  font-size: 38px;
+  box-shadow: 12px 20px 25px #3e271960;
+}
+.jm-paper i { display: block; height: 9px; background: #d8dfe0; margin-top: 36px }
+.jm-paper i:last-child { width: 62% }
+.jm-paper--back { top: 128px; left: 126px; rotate: -15deg }
+.jm-paper--front { top: 450px; left: 78px; rotate: 12deg }
+.jm-sticky {
+  position: absolute;
+  left: 72px;
+  top: 760px;
+  rotate: -12deg;
+  padding: 32px;
+  background: #ffe19a;
+  color: #263d51;
+  box-shadow: 8px 12px 18px #43281e40;
+  font: 700 38px/1.3 'Segoe Print', 'Segoe UI', sans-serif;
+}
+.jm-phone {
+  position: absolute;
+  top: 100px;
+  right: 100px;
+  width: 312px;
+  height: 570px;
+  border: 12px solid #152334;
+  border-radius: 52px;
+  background: linear-gradient(160deg, #274a61, #102238);
+  box-shadow: 14px 20px 22px #37281980;
+  color: white;
+  text-align: center;
+  rotate: 13deg;
+  padding-top: 113px;
+}
+.jm-phone-camera { position: absolute; top: 16px; left: 104px; width: 80px; height: 20px; border-radius: 24px; background: #0a131b }
+.jm-phone span { display: block; font-size: 25px; color: #bdd6ed }
+.jm-phone strong { display: block; margin-top: 12px; font-size: 54px }
+.jm-phone-answer {
+  width: 91px;
+  height: 91px;
+  display: grid;
+  place-items: center;
+  margin: 115px auto 0;
+  border-radius: 50%;
+  background: #27874d;
+  font-size: 48px;
+}
+.jm-alert {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  min-height: 135px;
+  padding: 24px 28px;
+  border-radius: 25px;
+  background: #fff;
+  box-shadow: 7px 13px 30px #35241955;
+  color: #203c53;
+}
+.jm-alert img, .jm-alert svg { width: 66px; height: 66px; flex: none }
+.jm-alert svg { fill: none; stroke: #203c53; stroke-width: 3; stroke-linejoin: round }
+.jm-alert strong, .jm-alert small { display: block }
+.jm-alert strong { font-size: 33px }
+.jm-alert small { margin-top: 6px; font-size: 25px }
+.jm-alert > b { background: #ab402d; border-radius: 50%; min-width: 41px; padding: 4px; color: #fff; text-align: center; font-size: 24px }
+.jm-alert--whatsapp { right: 34px; top: 565px; rotate: -4deg }
+.jm-alert--email { right: 58px; top: 940px; rotate: 5deg }
+.active .jm-phone { animation: jm-ring .15s linear 22 alternate }
+.active .jm-alert--whatsapp { animation: jm-title-in .45s ease-out 1.65s both }
+.active .jm-alert--email { animation: jm-title-in .45s ease-out 3.65s both }
+@keyframes jm-ring {
+  from { transform: translateX(-6px) rotate(-2deg) }
+  to { transform: translateX(6px) rotate(2deg) }
 }
 .jm-options {
   display: flex;

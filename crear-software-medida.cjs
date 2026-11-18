@@ -25,6 +25,7 @@ const campaigns = [
     description: 'Software propio para empresas y autónomos, con mejoras a petición y una cuota mensual.',
     tags: ['Software a medida', 'Mejoras a petición', 'Cuota mensual'],
     scenes: [
+      [6, '', '', [], 'Suena el teléfono. Hay WhatsApps sin contestar, papeles sueltos y correos que se pierden.'],
       [8, 'La aplicación con la que controlas tu negocio<br><em>DEBE evolucionar</em><br>al ritmo de tu negocio.', 'Software a medida para empresas y autónomos.', [['▤', 'Un nuevo servicio'], ['＋', 'Una persona más en el equipo'], ['↻', 'Otra forma de trabajar']], 'La aplicación con la que controlas tu negocio debe evolucionar al ritmo de tu negocio.'],
       [7, 'Introduce los datos<br><em>una sola vez.</em>', 'Comparte los datos entre los pasos del trabajo.', [['✓', 'Cliente guardado'], ['↓', 'Presupuesto preparado'], ['↓', 'Factura con sus datos']], 'Guardas los datos del cliente una vez. Los usas en el presupuesto y la factura, sin volver a escribirlos.'],
       [7, 'Consulta tus trabajos<br><em>en un vistazo.</em>', 'Cada persona sabe qué queda por hacer.', [['◷', 'Pendiente', 'Instalación en calle Mayor'], ['→', 'En curso', 'Revisión del equipo'], ['✓', 'Terminado', 'Mantenimiento mensual']], 'En un solo panel ves qué trabajos faltan, cuáles están en marcha y cuáles ha terminado el equipo.'],
@@ -58,13 +59,37 @@ function sceneMarkup([, heading, caption, rows], index, count) {
   </div>`;
 }
 
+function chaosOpening() {
+  return `<div class="jm-scene jm-chaos">
+    <div class="jm-desk">
+      <div class="jm-paper jm-paper--back"><b>Presupuesto</b><i></i><i></i><i></i></div>
+      <div class="jm-paper jm-paper--front"><b>Datos del cliente</b><i></i><i></i><i></i></div>
+      <div class="jm-sticky">Llamar<br>al cliente</div>
+      <div class="jm-phone">
+        <div class="jm-phone-camera"></div>
+        <span>Llamada entrante</span>
+        <strong>Cliente</strong>
+        <div class="jm-phone-answer" aria-hidden="true">☎</div>
+      </div>
+      <div class="jm-alert jm-alert--whatsapp">
+        ${channelIcons.whatsapp}
+        <div><strong>WhatsApp</strong><small>«¿Me envías el presupuesto?»</small></div><b>3</b>
+      </div>
+      <div class="jm-alert jm-alert--email">
+        ${channelIcons.email}
+        <div><strong>Correo electrónico</strong><small>«Reenvío los datos de facturación»</small></div>
+      </div>
+    </div>
+  </div>`;
+}
+
 function buildCampaign(campaign) {
   const { id, title, scenes, description } = campaign;
   const file = `video-${id}.html`;
   const marks = [0];
   scenes.forEach(([seconds]) => marks.push(marks.at(-1) + seconds));
-  const copy = scenes.map(([, heading]) => heading.replaceAll('<br>', ' ').replace(/<\/?em>/g, ''));
-  const shots = scenes.map((scene, i) => sceneMarkup(scene, i, scenes.length));
+  const copy = scenes.map(([, heading]) => heading ? heading.replaceAll('<br>', ' ').replace(/<\/?em>/g, '') : 'Llamada entrante, papeles y mensajes pendientes');
+  const shots = scenes.map((scene, i) => scene[1] ? sceneMarkup(scene, i, scenes.length) : chaosOpening());
   const post = `${description} Cuéntanos cómo trabajas y qué te gustaría simplificar. #SoftwareAMedida #Autonomos #Pymes #JM2TechStudio`;
   createVideo({
     file, title, copy, shots: shots.slice(0, -1), stylesheet: 'software-medida.css',

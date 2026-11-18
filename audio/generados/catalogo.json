@@ -60,17 +60,18 @@
     "audioRate": 1
   },
   "video-software-que-crece-contigo.html": {
-    "builtinAudio": "audio/generados/software-que-crece-contigo.mp3?v=5d39d11858",
+    "builtinAudio": "audio/generados/software-que-crece-contigo.mp3?v=b3e256e08b",
     "marks": [
       0,
-      8,
-      15,
-      22,
-      30,
-      37,
-      43
+      6,
+      14,
+      21,
+      28,
+      36,
+      43,
+      49
     ],
-    "duration": 43,
+    "duration": 49,
     "audioRate": 1
   }
 }

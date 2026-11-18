@@ -1,25 +1,28 @@
 Tu aplicación debe evolucionar
-Duración del vídeo: 00:43
+Duración del vídeo: 00:49
 
 INDICACIONES DE VOZ
 Idioma: español de España. Voz cercana y profesional, con ritmo conversacional y sin tono de teletienda. No mencionar la marca en la locución: ya aparece en pantalla. No leer los tiempos, números de escena ni instrucciones. Respetar las pausas y ajustar cada bloque a su intervalo. No añadir frases.
 
 GUION POR ESCENAS
 
-ESCENA 1 · 00:00:00.000 → 00:00:08.000 (8.000 s)
+ESCENA 1 · 00:00:00.000 → 00:00:06.000 (6.000 s)
+Suena el teléfono. Hay WhatsApps sin contestar, papeles sueltos y correos que se pierden.
+
+ESCENA 2 · 00:00:06.000 → 00:00:14.000 (8.000 s)
 La aplicación con la que controlas tu negocio debe evolucionar al ritmo de tu negocio.
 
-ESCENA 2 · 00:00:08.000 → 00:00:15.000 (7.000 s)
+ESCENA 3 · 00:00:14.000 → 00:00:21.000 (7.000 s)
 Guardas los datos del cliente una vez. Los usas en el presupuesto y la factura, sin volver a escribirlos.
 
-ESCENA 3 · 00:00:15.000 → 00:00:22.000 (7.000 s)
+ESCENA 4 · 00:00:21.000 → 00:00:28.000 (7.000 s)
 En un solo panel ves qué trabajos faltan, cuáles están en marcha y cuáles ha terminado el equipo.
 
-ESCENA 4 · 00:00:22.000 → 00:00:30.000 (8.000 s)
+ESCENA 5 · 00:00:28.000 → 00:00:36.000 (8.000 s)
 Por ejemplo, si se te pasan los cobros, nos pides un aviso. Lo incorporamos para que puedas hacer el seguimiento desde tu herramienta.
 
-ESCENA 5 · 00:00:30.000 → 00:00:37.000 (7.000 s)
+ESCENA 6 · 00:00:36.000 → 00:00:43.000 (7.000 s)
 Pagas una cuota mensual y nos pides mejoras cuando las necesites. Así la herramienta sigue sirviendo a medida que cambia tu negocio.
 
-ESCENA 6 · 00:00:37.000 → 00:00:43.000 (6.000 s)
+ESCENA 7 · 00:00:43.000 → 00:00:49.000 (6.000 s)
 ¿Qué tarea repites todas las semanas? Cuéntanosla y vemos cómo simplificarla con un software a tu medida.

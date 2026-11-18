@@ -17,6 +17,7 @@ await call('Page.navigate',{url:'http://127.0.0.1:8767/'+target+'?t=0'});await n
 await evaluate(`(async()=>{await document.fonts.ready;document.querySelector('.story-player').style.cssText='width:1080px;height:1920px;position:fixed;inset:0;margin:0;z-index:999';document.querySelector('.story-controls').style.display='none';document.querySelector('.scene-nav').style.display='none';document.querySelector('.story-stage').style.transform='none';document.querySelector('.story-stage').classList.remove('preview');})()`);
 const timing=await evaluate('window.STORY_CONFIG');
 const sceneMotion=await evaluate('Boolean(document.querySelector(".jm-scene"))');
+const chaosOpening=await evaluate('Boolean(document.querySelector(".jm-chaos"))');
 async function seek(time){
  const local=time-timing.marks.slice(0,-1).findLast(mark=>mark<=time);
  const animationTime=sceneMotion?local:time;
@@ -46,7 +47,8 @@ let encoderError;encoder.on('error',e=>encoderError=e);encoder.stdin.on('error',
 let lastCaptureTime,lastFrame;
 for(let frame=0;frame<fps*duration;frame++){
  if(encoderError)throw encoderError;const time=frame/fps;
- const captureTime=sceneMotion?Math.min(time,timing.marks.findLast(mark=>mark<=time)+1.25):time;
+ const sceneStart=timing.marks.findLast(mark=>mark<=time);
+ const captureTime=sceneMotion?Math.min(time,sceneStart+(chaosOpening&&sceneStart===0?4.2:1.25)):time;
  if(captureTime!==lastCaptureTime){
   await seek(captureTime);
   const {data}=await call('Page.captureScreenshot',{format:sceneMotion?'jpeg':'png',...(sceneMotion?{quality:91}:{}),clip:{x:0,y:0,width:1080,height:1920,scale:1}});
