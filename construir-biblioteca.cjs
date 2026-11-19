@@ -9,20 +9,20 @@ episodes.push(...campaigns.map(({id,title,hook,description,tags})=>({file:`video
 const cards=episodes.map((e,i)=>`<article class="video-card"><a class="cover" href="${e.file}" aria-label="Ver ${escape(e.title)}"><strong>${e.hook}</strong><div class="sources">${e.tags.map(t=>`<span>${escape(t)}</span>`).join('')}</div><div class="result"><b>${catalog[e.file]?'Con locución':'Guion preparado'}</b>${catalog[e.file]?'Audio incorporado al vídeo':'Animación lista para añadir la voz'}</div></a><div class="copy"><span class="meta">${String(i+1).padStart(2,'0')} · ${e.category}</span><h2>${escape(e.title)}</h2><p>${escape(e.desc)}</p><div class="actions"><a class="primary" href="${e.file}">Ver vídeo →</a>${e.demo?`<a class="secondary" href="${escape(e.demo)}">Probar web de la boda ↗</a>`:""}${e.demo&&fs.existsSync(e.file.replace(".html",".mp4"))?`<a class="secondary" href="${e.file.replace(".html",".mp4")}" download>Descargar MP4</a>`:""}<a class="secondary" href="guiones/${e.file.replace('.html','')}-locucion.txt" download>Descargar guion</a></div></div></article>`).join('');
 const stories = [
   [
-    "01-software-a-medida",
-    "Software a medida"
+    "01-precios",
+    "Precios"
   ],
   [
-    "02-datos-una-sola-vez",
-    "Los datos, una sola vez"
+    "02-que-podemos-automatizar",
+    "Qu? podemos automatizar"
   ],
   [
-    "03-servicio-y-cuota",
-    "Tu aplicaci?n cambia contigo"
+    "03-integraciones",
+    "Integraciones"
   ],
   [
-    "04-escribeme",
-    "?Qu? tarea te quita m?s tiempo?"
+    "04-software-a-tu-medida",
+    "Software a tu medida"
   ]
 ];
 const storyCards = stories.map(([id, title]) => {
