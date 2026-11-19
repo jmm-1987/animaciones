@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>El banquete de vuestra boda</title>
+<link rel="stylesheet" href="propuesta-web.css">
+<script src="menus-boda.js" defer></script>
+<script src="propuesta-web.js" defer></script>
+</head>
+<body>
+<header><a href="video-presupuesto-dinamico.html">← Ver la comparativa</a><span>Celebraciones · Catering</span></header>
+<main>
+ <section class="hero">
+  <div><h1>El banquete de<br>vuestra boda</h1><p>Elegid el menú y calculad el presupuesto según los invitados.</p></div>
+ </section>
+ <form>
+  <fieldset>
+   <legend>Elegid vuestro menú</legend>
+   <div id="menus"></div>
+  </fieldset>
+  <section class="summary" aria-labelledby="resumen">
+   <h2 id="resumen">Presupuesto estimado</h2>
+   <label class="guest-label" for="invitados">Número de invitados</label>
+   <div class="guest-control">
+    <button type="button" data-change="-10" aria-label="Quitar 10 invitados">−10</button>
+    <input id="invitados" name="invitados" type="number" min="1" max="999" step="1" required>
+    <button type="button" data-change="10" aria-label="Añadir 10 invitados">+10</button>
+   </div>
+   <div class="total"><p id="detalle"></p><output id="total" aria-live="polite"></output></div>
+   <label for="cambio">Alergias o peticiones especiales (opcional)</label>
+   <textarea id="cambio" rows="3"></textarea>
+   <button class="primary" type="submit">Preparar solicitud</button>
+   <p id="respuesta" role="status"></p>
+  </section>
+ </form>
+ <footer><h2>Propuestas originales en PDF</h2><ul id="pdfs"></ul></footer>
+</main>
+</body>
+</html>

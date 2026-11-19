@@ -1,0 +1,17 @@
+const {menus, money, initialGuests} = require('./menus-boda.js');
+
+function shots(){
+ const [first, second] = menus;
+ const finalGuests = initialGuests + 20;
+ const documents = menus.map(menu => `<a class="pd-pdf-link" href="menu-boda-${menu.id}.pdf" target="_blank" rel="noopener"><strong>PDF</strong><span>Menú ${menu.name}</span><small>1 página · ${money(menu.cents)} / persona</small></a>`).join('');
+ const opening = `<div class="nv-scene pd-scene"><span class="mp-kicker">EL BANQUETE DE VUESTRA BODA</span><h1>Tres menús.<br><em>Tres archivos PDF.</em></h1><div class="pd-problem-flow"><div class="pd-viewer"><div class="pd-browser-bar">Propuestas del catering · 3 adjuntos</div><div class="pd-documents">${documents}</div><div class="pd-paper"><small>Presupuesto para ${initialGuests} invitados</small><h2>Menú ${first.name}</h2><p>${first.dishes.join('<br>')}</p><div class="pd-paper-total">Total <strong>${money(first.cents * initialGuests)}</strong></div></div></div><div class="pd-call" data-at=".4"><b>«¿Y si al final somos ${finalGuests} invitados?»</b></div></div></div>`;
+ const link = `<div class="pd-link-card"><div class="pd-link-sender"><span class="pd-avatar">C</span><div><b>El catering</b><small>Os comparte los menús de boda</small></div></div><div class="pd-link-content"><h2>El banquete de vuestra boda</h2><p>Comparad los platos, elegid el menú y ajustad cuántos seréis.</p><a class="pd-open-button" data-at=".28" href="propuesta-web.html" target="_blank" rel="noopener">Abrir la web de menús <b>→</b></a></div></div>`;
+ const setup = `<div class="nv-scene pd-scene"><span class="mp-kicker">LA PROPUESTA DEL CATERING</span><h1>Un enlace.<br><em>Los tres menús.</em></h1>${link}</div>`;
+ const catalog = (selectedMenu, guests) => `<div data-step><div class="pd-products">${menus.map(menu => `<div class="pd-product${menu === selectedMenu ? ' pd-menu-selected' : ''}"><b>${menu === selectedMenu ? '●' : '○'} ${menu.name}</b><small>${money(menu.cents)} / persona</small><span>${menu.dishes[1]}</span></div>`).join('')}</div><div class="pd-web-total">Invitados <b class="pd-guest-count">− ${guests} +</b></div><div class="pd-web-total">Total <b>${money(selectedMenu.cents * guests)}</b></div></div>`;
+ const interactive = `<div class="pd-website"><div class="pd-browser-bar"><span aria-hidden="true">● ● ●</span><span class="pd-address">↗ propuesta-web.html</span></div><div class="pd-web-hero pd-wedding-hero"><h2>El banquete de vuestra boda</h2></div><div class="pd-web-body"><h3>Elegid vuestro menú</h3>${catalog(first, initialGuests)}${catalog(second, initialGuests)}${catalog(second, finalGuests)}</div></div>`;
+ const demo = `<div class="nv-scene pd-scene"><h1>Elegís el menú.<br><em>Ajustáis los invitados.</em></h1>${interactive}<p class="nv-example">El presupuesto se recalcula al instante.</p></div>`;
+ const result = `<div class="nv-scene pd-scene"><h1>Vuestra elección,<br><em>lista para confirmar.</em></h1><div class="pd-response-card"><div class="pd-response-heading"><span>✓</span><div><b>Solicitud preparada</b><small>Banquete de boda</small></div></div><div class="pd-response-message"><b>Menú ${second.name} · ${finalGuests} invitados</b><p>${money(second.cents * finalGuests)} de presupuesto estimado</p></div><div class="pd-response-benefit"><div><b>Peticiones especiales</b><span>«Tenemos dos invitados con alergia a los frutos secos.»</span></div></div></div></div>`;
+ return [opening, setup, demo, result];
+}
+
+module.exports = {shots};

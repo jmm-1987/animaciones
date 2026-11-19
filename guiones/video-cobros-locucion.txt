@@ -1,9 +1,9 @@
-Has facturado. ¿Pero has cobrado?
+¿Qué facturas tienes pendientes de cobro?
 
-Lo pendiente, lo vencido y los pagos confirmados.
+Pulsas «Obtener pendientes de cobro».
 
-Creamos una herramienta con tus facturas, importes y vencimientos a la vista.
+Ves cada factura con su importe y vencimiento, además del total pendiente.
 
-Preparas los avisos y registras el cobro cuando compruebas el pago.
+Distingues las vencidas de las que todavía están dentro del plazo.
 
-Herramientas a medida. Tus cobros, más claros.
+Creamos software a medida para tu negocio.

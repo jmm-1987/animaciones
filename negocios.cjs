@@ -75,41 +75,69 @@ module.exports=[
     "tiktok": "Visita hecha. Cliente esperando. Presupuesto por preparar.\n\nReunimos catálogo, instalación y tarifas en una herramienta para tu empresa de climatización. Preparas la propuesta, revisas y envías.\n\n#Climatizacion #Presupuestos #JM2TechStudio"
   },
   {
+    "id": "presupuesto-dinamico",
+    "kind": "presupuesto-dinamico",
+    "sector": "PRESUPUESTOS PARA TUS CLIENTES",
+    "title": "Menús de boda en PDF o en una web",
+    "tags": ["3 PDF", "Menús de boda", "Invitados"],
+    "demo": "propuesta-web.html",
+    "hook": "Tres menús.<br><em>Tres archivos PDF.</em>",
+    "problem": "El catering envía tres propuestas para 100 invitados. ¿Y si al final sois 120?",
+    "setupTitle": "Un enlace.<br>Los tres menús.",
+    "demoTitle": "Elegís el menú.<br><em>Ajustáis los invitados.</em>",
+    "resultTitle": "Vuestra elección,<br><em>lista para confirmar.</em>",
+    "closing": "¿Te vendría bien?<br><em>Lo creamos a tu medida.</em>",
+    "closingNote": "",
+    "timing": {
+      "duration": 24,
+      "marks": [0, 3, 7, 15, 20, 24]
+    },
+    "narration": [
+      "Tres menús de boda, tres archivos PDF.",
+      "El catering también puede compartirlos en una sola web.",
+      "Comparáis los platos, elegís el menú, cambiáis el número de invitados y veis el nuevo total al instante.",
+      "La elección y las peticiones especiales quedan en el mismo resumen.",
+      "¿Te vendría bien? Lo creamos a tu medida."
+    ],
+    "instagram": "El catering os envía tres menús de boda en PDF. Todos están calculados para 100 invitados. ¿Y si al final sois 120?\n\nEn una sola web podéis comparar los platos, elegir el menú y ver el nuevo total al ajustar el número de invitados.\n\nEjemplo de una herramienta a medida para catering y celebraciones.\n\n#JM2TechStudio #SoftwareAMedida #Catering #Bodas",
+    "tiktok": "Tres menús de boda en PDF o los tres en una web. Elegís el menú, ajustáis los invitados y el presupuesto se recalcula al instante.\n\n#SoftwareAMedida #Catering #Bodas #JM2TechStudio"
+  },
+  {
     "id": "cobros",
     "kind": "oficina",
     "sector": "EL AUTÓNOMO EN SU OFICINA",
-    "title": "¿Qué queda por cobrar?",
-    "hook": "Has facturado.<br><em>¿Has cobrado?</em>",
-    "problem": "Las facturas están enviadas. Saber qué sigue pendiente es otra tarea.",
-    "setupTitle": "No todo está<br>en el mismo estado.",
+    "title": "Pendientes de cobro, a un clic",
+    "hook": "¿Qué te queda<br><em>por cobrar?</em>",
+    "problem": "Consulta las facturas pendientes con sus importes y fechas de vencimiento.",
+    "setupTitle": "Pulsas el botón.<br>Y cargas la lista.",
     "inputs": [
       [
-        "Pendiente",
-        "Lo que todavía queda por cobrar."
+        "Obtener pendientes de cobro",
+        "Una consulta para ver las facturas que siguen pendientes."
+      ],
+      [
+        "Importe",
+        "El total de cada factura en el listado."
       ],
       [
         "Vencimiento",
-        "Cuándo se esperaba el pago."
-      ],
-      [
-        "Cobro confirmado",
-        "Lo que ya has comprobado y registrado."
+        "La fecha para identificar qué ya ha vencido y qué viene después."
       ]
     ],
-    "setupFoot": "Enviar una factura y confirmar un pago son pasos distintos.",
-    "demoTitle": "Lo pendiente,<br><em>a la vista.</em>",
-    "resultTitle": "Sabes a quién avisar.<br><em>Y qué comprobar.</em>",
-    "benefit": "Un aviso no confirma un pago: registras el cobro después de comprobarlo.",
-    "closing": "Menos dudas.<br><em>Más claridad.</em>",
+    "setupFoot": "Importes y vencimientos reunidos en una sola consulta.",
+    "demoTitle": "Tus pendientes,<br><em>en un listado.</em>",
+    "resultTitle": "Importes y fechas.<br><em>De un vistazo.</em>",
+    "benefit": "Distingues lo vencido de los próximos vencimientos y ves el total pendiente.",
+    "closing": "¿Quieres algo así?<br><em>Lo creamos a tu medida.</em>",
     "narration": [
-      "Has facturado. ¿Pero has cobrado?",
-      "Lo pendiente, lo vencido y los pagos confirmados.",
-      "Creamos una herramienta con tus facturas, importes y vencimientos a la vista.",
-      "Preparas los avisos y registras el cobro cuando compruebas el pago.",
-      "Herramientas a medida. Tus cobros, más claros."
+      "¿Qué facturas tienes pendientes de cobro?",
+      "Pulsas «Obtener pendientes de cobro».",
+      "Ves cada factura con su importe y vencimiento, además del total pendiente.",
+      "Distingues las vencidas de las que todavía están dentro del plazo.",
+      "Creamos software a medida para tu negocio."
     ],
-    "instagram": "Enviar la factura es un paso. Saber qué queda por cobrar es otro.\n\nEn la oficina, esa revisión puede acabar repartida entre correos, notas y fechas.\n\nEn JM2 creamos un control de cobros con facturas, importes y vencimientos a la vista. Puedes preparar recordatorios y registrar los pagos que hayas comprobado.\n\nSin confundir un aviso enviado con un cobro confirmado.\n\n#JM2TechStudio #Autonomos #ControlDeCobros #GestionDeNegocios #HerramientasAMedida",
-    "tiktok": "Has enviado las facturas. ¿Sabes cuáles siguen pendientes?\n\nImportes, vencimientos y cobros confirmados en una vista. Creamos herramientas para que el seguimiento no dependa de notas sueltas.\n\n#Autonomos #ControlDeCobros #JM2TechStudio"
+    "instagram": "¿Tienes que buscar factura por factura para saber qué falta por cobrar?\n\nEn este ejemplo, pulsas «Obtener pendientes de cobro» y aparece un listado con cada importe, su fecha de vencimiento y el total pendiente. Así distingues lo vencido de lo que aún está dentro de plazo.\n\nLos nombres, importes y fechas son ilustrativos. En JM2 creamos software a medida para adaptarlo a la forma de trabajar de cada negocio.\n\n¿Te vendría bien una herramienta así? Cuéntanos cómo gestionas tus cobros.\n\n#JM2TechStudio #SoftwareAMedida #Autonomos #ControlDeCobros #GestionDeNegocios",
+    "tiktok": "Pulsas «Obtener pendientes de cobro» y ves cada factura, su importe y su vencimiento. También aparece el total pendiente.\n\nEs un ejemplo. Creamos software a medida para la forma de trabajar de tu negocio. ¿Qué necesitas simplificar?\n\n#SoftwareAMedida #ControlDeCobros #JM2TechStudio"
   },
   {
     "id": "taller-movil",

@@ -1,9 +1,9 @@
-Enviar la factura es un paso. Saber qué queda por cobrar es otro.
+¿Tienes que buscar factura por factura para saber qué falta por cobrar?
 
-En la oficina, esa revisión puede acabar repartida entre correos, notas y fechas.
+En este ejemplo, pulsas «Obtener pendientes de cobro» y aparece un listado con cada importe, su fecha de vencimiento y el total pendiente. Así distingues lo vencido de lo que aún está dentro de plazo.
 
-En JM2 creamos un control de cobros con facturas, importes y vencimientos a la vista. Puedes preparar recordatorios y registrar los pagos que hayas comprobado.
+Los nombres, importes y fechas son ilustrativos. En JM2 creamos software a medida para adaptarlo a la forma de trabajar de cada negocio.
 
-Sin confundir un aviso enviado con un cobro confirmado.
+¿Te vendría bien una herramienta así? Cuéntanos cómo gestionas tus cobros.
 
-#JM2TechStudio #Autonomos #ControlDeCobros #GestionDeNegocios #HerramientasAMedida
+#JM2TechStudio #SoftwareAMedida #Autonomos #ControlDeCobros #GestionDeNegocios

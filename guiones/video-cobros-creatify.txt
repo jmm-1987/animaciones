@@ -1,4 +1,4 @@
-¿Qué queda por cobrar?
+Pendientes de cobro, a un clic
 Duración del vídeo: 00:24
 
 INDICACIONES DE VOZ
@@ -7,16 +7,16 @@ Idioma: español de España. Voz cercana y profesional, con ritmo conversacional
 GUION POR ESCENAS
 
 ESCENA 1 · 00:00:00.000 → 00:00:03.000 (3.000 s)
-Has facturado. ¿Pero has cobrado?
+¿Qué facturas tienes pendientes de cobro?
 
 ESCENA 2 · 00:00:03.000 → 00:00:07.000 (4.000 s)
-Lo pendiente, lo vencido y los pagos confirmados.
+Pulsas «Obtener pendientes de cobro».
 
 ESCENA 3 · 00:00:07.000 → 00:00:15.000 (8.000 s)
-Creamos una herramienta con tus facturas, importes y vencimientos a la vista.
+Ves cada factura con su importe y vencimiento, además del total pendiente.
 
 ESCENA 4 · 00:00:15.000 → 00:00:21.000 (6.000 s)
-Preparas los avisos y registras el cobro cuando compruebas el pago.
+Distingues las vencidas de las que todavía están dentro del plazo.
 
 ESCENA 5 · 00:00:21.000 → 00:00:24.000 (3.000 s)
-Herramientas a medida. Tus cobros, más claros.
+Creamos software a medida para tu negocio.

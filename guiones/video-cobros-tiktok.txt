@@ -1,5 +1,5 @@
-Has enviado las facturas. ¿Sabes cuáles siguen pendientes?
+Pulsas «Obtener pendientes de cobro» y ves cada factura, su importe y su vencimiento. También aparece el total pendiente.
 
-Importes, vencimientos y cobros confirmados en una vista. Creamos herramientas para que el seguimiento no dependa de notas sueltas.
+Es un ejemplo. Creamos software a medida para la forma de trabajar de tu negocio. ¿Qué necesitas simplificar?
 
-#Autonomos #ControlDeCobros #JM2TechStudio
+#SoftwareAMedida #ControlDeCobros #JM2TechStudio

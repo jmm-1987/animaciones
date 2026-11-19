@@ -11,6 +11,7 @@ const row=(label,value,i=0)=>`<div class="nv-row" data-at="${.06+i*.08}"><span>$
 function phone(title,body,footer=''){return `<div class="nv-phone"><div class="nv-phone-notch"></div><div class="nv-phone-top"><img src="brand_logo.png" alt=""><span>${title}</span></div><div class="nv-phone-body">${body}</div>${footer?`<div class="nv-phone-action">${footer}<span>→</span></div>`:''}<div class="nv-phone-bar"></div></div>`;}
 function frame(title,body){return `<div class="nv-window"><header><span>● ● ●</span><b>${title}</b></header>${body}</div>`;}
 function shots(e){
+ if(e.kind==='presupuesto-dinamico')return require('./presupuesto-dinamico.cjs').shots(e);
  if(e.kind==='oficina')return require('./cobros-recorrido.cjs').shots(e);
  const hero=`<div class="nv-scene nv-hero"><span class="mp-kicker">${e.sector}</span><h1>${e.hook}</h1>${art(e.kind)}<p class="nv-subtitle">${e.problem}</p></div>`;
  let setup=`<div class="nv-scene"><span class="mp-kicker">LO QUE YA TIENES</span><h1>${e.setupTitle}</h1><div class="nv-inputs">${e.inputs.map((v,i)=>`<div data-at="${i*.1}"><span>0${i+1}</span><strong>${v[0]}</strong><p>${v[1]}</p></div>`).join('')}</div><p class="nv-subtitle">${e.setupFoot}</p></div>`;

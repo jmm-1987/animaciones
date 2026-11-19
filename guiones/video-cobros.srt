@@ -1,19 +1,19 @@
 1
 00:00:00,000 --> 00:00:03,000
-Has facturado. ¿Pero has cobrado?
+¿Qué facturas tienes pendientes de cobro?
 
 2
 00:00:03,000 --> 00:00:07,000
-Lo pendiente, lo vencido y los pagos confirmados.
+Pulsas «Obtener pendientes de cobro».
 
 3
 00:00:07,000 --> 00:00:15,000
-Creamos una herramienta con tus facturas, importes y vencimientos a la vista.
+Ves cada factura con su importe y vencimiento, además del total pendiente.
 
 4
 00:00:15,000 --> 00:00:21,000
-Preparas los avisos y registras el cobro cuando compruebas el pago.
+Distingues las vencidas de las que todavía están dentro del plazo.
 
 5
 00:00:21,000 --> 00:00:24,000
-Herramientas a medida. Tus cobros, más claros.
+Creamos software a medida para tu negocio.

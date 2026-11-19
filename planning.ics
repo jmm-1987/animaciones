@@ -59,7 +59,7 @@ UID:jm2-20261130-0@local
 DTSTAMP:20261116T000000Z
 DTSTART;VALUE=DATE:20261130
 DTEND;VALUE=DATE:20261201
-SUMMARY:JM2 - Vídeo - ¿Qué queda por cobrar?
+SUMMARY:JM2 - Vídeo - Pendientes de cobro\, a un clic
 DESCRIPTION:Propuesta de publicacion manual. Abrir video-cobros.html.
 END:VEVENT
 BEGIN:VEVENT

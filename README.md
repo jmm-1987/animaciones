@@ -42,16 +42,17 @@ Tras cambiar contenido, ejecuta `node crear-planning.cjs`, vuelve a exportar las
 
 - `video-fontanero.html`: preparar, revisar, emitir y enviar la factura después de una reparación.
 - `video-climatizacion.html`: presupuestos con equipo, instalación y tarifas.
-- `video-cobros.html`: pendientes, vencimientos y cobros confirmados, con el autónomo en su oficina.
+- `video-presupuesto-dinamico.html`: compara tres menús de boda en PDF con una [web interactiva](propuesta-web.html) para elegir el menú, ajustar los invitados y recalcular el presupuesto.
+- `video-cobros.html`: muestra cómo consultar las facturas pendientes de cobro y ver sus importes, vencimientos y total en un listado.
 - `video-taller-movil.html`: facturar mano de obra y recambios desde el móvil.
 
-`negocios.cjs` contiene sus mensajes, guiones y textos de publicación; `escenas-negocios.cjs`, sus ilustraciones y demostraciones; `serie-negocios.css`, sus composiciones. Todas reutilizan la plantilla y la dirección visual aprobadas.
+`negocios.cjs` contiene sus mensajes, guiones y textos de publicación; `escenas-negocios.cjs`, sus ilustraciones y demostraciones; `presupuesto-dinamico.cjs`, el recorrido de la propuesta interactiva; `serie-negocios.css`, sus composiciones. Todas reutilizan la plantilla y la dirección visual aprobadas.
 
 ```powershell
 node crear-negocios.cjs
 ```
 
-Este comando reconstruye las cuatro piezas, sus guiones y la biblioteca. `node construir-biblioteca.cjs` reconstruye solo el índice. El estado de voz de cada tarjeta se obtiene del catálogo de audio. Las nuevas piezas duran 24 segundos de referencia, con guiones breves y apariciones rápidas. Al incorporar la voz se ajustan sus marcas, manteniendo una pronunciación natural.
+Este comando reconstruye las cinco piezas, sus guiones y la biblioteca. `node construir-biblioteca.cjs` reconstruye solo el índice. El estado de voz de cada tarjeta se obtiene del catálogo de audio. Las piezas duran 24 segundos de referencia, con guiones breves y apariciones rápidas. Al incorporar la voz se ajustan sus marcas, manteniendo una pronunciación natural.
 
 ## Trabajar en el vídeo
 
@@ -74,7 +75,7 @@ La página conserva la sincronización guardada. Si cambia la voz, hay que volve
 
 ## Criterio para los siguientes vídeos
 
-Una situación concreta del cliente, la herramienta que creamos y el cambio que aporta. Mostrar el proceso con ejemplos visuales; textos breves; blanco como base; robot secundario; cierre y logotipo centrados. Sin cifras de ahorro inventadas ni clientes ficticios presentados como reales.
+El objetivo de cada vídeo es atraer a futuros clientes de software a medida: partir de una situación concreta como gancho, mostrar cómo una herramienta adaptada podría resolverla e invitar a contar su caso. Mostrar el proceso con ejemplos visuales; textos breves; blanco como base; robot secundario; cierre y logotipo centrados. Sin cifras de ahorro inventadas ni clientes ficticios presentados como reales.
 
 Para añadir otra pieza, reutilizar `createVideo(story, ending)` de `plantilla-video.cjs`, con su propio archivo, audio, marcas y escenas. Cada pieza debe incluir `story.publications.instagram` y `story.publications.tiktok`: textos específicos para publicar junto al vídeo, con sus hashtags. La plantilla exige ambos, los muestra en «Texto para publicar» con botones de copia y guarda los TXT en `guiones/`. Añadir su tarjeta al índice cuando esté lista. No se generan versiones alternativas ni series provisionales.
 
