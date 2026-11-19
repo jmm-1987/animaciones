@@ -223,3 +223,321 @@ body[data-serie=marca-piloto] .story-player[aria-label="Tu aplicación debe evol
 @media (prefers-reduced-motion: reduce) {
   .active .jm-scene * { animation: none }
 }
+
+/* Devices for the software demo, sized within the 1080 × 1920 stage. */
+.jm-app-scene .jm-mark { display: none }
+.jm-app-scene h1 { margin: 24px 0 22px }
+.jm-devices {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  letter-spacing: 0;
+}
+.jm-monitor {
+  position: absolute;
+  inset: 40px 0 auto;
+  height: 564px;
+  padding: 17px 17px 29px;
+  border: 2px solid #596675;
+  border-radius: 30px;
+  background: linear-gradient(155deg, #45515e, #111821 14%, #171e25 76%, #36434e);
+  box-shadow: 0 24px 54px #1b334b42, inset 0 0 0 2px #aabbcc38;
+}
+.jm-monitor::before, .jm-monitor::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  background: linear-gradient(155deg, #596775, #abb8c2 66%, #7d8b98);
+}
+.jm-monitor::before {
+  top: 100%;
+  left: 33%;
+  width: 15%;
+  height: 120px;
+  clip-path: polygon(14% 0, 86% 0, 100% 100%, 0 100%);
+}
+.jm-monitor::after {
+  top: calc(100% + 110px);
+  left: 21%;
+  width: 39%;
+  height: 25px;
+  border-radius: 50% 50% 22% 22%;
+  box-shadow: 0 14px 23px #24354f42;
+}
+.jm-desktop-screen, .jm-mobile-screen {
+  height: 100%;
+  overflow: hidden;
+  background: #f4f7fb;
+  color: #172c47;
+}
+.jm-desktop-screen { border-radius: 12px }
+.jm-app-bar, .jm-mobile-bar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 16px 24px;
+  background: #18324e;
+  color: #e3eef8;
+  font-size: 23px;
+}
+.jm-app-bar b, .jm-mobile-bar b { color: #fff; font-size: 26px }
+.jm-app-bar i {
+  margin-left: auto;
+  border-radius: 50%;
+  padding: 9px;
+  color: #153354;
+  background: #d9e9fc;
+  font: 750 18px/1 'Segoe UI', sans-serif;
+}
+.jm-app-body { display: grid; grid-template-columns: 200px 1fr; height: calc(100% - 68px) }
+.jm-app-body aside { background: #e9f0f8; padding: 25px 13px; font-size: 22px; font-weight: 650 }
+.jm-app-body aside span { display: block; border-radius: 8px; padding: 11px 8px }
+.jm-app-body aside .current { color: #134879; background: #cedff3 }
+.jm-app-main { padding: 22px 26px }
+.jm-app-main h2 { margin: 0 0 16px; font-size: 36px }
+.jm-app-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 16px;
+  margin-bottom: 9px;
+  border: 1px solid #dce4ed;
+  border-radius: 10px;
+  background: #fff;
+  font-size: 24px;
+}
+.jm-app-row small, .jm-mobile-content small { display: block; color: #4c617a; font-size: 20px }
+.jm-app-row > span {
+  flex: none;
+  padding: 7px 12px;
+  border-radius: 20px;
+  color: #1a5366;
+  background: #def1ed;
+  font-size: 19px;
+  font-weight: 700;
+}
+.jm-handset {
+  position: absolute;
+  top: 506px;
+  right: 33px;
+  width: 308px;
+  height: 480px;
+  padding: 10px;
+  border: 3px solid #64717d;
+  border-radius: 47px;
+  background: #0f1721;
+  box-shadow: inset 0 0 0 2px #c0cad34d, 12px 23px 32px #20354e56;
+  transform: rotate(5deg);
+}
+.jm-handset::after {
+  content: '';
+  position: absolute;
+  right: -7px;
+  top: 115px;
+  width: 5px;
+  height: 59px;
+  border-radius: 0 3px 3px 0;
+  background: #64717d;
+}
+.jm-mobile-screen { position: relative; border-radius: 34px }
+.jm-mobile-status {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding: 13px 24px 10px;
+  font-size: 18px;
+  font-weight: 700;
+}
+.jm-mobile-status::after {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  width: 77px;
+  height: 20px;
+  border-radius: 18px;
+  background: radial-gradient(circle at 85% 50%, #3a506b 0 3px, transparent 4px), #151c24;
+  transform: translateX(-50%);
+}
+.jm-mobile-bar { padding: 11px 17px; font-size: 21px }
+.jm-mobile-content { padding: 23px 17px }
+.jm-mobile-content h2 { margin: 0 0 15px; font-size: 27px }
+.jm-mobile-content > div {
+  padding: 15px;
+  border: 1px solid #dce4ed;
+  border-left: 5px solid #3c789f;
+  border-radius: 11px;
+  background: white;
+  font-size: 25px;
+  line-height: 1.2;
+}
+.jm-mobile-content small { margin-top: 8px }
+.jm-mobile-nav {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 16px 6px 29px;
+  border-top: 1px solid #dce4ed;
+  background: white;
+  text-align: center;
+  font-size: 18px;
+  word-spacing: 6px;
+}
+.jm-mobile-nav::after {
+  content: '';
+  position: absolute;
+  bottom: 9px;
+  left: 32%;
+  width: 36%;
+  height: 5px;
+  border-radius: 8px;
+  background: #17202a;
+}
+.active .jm-monitor { animation: jm-title-in .55s ease-out .08s both }
+.active .jm-handset { animation: jm-device-in .65s ease-out .32s both }
+@keyframes jm-device-in {
+  from { opacity: 0; transform: translateY(45px) rotate(8deg) }
+  to { opacity: 1; transform: rotate(5deg) }
+}
+@media (prefers-reduced-motion: reduce) {
+  .active .jm-monitor, .active .jm-handset { animation: none }
+}
+
+.jm-devices--billing .jm-monitor {
+  top: 135px;
+  height: 670px;
+  transform: perspective(1800px) rotateY(-9deg) rotate(-3deg);
+  animation-name: jm-billing-in;
+}
+.jm-devices--billing .jm-app-body { grid-template-columns: 155px 1fr }
+.jm-devices--billing .jm-app-main { padding: 30px }
+.jm-devices--billing .jm-app-row {
+  padding: 21px 16px;
+  margin-bottom: 14px;
+  font-size: 29px;
+}
+.jm-devices--billing .jm-app-row:last-child { border: 2px solid #468bb0; background: #e9f7ff }
+@keyframes jm-billing-in {
+  from { opacity: 0; transform: perspective(1800px) rotateY(-15deg) rotate(-5deg) translateY(50px) }
+  to { opacity: 1; transform: perspective(1800px) rotateY(-9deg) rotate(-3deg) }
+}
+
+.jm-devices--field .jm-handset {
+  top: 34px;
+  left: 50%;
+  right: auto;
+  width: 535px;
+  height: 930px;
+  padding: 14px;
+  border-radius: 68px;
+}
+.jm-devices--field .jm-handset { transform: translateX(-50%); animation-name: jm-field-in }
+.jm-devices--field .jm-mobile-screen { border-radius: 49px }
+.jm-devices--field .jm-mobile-status { font-size: 24px; padding: 22px 35px }
+.jm-devices--field .jm-mobile-status::after {
+  top: 18px;
+  width: 112px;
+  height: 28px;
+}
+.jm-devices--field .jm-mobile-bar { padding: 22px 25px; font-size: 29px }
+.jm-devices--field .jm-mobile-content { padding: 26px }
+.jm-devices--field .jm-mobile-content h2 { font-size: 38px }
+.jm-mobile-content article {
+  position: relative;
+  margin-top: 13px;
+  padding: 15px 16px;
+  border: 1px solid #dce4ed;
+  border-radius: 12px;
+  background: white;
+  font-size: 24px;
+}
+.jm-mobile-content article span { display: inline-block; margin-top: 6px; color: #216174; font-size: 19px; font-weight: 700 }
+.jm-devices--field .jm-mobile-nav { font-size: 24px }
+@keyframes jm-field-in {
+  from { opacity: 0; transform: translate(-50%, 60px) }
+  to { opacity: 1; transform: translateX(-50%) }
+}
+
+.jm-devices--overview .jm-monitor { top: 85px; height: 615px }
+.jm-devices--overview .jm-app-row { margin-bottom: 14px; padding-block: 18px }
+.jm-devices--alert .jm-monitor { top: 115px; height: 714px }
+.jm-devices--alert .jm-desktop-screen { position: relative }
+.jm-app-notification {
+  position: absolute;
+  right: 28px;
+  bottom: 24px;
+  max-width: calc(100% - 56px);
+  padding: 18px 24px;
+  border: 2px solid #e6bd72;
+  border-left: 9px solid #ad652d;
+  border-radius: 13px;
+  background: #fff4da;
+  box-shadow: 0 12px 24px #1b334b33;
+  font-size: 27px;
+}
+.jm-app-notification span { display: block; margin-top: 7px; color: #663c21; font-size: 23px }
+@keyframes jm-notification-in {
+  from { opacity: 0; transform: translateX(72px) }
+  to { opacity: 1; transform: translateX(0) }
+}
+
+.jm-devices--laptop .jm-monitor { inset: 180px 35px auto; height: 600px; border-radius: 30px 30px 8px 8px }
+.jm-devices--laptop .jm-monitor::before {
+  left: -36px;
+  width: calc(100% + 72px);
+  height: 75px;
+  clip-path: polygon(4% 0, 96% 0, 100% 65%, 97% 100%, 3% 100%, 0 65%);
+}
+.jm-devices--laptop .jm-monitor::after {
+  z-index: 0;
+  top: calc(100% + 8px);
+  left: 39%;
+  width: 22%;
+  height: 15px;
+  box-shadow: none;
+  border-radius: 0 0 11px 11px;
+  background: #697887;
+}
+.jm-devices--laptop .jm-app-main { padding-top: 35px }
+.jm-devices--laptop .jm-app-row { margin-bottom: 15px; padding-block: 18px }
+.jm-devices--laptop .jm-app-row:nth-of-type(2) { background: #e6f5ed; border-color: #8fbda7 }
+
+.jm-workflow {
+  position: absolute;
+  inset: 80px 0 45px;
+  display: grid;
+  align-content: center;
+  justify-items: start;
+  gap: 27px;
+  padding: 52px;
+  border-radius: 40px;
+  background: radial-gradient(ellipse at 69% 22%, #ffebba, #dcebf7 78%);
+}
+.jm-workflow article {
+  width: 73%;
+  min-height: 180px;
+  padding: 24px 40px;
+  border: 1px solid #c6d3dd;
+  border-left: 10px solid #52818d;
+  border-radius: 10px;
+  background: #fffdfa;
+  box-shadow: 0 17px 27px #27486025;
+}
+.jm-workflow article:nth-child(2) { margin-left: 12%; border-left-color: #5a7aaa }
+.jm-workflow article:nth-child(3) { margin-left: 24%; border-left-color: #ba763e }
+.jm-workflow h2 { margin: 0; font-size: 35px }
+.jm-workflow p { margin: 8px 0; font-size: 28px }
+.jm-workflow small { color: #365872; font-size: 23px; font-weight: 700 }
+
+.active .jm-app-row, .active .jm-mobile-content article, .active .jm-workflow article {
+  animation: jm-title-in .36s ease-out .45s both;
+}
+.active .jm-app-row:nth-of-type(2), .active .jm-mobile-content article:nth-of-type(2),
+.active .jm-workflow article:nth-child(2) { animation-delay: .62s }
+.active .jm-app-row:nth-of-type(3), .active .jm-mobile-content article:nth-of-type(3),
+.active .jm-workflow article:nth-child(3) { animation-delay: .79s }
+.active .jm-app-notification { animation: jm-notification-in .36s ease-out .85s both }
+@media (prefers-reduced-motion: reduce) {
+  .active .jm-devices * { animation: none }
+}
