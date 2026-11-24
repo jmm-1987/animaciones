@@ -55,6 +55,7 @@ const play = document.getElementById('play');
 const motion = matchMedia('(prefers-reduced-motion: reduce)');
 const duration = 24000;
 const sceneLength = duration / scenes.length;
+
 let elapsed = 0;
 let last = performance.now();
 let playing = true;
@@ -66,18 +67,23 @@ function show(index) {
   current = index;
   const scene = scenes[current];
   scene.hidden = false;
+
   if (motion.matches) return;
-  animations = [...scene.querySelectorAll('h1, svg, li, .scene > p, .paper, .demo-app')].map((item, order) =>
+  animations = [...scene.querySelectorAll('h1, svg, li, .scene > p, .spreadsheet, .demo-app')].map((item, order) =>
     item.animate([{opacity: 0, translate: '0 16px'}, {opacity: 1, translate: '0 0'}],
       {duration: 380, delay: order * 220, easing: 'ease-out', fill: 'both'}));
+}
+
+function draw() {
+    const index = Math.min(scenes.length - 1, Math.floor(elapsed / sceneLength));
+    if (index !== current) show(index);
+
 }
 
 function tick(now) {
   if (playing) {
     elapsed = Math.min(duration, elapsed + now - last);
-    const index = Math.min(scenes.length - 1, Math.floor(elapsed / sceneLength));
-    if (index !== current) show(index);
-
+    draw();
     if (elapsed === duration) {
       playing = false;
       play.textContent = 'Reproducir';

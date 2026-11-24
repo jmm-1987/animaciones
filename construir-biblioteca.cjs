@@ -2,11 +2,36 @@ const fs=require('fs');
 const escape=s=>s.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
 const catalog=JSON.parse(fs.readFileSync('audio/generados/catalogo.json','utf8'));
 const campaigns=require('./crear-software-medida.cjs');
+const videoDates = {
+  'citas.html': '2026-11-24',
+  'jm2_tiktok_aplicacion_standalone.html': '2026-11-24',
+  'jm2_tiktok_deca_standalone.html': '2026-11-24',
+  'jm2_tiktok_video1_standalone.html': '2026-11-24',
+  'piloto-marca.html': '2026-11-16',
+  'video-bocateria.html': '2026-11-14',
+  'video-citas-por-whatsapp.html': '2026-11-24',
+  'video-climatizacion.html': '2026-11-16',
+  'video-cobros.html': '2026-11-14',
+  'video-factura-automatica.html': '2026-11-24',
+  'video-facturacion-a-tu-manera.html': '2026-11-18',
+  'video-facturacion-oficios.html': '2026-11-17',
+  'video-facturas-a-su-manera.html': '2026-11-24',
+  'video-fontanero.html': '2026-11-16',
+  'video-presupuesto-dinamico.html': '2026-11-19',
+  'video-software-que-crece-contigo.html': '2026-11-18',
+  'video-taller-movil.html': '2026-11-16'
+};
+function renderVideoDate(file) {
+  const date = videoDates[file];
+  if (!date) return '';
+  const [year, month, day] = date.split('-');
+  return `<p class="video-date">Fecha de creación <time datetime="${date}">${day}/${month}/${year}</time></p>`;
+}
 const episodes=[{file:'piloto-marca.html',title:'Las facturas, en su sitio.',hook:'Tu negocio no es<br><em>copiar datos.</em>',desc:'Por email, archivo o foto: las facturas llegan a una herramienta que prepara los datos para tu revisión.',tags:['Email','Archivo','Foto'],category:'FACTURAS'},...require('./negocios.cjs').map(e=>({file:`video-${e.id}.html`,title:e.title,hook:e.hook,desc:e.problem,tags:e.tags??e.inputs.map(v=>v[0]),demo:e.demo,category:e.sector}))];
 episodes.push({file:'video-bocateria.html',title:'Tu bocatería. Pedidos por WhatsApp.',hook:'Tu carta.<br><em>Pedidos por WhatsApp.</em>',desc:'Demostración de la carta, el pedido y el mensaje. 50 € de desarrollo inicial y 10 €/mes.',tags:['Carta online','WhatsApp','50 € + 10 €/mes'],category:'BOCATERÍAS'});
 episodes.push({file:'video-facturacion-oficios.html',title:'Tu oficio. Tu facturación a medida.',hook:'El trabajo, hecho.<br><em>¿La factura?</em>',desc:'Fontaneros, electricistas, instaladores y pintores: clientes, trabajos, materiales y facturas adaptados a tu actividad.',tags:['Clientes','Facturas','Presupuestos'],category:'FACTURACIÓN A MEDIDA'});
 episodes.push(...campaigns.map(({id,title,hook,description,tags})=>({file:`video-${id}.html`,title,hook,desc:description,tags,category:'SOFTWARE A MEDIDA'})));
-const cards=episodes.map((e,i)=>`<article class="video-card"><a class="cover" href="${e.file}" aria-label="Ver ${escape(e.title)}"><strong>${e.hook}</strong><div class="sources">${e.tags.map(t=>`<span>${escape(t)}</span>`).join('')}</div><div class="result"><b>${catalog[e.file]?'Con locución':'Guion preparado'}</b>${catalog[e.file]?'Audio incorporado al vídeo':'Animación lista para añadir la voz'}</div></a><div class="copy"><span class="meta">${String(i+1).padStart(2,'0')} · ${e.category}</span><h2>${escape(e.title)}</h2><p>${escape(e.desc)}</p><div class="actions"><a class="primary" href="${e.file}">Ver vídeo →</a>${e.demo?`<a class="secondary" href="${escape(e.demo)}">Probar web de la boda ↗</a>`:""}${e.demo&&fs.existsSync(e.file.replace(".html",".mp4"))?`<a class="secondary" href="${e.file.replace(".html",".mp4")}" download>Descargar MP4</a>`:""}<a class="secondary" href="guiones/${e.file.replace('.html','')}-locucion.txt" download>Descargar guion</a></div></div></article>`).join('');
+const cards=episodes.map((e,i)=>`<article class="video-card"><a class="cover" href="${e.file}" aria-label="Ver ${escape(e.title)}"><strong>${e.hook}</strong><div class="sources">${e.tags.map(t=>`<span>${escape(t)}</span>`).join('')}</div><div class="result"><b>${catalog[e.file]?'Con locución':'Guion preparado'}</b>${catalog[e.file]?'Audio incorporado al vídeo':'Animación lista para añadir la voz'}</div></a><div class="copy"><span class="meta">${String(i+1).padStart(2,'0')} · ${e.category}</span><h2>${escape(e.title)}</h2>${renderVideoDate(e.file)}<p>${escape(e.desc)}</p><div class="actions"><a class="primary" href="${e.file}">Ver vídeo →</a>${e.demo?`<a class="secondary" href="${escape(e.demo)}">Probar web de la boda ↗</a>`:""}${e.demo&&fs.existsSync(e.file.replace(".html",".mp4"))?`<a class="secondary" href="${e.file.replace(".html",".mp4")}" download>Descargar MP4</a>`:""}<a class="secondary" href="guiones/${e.file.replace('.html','')}-locucion.txt" download>Descargar guion</a></div></div></article>`).join('');
 const stories = [
   [
     "01-precios",
@@ -53,7 +78,9 @@ const claudeVideos = [
   }
 ];
 
-const orderVideos = [...require('./crear-del-caos-al-control.cjs'), {
+const orderVideos = [...require('./crear-del-caos-al-control.cjs').map(video =>
+  video.mp4 && fs.existsSync(video.mp4) ? {...video, file: video.mp4, source: video.file} : video
+), {
   file: 'citas-tiktok.mp4',
   source: 'citas.html',
   title: '¿Sigues gestionando las citas por WhatsApp?',
@@ -68,6 +95,7 @@ const renderCollectionCards = videos => videos.map(({file, source, title, hook, 
   </a>
   <div class="copy">
     <h3>${escape(title)}</h3>
+    ${renderVideoDate(source ?? file)}
     <p>${escape(description)}</p>
     <div class="actions"><a class="primary" href="${file}" aria-label="Ver el vídeo ${escape(title)}">Ver vídeo →</a>${source ? `<a class="secondary" href="${file}" download>Descargar MP4</a><a class="secondary" href="${source}">Ver versión interactiva</a>` : ''}</div>
   </div>

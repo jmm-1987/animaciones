@@ -7,14 +7,18 @@ import {pathToFileURL} from 'node:url';
 import {setTimeout as delay} from 'node:timers/promises';
 
 const chrome = process.argv[2] ?? 'chrome';
+const invoice = process.argv.includes('--factura');
+const input = invoice ? 'video-factura-automatica.html' : 'citas.html';
+const filename = invoice ? 'video-factura-automatica.mp4' : 'citas-tiktok.mp4';
+const player = invoice ? 'invoiceVideo' : 'citasTikTok';
 const tempRoot = resolve(tmpdir());
 const profile = await mkdtemp(join(tempRoot, 'jm2-citas-'));
 const browser = spawn(chrome, ['--headless', '--disable-gpu', '--no-first-run',
   '--remote-debugging-port=0', '--user-data-dir=' + profile, 'about:blank'],
   {windowsHide: true, stdio: ['ignore', 'ignore', 'inherit']});
 let socket, encoder;
-const output = resolve('citas-tiktok.mp4');
-const temporaryOutput = join(profile, 'citas-tiktok.mp4');
+const output = resolve(filename);
+const temporaryOutput = join(profile, filename);
 
 try {
   let address;
@@ -59,20 +63,23 @@ try {
   await call('Emulation.setDeviceMetricsOverride', {
     width: 405, height: 720, deviceScaleFactor: 8 / 3, mobile: false
   });
-  const navigation = await call('Page.navigate', {url: String(pathToFileURL(resolve('citas.html'))) + '?render=tiktok'});
+  const navigation = await call('Page.navigate', {url: String(pathToFileURL(resolve(input))) + '?render=tiktok'});
   if (navigation.errorText) throw new Error(navigation.errorText);
   let duration;
   for (let attempt = 0; attempt < 100 && !duration; attempt++) {
-    duration = await evaluate('document.fonts.status === "loaded" && window.citasTikTok?.duration');
+    duration = await evaluate('document.fonts.status === "loaded" && window.' + player + '?.duration');
     if (!duration) await delay(100);
   }
-  if (!duration) throw new Error('La animación de citas no se ha cargado.');
-  for (const time of [2.8, 6, 9.8, 15.3, 19.3, 22.8, 26.8]) {
+  if (!duration) throw new Error('No se ha cargado la animación de ' + input);
+  const reviewTimes = invoice ? [2, 7.8, 11.8, 15.8, 19] : [2.8, 6, 9.8, 15.3, 19.3, 22.8, 26.8];
+  for (const time of reviewTimes) {
     const overflow = await evaluate(`(() => {
-      citasTikTok.seek(${time});
-      const scene = [...document.querySelectorAll('.scene')].findLast(node => node.style.visibility === 'visible');
-      return [...scene.querySelectorAll('h1,h2,.card,.phone,.toast,.inc,.end,.cost-row')]
-        .filter(node => node.getBoundingClientRect().bottom > 600 || node.getBoundingClientRect().top < 65)
+      ${player}.seek(${time});
+      const scene = ${invoice ? "document.querySelector('.scene:not([hidden])')" :
+        "[...document.querySelectorAll('.scene')].findLast(node => node.style.visibility === 'visible')"};
+      if (${invoice} && scene.querySelector('.demo-app:empty')) throw new Error('La demostración de factura está vacía');
+      return [...scene.querySelectorAll('h1,h2,.card,.phone,.toast,.inc,.end,.cost-row,.demo-app,.spreadsheet')]
+        .filter(node => node.getBoundingClientRect().bottom > ${invoice ? 690 : 600} || node.getBoundingClientRect().top < 65)
         .map(node => {
           const box = node.getBoundingClientRect();
           return node.className + ' [' + Math.round(box.top) + ', ' + Math.round(box.bottom) + ']';
@@ -88,7 +95,7 @@ try {
   const encoded = once(encoder, 'close');
   encoded.catch(() => {});
   for (let frame = 0; frame < duration * fps; frame++) {
-    await evaluate('citasTikTok.seek(' + frame / fps + ')');
+    await evaluate(player + '.seek(' + frame / fps + ')');
     const shot = await call('Page.captureScreenshot', {format: 'jpeg', quality: 94});
     if (!encoder.stdin.write(Buffer.from(shot.data, 'base64'))) await once(encoder.stdin, 'drain');
   }
@@ -96,7 +103,7 @@ try {
   const [code] = await encoded;
   if (code !== 0) throw new Error('FFmpeg terminó con código ' + code);
   await rename(temporaryOutput, output);
-  console.log('citas-tiktok.mp4 · ' + duration + ' s · 1080 × 1920');
+  console.log(filename + ' · ' + duration + ' s · 1080 × 1920');
 } finally {
   socket?.close();
   if (encoder && encoder.exitCode === null) encoder.kill();
