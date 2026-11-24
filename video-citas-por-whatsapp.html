@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Citas por WhatsApp · Del caos al control</title>
+
+<style>
+*{box-sizing:border-box}body{margin:0;background:#101626;color:#182232;font:700 18px system-ui,sans-serif}
+main{min-height:100svh;display:grid;place-content:center;justify-items:center;gap:12px;padding:12px}
+.stage{width:min(94vw,430px,calc((100svh - 80px)*.5625));aspect-ratio:9/16;container-type:inline-size;position:relative;overflow:hidden;background:#fff9ed;border-radius:14px}
+.brand{position:absolute;z-index:1;top:5cqw;left:7cqw;width:23cqw;height:10cqw;object-fit:contain}
+.scene{position:absolute;inset:0;padding:21cqw 7cqw 7cqw;background:#fff9ed}
+.scene[data-step="1"]{background:#e7efff}.scene[data-step="2"]{background:#e1f6ec}
+h1{font-size:10cqw;line-height:1.02;letter-spacing:-.05em;margin:0;max-width:85cqw}
+.illustration{height:77cqw;position:relative;margin-top:4cqw}
+.illustration svg{position:absolute;bottom:0;left:-9cqw;width:69cqw;height:auto}
+.items{list-style:none;position:absolute;top:4cqw;right:0;width:49cqw;padding:0;margin:0;display:grid;gap:3cqw}
+.items li{background:white;border:2px solid #182232;border-radius:2.5cqw;padding:2.5cqw;font-size:4.1cqw;line-height:1.16;box-shadow:1cqw 1cqw #1557f5}
+.scene[data-step="0"] li:nth-child(odd){rotate:-6deg;box-shadow:1cqw 1cqw #db563a}
+.scene[data-step="0"] li:nth-child(even){rotate:7deg;box-shadow:1cqw 1cqw #db563a}
+.scene[data-step="2"] li{box-shadow:1cqw 1cqw #178454}
+.scene p{font-size:5.3cqw;line-height:1.25;margin:2cqw 0 0;max-width:83cqw}
+.controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center}
+.controls a,.controls button{background:#fff;color:#182232;border:0;border-radius:8px;padding:8px 12px;font:inherit;font-size:14px;text-decoration:none;cursor:pointer}
+.controls :focus-visible{outline:3px solid #f5c944;outline-offset:3px}
+
+</style></head><body><main>
+  <div class="stage"><img class="brand" src="logo.png" alt="JM2 Tech Studio">
+    <section class="scene" data-step="0">
+      <h1>¿A qué hora era la cita?</h1>
+      <div class="illustration">
+        <svg class="mp-person-computer" viewBox="0 0 440 370" role="img" aria-label="Una persona sentada de espaldas introduce datos en un ordenador"><ellipse cx="233" cy="348" rx="157" ry="12" fill="#18223208"/><g stroke-linejoin="round"><path d="M83 191V336M368 191V336" fill="none" stroke="#dce2eb" stroke-width="9" stroke-linecap="round"/><rect x="132" y="35" width="207" height="133" rx="9" fill="#263345"/><rect x="140" y="43" width="191" height="111" rx="3" fill="#f6f9fc"/><path d="M218 168V185M192 186H265" stroke="#c3cddc" stroke-width="7" stroke-linecap="round"/><rect x="150" y="53" width="171" height="14" rx="3" fill="#e7edf5"/><circle cx="157" cy="60" r="2" fill="#a5b3c8"/><circle cx="164" cy="60" r="2" fill="#a5b3c8"/><path d="M152 82H183M152 99H178M152 116H184" stroke="#a9b5c5" stroke-width="3" stroke-linecap="round"/><rect x="196" y="76" width="119" height="16" rx="3" fill="white" stroke="#dce4ef"/><rect x="196" y="96" width="119" height="16" rx="3" fill="white" stroke="#dce4ef"/><path class="mp-screen-data" d="M204 84H269M204 104H252" stroke="#7395b8" stroke-width="3" stroke-linecap="round"/><path class="mp-screen-cursor" d="M275 79V88" stroke="#1557f5" stroke-width="2"/><path d="M201 128H284" stroke="#dce4ef" stroke-width="3" stroke-linecap="round"/><rect x="59" y="187" width="334" height="12" rx="5" fill="#dce3ed"/><path d="M60 187H392" stroke="#f5f7fa" stroke-width="3"/><path d="M96 168L126 165 133 183 102 185Z" fill="white" stroke="#d4dde9"/><path d="M103 172L122 170M106 178L126 176" stroke="#d6deea" stroke-width="2"/><rect x="328" y="163" width="24" height="24" rx="5" fill="#e7edf5"/><path d="M353 167Q367 167 361 179H352" fill="none" stroke="#d0dae6" stroke-width="3"/><path d="M186 260L179 323M261 260L272 323" stroke="#263345" stroke-width="26" stroke-linecap="round"/><path d="M160 329H189M264 329H293" stroke="#263345" stroke-width="15" stroke-linecap="round"/><path d="M176 166Q222 145 269 166L279 245Q225 267 169 243Z" fill="#a7bdd8"/><path d="M195 159L196 144H244L247 161Q223 175 195 159Z" fill="#d8a383"/><g class="mp-typing-left"><path d="M181 172L156 188 186 193" fill="none" stroke="#a7bdd8" stroke-width="19" stroke-linecap="round"/><path d="M186 193L204 190" stroke="#d8a383" stroke-width="11" stroke-linecap="round"/></g><g class="mp-typing-right"><path d="M263 172L292 188 261 194" fill="none" stroke="#a7bdd8" stroke-width="19" stroke-linecap="round"/><path d="M261 194L244 190" stroke="#d8a383" stroke-width="11" stroke-linecap="round"/></g><path d="M190 113Q185 84 220 82Q253 82 254 113L249 144Q223 162 196 144Z" fill="#d8a383"/><path d="M191 125Q176 108 187 89Q196 71 220 74Q249 71 258 93Q264 114 251 129L249 112Q220 125 193 111Z" fill="#343b46"/><path d="M198 88Q220 80 242 89" stroke="#4d5562" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M183 246L180 277H272L268 246" fill="#dfe5ed"/><rect x="176" y="207" width="100" height="66" rx="19" fill="#e8edf4" stroke="#d4dce7" stroke-width="2"/><path d="M226 273V330M193 342L226 330 259 342" stroke="#a5b1c2" stroke-width="7" stroke-linecap="round"/><circle cx="190" cy="343" r="6" fill="#758398"/><circle cx="263" cy="343" r="6" fill="#758398"/><circle cx="226" cy="341" r="6" fill="#758398"/></g></svg>
+        <ul class="items"><li>¿Me das hora mañana?</li><li>¿Podemos cambiarla al jueves?</li><li>¿A las cinco era lo mío?</li></ul>
+      </div>
+      <p>Busca entre los chats y acaba dando la misma hora a dos clientes.</p>
+    </section>
+    <section class="scene" data-step="1" hidden>
+      <h1>Una agenda con sus horarios</h1>
+      <div class="illustration">
+        <svg class="mp-person-computer" viewBox="0 0 440 370" role="img" aria-label="Una persona sentada de espaldas introduce datos en un ordenador"><ellipse cx="233" cy="348" rx="157" ry="12" fill="#18223208"/><g stroke-linejoin="round"><path d="M83 191V336M368 191V336" fill="none" stroke="#dce2eb" stroke-width="9" stroke-linecap="round"/><rect x="132" y="35" width="207" height="133" rx="9" fill="#263345"/><rect x="140" y="43" width="191" height="111" rx="3" fill="#f6f9fc"/><path d="M218 168V185M192 186H265" stroke="#c3cddc" stroke-width="7" stroke-linecap="round"/><rect x="150" y="53" width="171" height="14" rx="3" fill="#e7edf5"/><circle cx="157" cy="60" r="2" fill="#a5b3c8"/><circle cx="164" cy="60" r="2" fill="#a5b3c8"/><path d="M152 82H183M152 99H178M152 116H184" stroke="#a9b5c5" stroke-width="3" stroke-linecap="round"/><rect x="196" y="76" width="119" height="16" rx="3" fill="white" stroke="#dce4ef"/><rect x="196" y="96" width="119" height="16" rx="3" fill="white" stroke="#dce4ef"/><path class="mp-screen-data" d="M204 84H269M204 104H252" stroke="#7395b8" stroke-width="3" stroke-linecap="round"/><path class="mp-screen-cursor" d="M275 79V88" stroke="#1557f5" stroke-width="2"/><path d="M201 128H284" stroke="#dce4ef" stroke-width="3" stroke-linecap="round"/><rect x="59" y="187" width="334" height="12" rx="5" fill="#dce3ed"/><path d="M60 187H392" stroke="#f5f7fa" stroke-width="3"/><path d="M96 168L126 165 133 183 102 185Z" fill="white" stroke="#d4dde9"/><path d="M103 172L122 170M106 178L126 176" stroke="#d6deea" stroke-width="2"/><rect x="328" y="163" width="24" height="24" rx="5" fill="#e7edf5"/><path d="M353 167Q367 167 361 179H352" fill="none" stroke="#d0dae6" stroke-width="3"/><path d="M186 260L179 323M261 260L272 323" stroke="#263345" stroke-width="26" stroke-linecap="round"/><path d="M160 329H189M264 329H293" stroke="#263345" stroke-width="15" stroke-linecap="round"/><path d="M176 166Q222 145 269 166L279 245Q225 267 169 243Z" fill="#a7bdd8"/><path d="M195 159L196 144H244L247 161Q223 175 195 159Z" fill="#d8a383"/><g class="mp-typing-left"><path d="M181 172L156 188 186 193" fill="none" stroke="#a7bdd8" stroke-width="19" stroke-linecap="round"/><path d="M186 193L204 190" stroke="#d8a383" stroke-width="11" stroke-linecap="round"/></g><g class="mp-typing-right"><path d="M263 172L292 188 261 194" fill="none" stroke="#a7bdd8" stroke-width="19" stroke-linecap="round"/><path d="M261 194L244 190" stroke="#d8a383" stroke-width="11" stroke-linecap="round"/></g><path d="M190 113Q185 84 220 82Q253 82 254 113L249 144Q223 162 196 144Z" fill="#d8a383"/><path d="M191 125Q176 108 187 89Q196 71 220 74Q249 71 258 93Q264 114 251 129L249 112Q220 125 193 111Z" fill="#343b46"/><path d="M198 88Q220 80 242 89" stroke="#4d5562" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M183 246L180 277H272L268 246" fill="#dfe5ed"/><rect x="176" y="207" width="100" height="66" rx="19" fill="#e8edf4" stroke="#d4dce7" stroke-width="2"/><path d="M226 273V330M193 342L226 330 259 342" stroke="#a5b1c2" stroke-width="7" stroke-linecap="round"/><circle cx="190" cy="343" r="6" fill="#758398"/><circle cx="263" cy="343" r="6" fill="#758398"/><circle cx="226" cy="341" r="6" fill="#758398"/></g></svg>
+        <ul class="items"><li>Duración por servicio</li><li>Huecos y descansos</li><li>Confirmación por WhatsApp</li></ul>
+      </div>
+      <p>Configura cuánto dura cada cita y qué horas quiere reservar para trabajar.</p>
+    </section>
+    <section class="scene" data-step="2" hidden>
+      <h1>Mira la agenda y confirma</h1>
+      <div class="illustration">
+        <svg class="mp-person-computer" viewBox="0 0 440 370" role="img" aria-label="Una persona sentada de espaldas introduce datos en un ordenador"><ellipse cx="233" cy="348" rx="157" ry="12" fill="#18223208"/><g stroke-linejoin="round"><path d="M83 191V336M368 191V336" fill="none" stroke="#dce2eb" stroke-width="9" stroke-linecap="round"/><rect x="132" y="35" width="207" height="133" rx="9" fill="#263345"/><rect x="140" y="43" width="191" height="111" rx="3" fill="#f6f9fc"/><path d="M218 168V185M192 186H265" stroke="#c3cddc" stroke-width="7" stroke-linecap="round"/><rect x="150" y="53" width="171" height="14" rx="3" fill="#e7edf5"/><circle cx="157" cy="60" r="2" fill="#a5b3c8"/><circle cx="164" cy="60" r="2" fill="#a5b3c8"/><path d="M152 82H183M152 99H178M152 116H184" stroke="#a9b5c5" stroke-width="3" stroke-linecap="round"/><rect x="196" y="76" width="119" height="16" rx="3" fill="white" stroke="#dce4ef"/><rect x="196" y="96" width="119" height="16" rx="3" fill="white" stroke="#dce4ef"/><path class="mp-screen-data" d="M204 84H269M204 104H252" stroke="#7395b8" stroke-width="3" stroke-linecap="round"/><path class="mp-screen-cursor" d="M275 79V88" stroke="#1557f5" stroke-width="2"/><path d="M201 128H284" stroke="#dce4ef" stroke-width="3" stroke-linecap="round"/><rect x="59" y="187" width="334" height="12" rx="5" fill="#dce3ed"/><path d="M60 187H392" stroke="#f5f7fa" stroke-width="3"/><path d="M96 168L126 165 133 183 102 185Z" fill="white" stroke="#d4dde9"/><path d="M103 172L122 170M106 178L126 176" stroke="#d6deea" stroke-width="2"/><rect x="328" y="163" width="24" height="24" rx="5" fill="#e7edf5"/><path d="M353 167Q367 167 361 179H352" fill="none" stroke="#d0dae6" stroke-width="3"/><path d="M186 260L179 323M261 260L272 323" stroke="#263345" stroke-width="26" stroke-linecap="round"/><path d="M160 329H189M264 329H293" stroke="#263345" stroke-width="15" stroke-linecap="round"/><path d="M176 166Q222 145 269 166L279 245Q225 267 169 243Z" fill="#a7bdd8"/><path d="M195 159L196 144H244L247 161Q223 175 195 159Z" fill="#d8a383"/><g class="mp-typing-left"><path d="M181 172L156 188 186 193" fill="none" stroke="#a7bdd8" stroke-width="19" stroke-linecap="round"/><path d="M186 193L204 190" stroke="#d8a383" stroke-width="11" stroke-linecap="round"/></g><g class="mp-typing-right"><path d="M263 172L292 188 261 194" fill="none" stroke="#a7bdd8" stroke-width="19" stroke-linecap="round"/><path d="M261 194L244 190" stroke="#d8a383" stroke-width="11" stroke-linecap="round"/></g><path d="M190 113Q185 84 220 82Q253 82 254 113L249 144Q223 162 196 144Z" fill="#d8a383"/><path d="M191 125Q176 108 187 89Q196 71 220 74Q249 71 258 93Q264 114 251 129L249 112Q220 125 193 111Z" fill="#343b46"/><path d="M198 88Q220 80 242 89" stroke="#4d5562" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M183 246L180 277H272L268 246" fill="#dfe5ed"/><rect x="176" y="207" width="100" height="66" rx="19" fill="#e8edf4" stroke="#d4dce7" stroke-width="2"/><path d="M226 273V330M193 342L226 330 259 342" stroke="#a5b1c2" stroke-width="7" stroke-linecap="round"/><circle cx="190" cy="343" r="6" fill="#758398"/><circle cx="263" cy="343" r="6" fill="#758398"/><circle cx="226" cy="341" r="6" fill="#758398"/></g></svg>
+        <ul class="items"><li>10:00 · Ana · Confirmada</li><li>11:30 · Hueco libre</li><li>12:00 · Luis · Confirmada</li></ul>
+      </div>
+      <p>Sigue atendiendo por WhatsApp. Abre su agenda, elige un hueco libre y confirma.</p>
+    </section></div>
+  <nav class="controls" aria-label="Controles del vídeo"><button id="play">Pausar</button><button id="restart">Reiniciar</button><a href="index.html#del-caos-al-control">Biblioteca</a></nav>
+</main><script>
+const scenes = [...document.querySelectorAll('.scene')];
+const play = document.getElementById('play');
+const motion = matchMedia('(prefers-reduced-motion: reduce)');
+const duration = 24000;
+const sceneLength = duration / scenes.length;
+let elapsed = 0;
+let last = performance.now();
+let playing = true;
+let current = 0;
+let animations = [];
+
+function show(index) {
+  scenes[current].hidden = true;
+  current = index;
+  const scene = scenes[current];
+  scene.hidden = false;
+  if (motion.matches) return;
+  animations = [...scene.querySelectorAll('h1, svg, li, .scene > p, .paper, .demo-app')].map((item, order) =>
+    item.animate([{opacity: 0, translate: '0 16px'}, {opacity: 1, translate: '0 0'}],
+      {duration: 380, delay: order * 220, easing: 'ease-out', fill: 'both'}));
+}
+
+function tick(now) {
+  if (playing) {
+    elapsed = Math.min(duration, elapsed + now - last);
+    const index = Math.min(scenes.length - 1, Math.floor(elapsed / sceneLength));
+    if (index !== current) show(index);
+
+    if (elapsed === duration) {
+      playing = false;
+      play.textContent = 'Reproducir';
+    }
+  }
+  last = now;
+  requestAnimationFrame(tick);
+}
+
+function restart() {
+  elapsed = 0;
+  last = performance.now();
+  playing = true;
+  play.textContent = 'Pausar';
+  show(0);
+}
+
+play.addEventListener('click', () => {
+  if (elapsed === duration) return restart();
+  playing = !playing;
+  last = performance.now();
+  for (const animation of animations) playing ? animation.play() : animation.pause();
+  play.textContent = playing ? 'Pausar' : 'Reanudar';
+});
+document.getElementById('restart').addEventListener('click', restart);
+restart();
+requestAnimationFrame(tick);
+</script></body></html>
