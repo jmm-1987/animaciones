@@ -35,6 +35,7 @@ h2{font-size:62px;line-height:1.02;letter-spacing:-1px}
 .chip{background:#FFE94A;color:#0F1B3D;border:2px solid #0F1B3D;border-radius:8px;padding:10px 4px;font-size:19px;text-align:center}
 .big{font-size:38px;line-height:1.08}
 .row{display:flex;align-items:center;gap:16px;font-size:40px;line-height:1}
+.sc.examples{justify-content:flex-start;padding-top:180px;gap:28px}
 .ck{flex:none;width:46px;height:46px;border-radius:10px;background:#2B3AFF;color:#fff;border:2px solid #0F1B3D;box-shadow:3px 3px 0 #0F1B3D;display:flex;align-items:center;justify-content:center;font-size:28px}
 .q{font-size:38px;line-height:1.08}
 .btn{align-self:flex-start;background:#FFE94A;color:#0F1B3D;border:3px solid #0F1B3D;box-shadow:5px 5px 0 #0F1B3D;border-radius:999px;padding:14px 26px;font-size:25px}
@@ -70,20 +71,28 @@ h2{font-size:62px;line-height:1.02;letter-spacing:-1px}
   <div class="small pop" style="--d:15s">Mantenimiento y mejoras incluidos.</div>
 </div>
 
-<div class="sc cream" style="--in:16.1s;--out:99s">
+<div class="sc cream examples" style="--in:16.1s;--out:20.7s">
   <div class="row pop" style="--d:16.5s"><span class="ck">✓</span>Facturación</div>
   <div class="row pop" style="--d:17.2s"><span class="ck">✓</span>Presupuestos</div>
   <div class="row pop" style="--d:17.9s"><span class="ck">✓</span>Gestión documental</div>
   <div class="row pop" style="--d:18.6s"><span class="ck">✓</span>Agenda y clientes</div>
-  <div class="q pop" style="--d:20.2s">¿Qué tarea te quita más tiempo?</div>
-  <div class="btn pop" style="--d:21.4s">Cuéntamelo en comentarios</div>
-  <div class="small pop" style="--d:22.6s">Por eso no te lo cobro de golpe.</div>
+</div>
+
+<div class="sc cream examples" style="--in:20.6s;--out:25.4s">
+  <div class="row pop" style="--d:21s"><span class="ck">✓</span>Control de cobros</div>
+  <div class="row pop" style="--d:21.7s"><span class="ck">✓</span>Conciliación bancaria</div>
+  <div class="row pop" style="--d:22.4s"><span class="ck">✓</span>Facturas recibidas</div>
+</div>
+
+<div class="sc cream" style="--in:25.3s;--out:99s">
+  <div class="q pop" style="--d:25.7s">¿Qué tarea te quita más tiempo?</div>
+  <div class="btn pop" style="--d:26.6s">Cuéntamelo en comentarios</div>
 </div>
 </div></div>
 <div id="ui"><button id="bPlay">Pausa</button><button id="bRe">Reiniciar</button></div>
 <script>
 (function(){
-  var DUR = 24000;                       // duración total del vídeo (ms)
+  var DUR = 30000;                       // duración total del vídeo (ms)
   var stage = document.getElementById('stage');
   var isRender = /[?&]render/.test(location.search);
   if (isRender) document.documentElement.classList.add('render');
