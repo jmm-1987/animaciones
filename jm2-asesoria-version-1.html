@@ -1105,6 +1105,16 @@
         .faq-list p { margin: 0 0 20px; line-height: 1.65; }
         .faq-list a { text-decoration: underline; }
 
+
+        .faq-mobile-link { display: none; }
+        @media (max-width: 1000px) {
+            .faq-mobile-link {
+                display: table;
+                margin-top: 16px;
+                padding: 8px 0;
+                text-decoration: underline;
+            }
+        }
     </style>
 </head>
 
@@ -1155,6 +1165,7 @@
             <a href="#experiencia">La experiencia</a>
             <a href="#asesoria">Tu asesoría</a>
             <a href="#servicios">Servicios</a>
+            <a href="#preguntas-frecuentes">Preguntas frecuentes</a>
         </div>
 
         <a href="#contacto" class="button">
@@ -1191,6 +1202,7 @@
             <a href="#experiencia" class="button">
                 Descubre la diferencia <span>↘</span>
             </a>
+            <a class="faq-mobile-link" href="#preguntas-frecuentes">Preguntas frecuentes</a>
 
             <div class="scroll-indicator">
                 <div class="scroll-line"></div>
