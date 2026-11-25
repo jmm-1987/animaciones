@@ -1083,6 +1083,28 @@
                 stroke-dashoffset: 0;
             }
         }
+        .asesoria-faq {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: clamp(48px, 8vw, 100px) 24px;
+            scroll-margin-top: 90px;
+        }
+        .asesoria-faq h2 { margin: 0 0 28px; }
+        .faq-list { border-top: 1px solid #d8cdbb; }
+        .faq-list details { border-bottom: 1px solid #d8cdbb; }
+        .faq-list summary {
+            padding: 18px 0;
+            cursor: pointer;
+            font-weight: 700;
+        }
+        .faq-list summary::marker { color: #85683c; }
+        .faq-list summary:focus-visible {
+            outline: 2px solid #85683c;
+            outline-offset: 4px;
+        }
+        .faq-list p { margin: 0 0 20px; line-height: 1.65; }
+        .faq-list a { text-decoration: underline; }
+
     </style>
 </head>
 
@@ -1875,6 +1897,36 @@
 
     </div>
 
+</section>
+
+<section class="asesoria-faq" id="preguntas-frecuentes" aria-labelledby="faq-titulo">
+    <h2 id="faq-titulo">Preguntas frecuentes</h2>
+    <div class="faq-list">
+        <details>
+            <summary>¿Qué incluye la asesoría fiscal?</summary>
+            <p>Revisamos tu documentación, preparamos tus impuestos y te acompañamos durante todo el año. En la primera conversación vemos qué gestiones necesita tu actividad.</p>
+        </details>
+        <details>
+            <summary>¿Cómo se conecta la facturación con la asesoría?</summary>
+            <p>Las facturas que emites en tu sistema quedan disponibles para tu asesoría. Así podemos revisar la información para el cierre trimestral sin que tengas que volver a enviarnos esas mismas facturas.</p>
+        </details>
+        <details>
+            <summary>¿Podré facturar desde el móvil?</summary>
+            <p>Sí. El sistema está pensado para que puedas preparar y emitir facturas desde el móvil, también cuando estés fuera de la oficina.</p>
+        </details>
+        <details>
+            <summary>¿Y si ya uso un programa de facturación?</summary>
+            <p>Cuéntanos qué programa usas y cómo trabajas. Revisamos qué te conviene conservar y qué opciones hay para conectar o trasladar la información.</p>
+        </details>
+        <details>
+            <summary>¿En qué me podéis ayudar con la tecnología de mi negocio?</summary>
+            <p>Podemos adaptar tu facturación, automatizar tareas repetitivas y ayudarte con tu presencia digital. Definimos las prioridades contigo según lo que más tiempo te quite en el día a día.</p>
+        </details>
+        <details>
+            <summary>¿Cuánto cuesta el servicio y cómo empiezo?</summary>
+            <p>El presupuesto depende de las gestiones fiscales que necesites y del trabajo de adaptación tecnológica. Escríbenos desde la sección de <a href="#contacto">contacto</a> y cuéntanos a qué te dedicas y cómo gestionas hoy tus facturas.</p>
+        </details>
+    </div>
 </section>
 
 <!-- CONTACTO -->
