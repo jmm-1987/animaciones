@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JM2 · Asesoría fiscal y tecnológica en Mérida</title>
+  <meta name="description" content="Asesoría fiscal en Mérida con facturación conectada y previsión de impuestos para autónomos y pymes.">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: dark;
+      --background: #161b32;
+      --paper: #fff5df;
+      --quiet: #d1cfe0;
+      --accent: #fbb399;
+      --line: #fff5df35;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--paper);
+      background: var(--background) radial-gradient(ellipse at 86% 32%, #473b5b, transparent 52%);
+      font: 400 1rem/1.6 'DM Sans', Arial, sans-serif;
+    }
+    .wrap { width: min(1280px, 88%); margin-inline: auto; }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 76px;
+      border-bottom: 1px solid var(--line);
+    }
+    a { color: inherit; }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+    .wordmark {
+      font: 800 31px/1 Manrope, Arial, sans-serif;
+      letter-spacing: -.09em;
+      text-decoration: none;
+    }
+    .accent, .eyebrow { color: var(--accent); }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.23fr) minmax(0, 1fr);
+      align-items: center;
+      min-height: calc(100svh - 76px);
+      gap: clamp(28px, 5vw, 80px);
+      padding-block: clamp(36px, 7vh, 96px) 48px;
+    }
+    .eyebrow { margin: 0; font-size: .78rem; font-weight: 700; letter-spacing: .08em; }
+    h1 {
+      margin: 16px 0 20px;
+      font: 800 clamp(40px, 4.9vw, 76px)/1.04 Manrope, Arial, sans-serif;
+      letter-spacing: -.065em;
+    }
+    h1 .accent { display: block; }
+    .subtitle { max-width: 52ch; margin: 0; color: var(--quiet); font-size: clamp(1rem, 1.4vw, 1.2rem); }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 10px 16px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .button:hover { border-color: var(--accent); }
+    .primary { color: var(--background); background: var(--accent); border-color: var(--accent); }
+    .primary:hover { background: var(--paper); }
+    .talk { font-size: .875rem; }
+    .forecast {
+      min-width: 0;
+      padding: clamp(22px, 3.5vw, 42px);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: radial-gradient(ellipse at 95% 4%, #473b5b80, transparent 62%),
+                  linear-gradient(155deg, #fff5df0d, #161b3290);
+      box-shadow: 0 28px 72px #10112270;
+    }
+    .forecast-views { display: grid; }
+    .forecast-view {
+      grid-area: 1 / 1;
+      display: flex;
+      flex-direction: column;
+      min-height: 285px;
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity .45s ease, transform .45s ease;
+    }
+    .forecast-view[inert] { opacity: 0; transform: translateY(6px); pointer-events: none; }
+    .scene-label {
+      margin: 0 0 8px;
+      color: var(--accent);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+    .forecast h2 {
+      margin: 0;
+      font: 700 clamp(1.15rem, 2.1vw, 1.5rem)/1.2 Manrope, Arial, sans-serif;
+      letter-spacing: -.025em;
+    }
+    .scene-center { margin-block: auto; padding-block: 14px; }
+    .scene-amount {
+      margin: 0;
+      font: 700 clamp(2.35rem, 4.3vw, 4.25rem)/1.1 Manrope, Arial, sans-serif;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -.055em;
+    }
+    .chart-center .scene-amount { color: var(--accent); font-size: clamp(2rem, 3.6vw, 3.5rem); }
+    .scene-caption { margin: 6px 0 0; color: var(--quiet); font-size: .85rem; }
+    .scene-status { margin: 0; color: var(--quiet); font-size: .9rem; }
+    .scene-status span { color: var(--accent); margin-inline-end: .35em; }
+    .review-check {
+      display: inline-grid;
+      place-items: center;
+      width: 40px;
+      height: 40px;
+      margin-bottom: 13px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      color: var(--accent);
+    }
+    .forecast .review-title { max-width: 14ch; font-size: clamp(1.7rem, 3vw, 2.85rem); }
+    .months { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 10px 0 0; }
+    .months div {
+      display: grid;
+      grid-template-rows: auto 52px auto;
+      justify-items: center;
+      align-items: end;
+      font-size: .72rem;
+      font-variant-numeric: tabular-nums;
+    }
+    .months dt { grid-row: 3; color: var(--quiet); padding-top: 4px; }
+    .months dd { grid-row: 1; margin: 0; white-space: nowrap; }
+    .months .bar {
+      grid-row: 2;
+      width: 70%;
+      height: var(--height);
+      border-radius: 3px 3px 0 0;
+      background: linear-gradient(to top, #fbb39936, var(--accent));
+      transform-origin: bottom;
+    }
+    .forecast[data-playing="true"] .forecast-view:not([inert]) .bar {
+      animation: chart-reveal 1s ease-out var(--delay) both;
+    }
+    .forecast[data-paused="true"] .bar { animation-play-state: paused !important; }
+    @keyframes chart-reveal { from { transform: scaleY(.12); opacity: .5; } }
+    .forecast-switch {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 16px;
+      margin-top: 19px;
+      border-top: 1px solid var(--line);
+    }
+    .forecast-switch[hidden] { display: none; }
+    .forecast-switch button {
+      min-height: 44px;
+      padding: 0;
+      border: 0;
+      border-top: 1px solid transparent;
+      background: transparent;
+      color: var(--quiet);
+      font: inherit;
+      font-size: .78rem;
+      cursor: pointer;
+    }
+    .forecast-switch button:hover, .forecast-switch button[aria-pressed="true"] { color: var(--accent); }
+    .forecast-switch button[aria-pressed="true"] { border-top-color: var(--accent); }
+    .example-label { margin: 10px 0 0; color: var(--quiet); font-size: .72rem; }
+    .motion-control {
+      position: fixed;
+      right: .65rem;
+      bottom: .65rem;
+      z-index: 1;
+      min-height: 44px;
+      padding: .35rem .6rem;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--background);
+      color: var(--quiet);
+      font: inherit;
+      font-size: .75rem;
+      opacity: .8;
+      cursor: pointer;
+    }
+    .motion-control:hover, .motion-control:focus-visible { opacity: 1; }
+    .motion-control[hidden] { display: none; }
+    .details { padding-block: 44px; border-top: 1px solid var(--line); scroll-margin-top: 16px; }
+    .details h2 { margin: 0 0 10px; font-family: Manrope, Arial, sans-serif; }
+    .details p { max-width: 60ch; margin: 0 0 16px; color: var(--quiet); }
+    #contacto { padding-bottom: 76px; }
+    @media (max-width: 760px) {
+      .wrap { width: calc(100% - 36px); }
+      header { min-height: 58px; }
+      .hero { grid-template-columns: minmax(0, 1fr); min-height: auto; gap: 28px; padding-block: 26px 36px; }
+      h1 { font-size: clamp(31px, 7.7vw, 52px); margin-block: 10px 12px; }
+      .subtitle { font-size: .95rem; line-height: 1.45; }
+      .actions { margin-top: 16px; }
+      .actions .button { padding-inline: 10px; font-size: .83rem; }
+    }
+    @media (prefers-reduced-motion: reduce) { .forecast .bar { animation: none !important; } .forecast-view { transition: none; } }
+  </style>
+</head>
+<body>
+  <header class="wrap">
+    <a class="wordmark" href="index.html" aria-label="JM2, volver al índice">JM2<span class="accent">.</span></a>
+    <a class="button talk" href="#contacto">Hablemos ↗</a>
+  </header>
+  <main class="wrap">
+    <section class="hero" aria-labelledby="titulo">
+      <div>
+        <p class="eyebrow">ASESORÍA FISCAL Y TECNOLÓGICA · MÉRIDA</p>
+        <h1 id="titulo">Tu asesoría fiscal y tus facturas, <span class="accent">conectadas desde el día uno.</span></h1>
+        <p class="subtitle">Gestión fiscal cercana para autónomos y pymes con tu propio sistema de facturación y control de impuestos en tiempo real. Sin sustos a final de trimestre.</p>
+        <div class="actions">
+          <a class="button primary" href="#contacto">Solicitar reunión</a>
+          <a class="button" href="#como-funciona">Ver cómo funciona</a>
+        </div>
+      </div>
+      <aside class="forecast" aria-label="Del d&iacute;a a d&iacute;a al cierre trimestral">
+        <div class="forecast-views">
+          <div class="forecast-view">
+            <p class="scene-label">Facturaci&oacute;n diaria</p>
+            <h2>Factura de instalaci&oacute;n</h2>
+            <div class="scene-center">
+              <p class="scene-amount">1.028,50&nbsp;&euro;</p>
+              <p class="scene-caption">Factura F-043</p>
+            </div>
+            <p class="scene-status"><span aria-hidden="true">&#10003;</span> Compartida con tu asesor</p>
+          </div>
+          <div class="forecast-view" inert>
+            <p class="scene-label">Previsi&oacute;n trimestral &middot; T1</p>
+            <h2>Cu&aacute;nto reservar para el IVA</h2>
+            <div class="scene-center chart-center">
+              <p class="scene-amount">842&nbsp;&euro;</p>
+              <dl class="months">
+                <div style="--height: 89%; --delay: 0ms"><dt>Enero</dt><dd>980 &euro;</dd><span class="bar" aria-hidden="true"></span></div>
+                <div style="--height: 83%; --delay: 150ms"><dt>Febrero</dt><dd>910 &euro;</dd><span class="bar" aria-hidden="true"></span></div>
+                <div style="--height: 77%; --delay: 300ms"><dt>Marzo</dt><dd>842 &euro;</dd><span class="bar" aria-hidden="true"></span></div>
+              </dl>
+            </div>
+            <p class="scene-caption">Estimaci&oacute;n actualizada antes del cierre</p>
+          </div>
+          <div class="forecast-view" inert>
+            <p class="scene-label">Cierre trimestral &middot; T1</p>
+            <div class="scene-center">
+              <span class="review-check" aria-hidden="true">&#10003;</span>
+              <h2 class="review-title">Tu trimestre est&aacute; revisado.</h2>
+              <p class="scene-caption">Ya tienes la documentaci&oacute;n lista para confirmar el cierre.</p>
+            </div>
+            <p class="scene-status">Tu asesor de JM2</p>
+          </div>
+        </div>
+        <div class="forecast-switch" role="group" aria-label="Vista de la tarjeta" hidden>
+          <button type="button" aria-pressed="true">D&iacute;a a d&iacute;a</button>
+          <button type="button" aria-pressed="false">Previsi&oacute;n</button>
+          <button type="button" aria-pressed="false">Cierre</button>
+        </div>
+        <p class="example-label">Datos de ejemplo</p>
+      </aside>
+    </section>
+    <section class="details" id="como-funciona">
+      <h2>Cómo funciona</h2>
+      <p>Emite tus facturas en tu propio sistema y comparte la información con tu asesor. Tu asesor revisa los ingresos y gastos del trimestre y actualiza la previsión de impuestos antes del cierre.</p>
+    </section>
+    <section class="details" id="contacto">
+      <h2>Solicita una reunión</h2>
+      <p>Cuéntanos cómo gestionas tus facturas y qué necesitas de tu asesoría.</p>
+      <a class="button primary" href="https://wa.me/34711552468">Escribir por WhatsApp ↗</a>
+    </section>
+  </main>
+  <button class="motion-control" type="button" hidden>Pausar animación</button>
+  <script>
+    const forecast = document.querySelector('.forecast');
+    const control = document.querySelector('.motion-control');
+    const switcher = document.querySelector('.forecast-switch');
+    const views = [...forecast.querySelectorAll('.forecast-view')];
+    const tabs = [...switcher.querySelectorAll('button')];
+    const motion = matchMedia('(prefers-reduced-motion: reduce)');
+    let current = 0;
+    let timer;
+
+    function showView(index) {
+      current = index;
+      views.forEach((view, i) => { view.inert = i !== current; });
+      tabs.forEach((tab, i) => tab.setAttribute('aria-pressed', String(i === current)));
+    }
+
+    function syncMotion() {
+      clearInterval(timer);
+      const paused = forecast.dataset.paused === 'true';
+      forecast.dataset.playing = String(!motion.matches);
+      control.hidden = motion.matches;
+      if (!motion.matches && !paused) {
+        timer = setInterval(() => showView((current + 1) % views.length), 10000);
+      }
+    }
+
+    tabs.forEach((tab, i) => tab.addEventListener('click', () => {
+      showView(i);
+      syncMotion();
+    }));
+    control.addEventListener('click', () => {
+      const paused = forecast.dataset.paused !== 'true';
+      forecast.dataset.paused = String(paused);
+      control.textContent = paused ? 'Reanudar animación' : 'Pausar animación';
+      syncMotion();
+    });
+    motion.addEventListener('change', syncMotion);
+    switcher.hidden = false;
+    syncMotion();
+  </script>
+</body>
+</html>

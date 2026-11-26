@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JM2 · Fiscal & Tecnología en Mérida</title>
+<meta name="description" content="Asesoría fiscal y tecnología a medida para autónomos en Mérida.">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#070d19;--ink:#1d2e48;--blue:#254f9d;--glow:#4c86f0;--ice:#a6c7ff;--white:#f5f8ff;--muted:#9dacc6;--ok:#6fe0b0;--line:#a6c7ff26;color-scheme:dark}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--white);font:16px/1.6 'DM Sans',Arial,sans-serif;overflow-x:clip}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:2px solid var(--ice);outline-offset:4px}
+.cover{position:relative;min-height:100svh;display:flex;flex-direction:column;isolation:isolate;overflow:hidden;
+ background:radial-gradient(60% 65% at 76% 46%,#254f9d66,transparent 70%),radial-gradient(45% 50% at 0% 100%,#1d2e4899,transparent 70%),var(--bg)}
+.cover:before{content:"";position:absolute;inset:0;z-index:-1;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:72px 72px;opacity:.45;-webkit-mask-image:radial-gradient(75% 70% at 70% 50%,#000,transparent);mask-image:radial-gradient(75% 70% at 70% 50%,#000,transparent)}
+.wrap{width:min(1320px,100% - 48px);margin-inline:auto}
+nav{height:92px;display:flex;align-items:center;justify-content:space-between;gap:16px;border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:12px}
+.brand b{display:block;font:800 25px/1 Manrope,Arial,sans-serif;letter-spacing:-.04em}
+.brand small{display:block;font-size:10px;letter-spacing:.2em;color:var(--muted);margin-top:4px}
+.nav-r{display:flex;align-items:center;gap:26px;font-size:14px}
+.pill{border:1px solid #a6c7ff55;border-radius:99px;padding:11px 20px;font-weight:700;transition:.3s}
+.pill:hover{background:var(--white);color:var(--ink)}
+main{flex:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);align-items:center;gap:24px;padding-block:28px}
+.where{display:flex;align-items:center;gap:10px;color:var(--ice);font-size:14px;font-weight:500}
+.where i{width:7px;height:7px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 5px #6fe0b022}
+h1{font:800 clamp(40px,min(5vw,8.6vh),76px)/1.04 Manrope,Arial,sans-serif;letter-spacing:-.048em;margin:22px 0}
+h1 em{font-style:normal;display:block;background:linear-gradient(100deg,#fff 0%,#a6c7ff 25%,#4c86f0 50%,#a6c7ff 75%,#fff 100%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sheen 9s linear infinite;padding-bottom:.08em}
+@keyframes sheen{to{background-position:-220% 0}}
+.lead{max-width:500px;color:var(--muted);font-size:18px}
+.actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px 28px;margin-top:34px}
+.cta{position:relative;display:inline-flex;padding:2px;border-radius:99px;overflow:hidden;isolation:isolate;box-shadow:0 14px 50px #254f9d88;transition:transform .3s}
+.cta:before{content:"";position:absolute;left:50%;top:50%;width:420px;height:420px;margin:-210px;z-index:-1;background:conic-gradient(#254f9d 0 55%,#a6c7ff,#fff,#254f9d 85%);animation:spin 3.6s linear infinite}
+.cta span{background:var(--white);color:#0c1830;border-radius:99px;padding:16px 28px;font-weight:700}
+.cta:hover{transform:translateY(-3px)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.tel{font-size:15px;color:var(--muted)}.tel b{color:var(--white);user-select:all}
+
+/* escena */
+.scene{min-width:0;display:flex;flex-direction:column;align-items:center}
+.fit{position:relative;width:100%;height:680px}
+.stage{position:absolute;left:50%;top:0;width:720px;height:680px;margin-left:-360px;transform-origin:50% 0}
+.tilt{position:absolute;inset:0}
+.halo{position:absolute;left:100px;top:55px;width:520px;height:520px;border-radius:50%;background:conic-gradient(from 0deg,transparent 0 20%,#4c86f0 38%,#a6c7ff 42%,transparent 46% 70%,#254f9d 88%,transparent);-webkit-mask:radial-gradient(closest-side,transparent calc(100% - 3px),#000 calc(100% - 2px));mask:radial-gradient(closest-side,transparent calc(100% - 3px),#000 calc(100% - 2px));animation:spin 11s linear infinite}
+.halo.two{left:60px;top:15px;width:600px;height:600px;animation:spin 19s linear infinite reverse;opacity:.55}
+.orbit{position:absolute;inset:0;width:720px;height:680px;pointer-events:none;overflow:visible}
+.orbit.back{z-index:1}.orbit.front{z-index:6}
+.orbit path{fill:none;stroke:#a6c7ff;stroke-width:1.2}
+.orbit.back path{opacity:.18}.orbit.front path{opacity:.5;stroke-dasharray:2 7}
+
+.laptop{position:absolute;left:14px;top:178px;width:476px;z-index:2;transform:perspective(1300px) rotateY(18deg) rotateX(3deg)}
+.lid{background:#0b111d;border:1px solid #6c7d9d;border-radius:17px 17px 5px 5px;padding:11px;box-shadow:0 40px 80px #000a}
+.desk{background:#f6f8fd;color:#14233e;border-radius:5px;overflow:hidden;height:270px;position:relative}
+.desk header{background:var(--ink);color:#fff;font-size:11px;padding:9px 14px;display:flex;justify-content:space-between}
+.desk .body{display:grid;grid-template-columns:90px 1fr;height:100%}
+.desk aside{background:#e9eff8;font-size:10px;padding:12px 10px;line-height:2.7;color:#526176}
+.desk aside b{display:block;color:var(--blue)}
+.desk section{padding:14px}
+.desk h4{font:800 17px Manrope,Arial,sans-serif}
+.kpis{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}
+.kpis div{background:#fff;border:1px solid #dbe3f0;border-radius:8px;padding:8px 10px;font-size:10px;color:#526176}
+.kpis b{display:block;font-size:17px;color:#14233e}
+.bars{height:92px;display:flex;align-items:flex-end;gap:9px;border-bottom:1px solid #cbd6e5}
+.bars i{flex:1;border-radius:4px 4px 0 0;background:linear-gradient(#4c86f0,#254f9d);transform-origin:bottom;animation:grow 4.5s ease-in-out infinite alternate}
+@keyframes grow{0%{transform:scaleY(.72)}100%{transform:scaleY(1)}}
+.deck{height:15px;margin:0 -34px;background:linear-gradient(#c9d3e4,#61708b 55%,#1d273a);border-radius:2px 2px 18px 18px;position:relative;box-shadow:0 22px 30px #0009}
+.deck:after{content:"";position:absolute;left:42%;width:16%;height:6px;top:0;background:#69768d;border-radius:0 0 8px 8px}
+
+.phonebox{position:absolute;left:352px;top:62px;width:262px;height:540px;z-index:4;perspective:1500px}
+.phone{position:absolute;inset:0;transform-style:preserve-3d;will-change:transform}
+.slab,.face{position:absolute;inset:0;border-radius:46px}
+.slab{background:#52627f;border:1px solid #8fa3c6}
+.face{backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.front-face{transform:translateZ(9.5px);background:#05080f;border:2px solid #b9c8e3;padding:9px;box-shadow:inset 0 0 0 2px #26334b}
+.back-face{transform:rotateY(180deg) translateZ(9.5px);background:linear-gradient(145deg,#32528a,#142441 55%,#0b1527);border:2px solid #8fa3c6;display:grid;place-items:center}
+.back-face svg{width:92px;height:92px}
+.lens{position:absolute;top:22px;left:22px;width:86px;height:86px;border-radius:24px;background:#ffffff14;border:1px solid #ffffff30}
+.lens:before,.lens:after{content:"";position:absolute;width:31px;height:31px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#5b85c9,#050a14 55%);border:3px solid #0a101c;left:8px;top:8px}
+.lens:after{left:45px;top:45px}
+.screen{height:100%;border-radius:36px;background:#f6f8fd;color:#14233e;overflow:hidden;position:relative;padding:48px 17px 16px}
+.island{position:absolute;top:11px;left:50%;width:82px;height:23px;margin-left:-41px;border-radius:20px;background:#05080f}
+.view{display:none}.view.on{display:block}
+.view small{font-size:11px;color:#526176}
+.view h3{font:800 20px/1.2 Manrope,Arial,sans-serif;margin:4px 0 14px;letter-spacing:-.03em}
+.hero-card{border-radius:18px;padding:16px;color:#fff;background:linear-gradient(135deg,#1d2e48,#2d62c0);font-size:11px}
+.hero-card b{display:block;font:800 31px Manrope,Arial,sans-serif}
+.row{display:flex;justify-content:space-between;gap:8px;padding:11px 0;border-bottom:1px solid #dce4f0;font-size:12px}
+.row b{white-space:nowrap}
+.btn{margin-top:16px;text-align:center;background:#254f9d;color:#fff;border-radius:12px;padding:12px;font-size:12px;font-weight:700}
+.scan{position:relative;background:#e3eaf6;border-radius:16px;padding:16px;overflow:hidden}
+.scan div{background:#fff;padding:14px;font-size:12px;line-height:2;box-shadow:0 6px 18px #1d2e4822}
+.scan:after{content:"";position:absolute;left:8px;right:8px;top:8%;height:2px;background:#1fb87c;box-shadow:0 0 14px 4px #1fb87c77;animation:scan 2.4s ease-in-out infinite alternate}
+@keyframes scan{to{top:92%}}
+.done{width:76px;height:76px;border-radius:50%;margin:8px auto 14px;display:grid;place-items:center;background:#dff5ea;color:#17704c;font-size:36px}
+.view.center{text-align:center}.view.center .row{text-align:left}
+
+.chip{position:absolute;left:0;top:0;width:176px;display:flex;align-items:center;gap:10px;padding:11px 13px;border-radius:16px;background:linear-gradient(135deg,#243c68f2,#101d36f2);border:1px solid #a6c7ff55;box-shadow:0 18px 40px #0008,inset 0 1px 0 #ffffff22;font-size:11px;line-height:1.35;color:var(--muted);will-change:transform}
+.chip b{display:block;color:#fff;font-size:15px;white-space:nowrap}
+.chip i{flex:none;width:32px;height:32px;border-radius:10px;display:grid;place-items:center;font-style:normal;font-weight:700;background:#a6c7ff22;color:var(--ice)}
+.chip i.g{background:#6fe0b022;color:var(--ok)}
+
+.seal{position:absolute;left:70px;top:24px;width:128px;height:128px;z-index:3}
+.seal svg{width:100%;height:100%;animation:spin 18s linear infinite}
+.seal text{fill:var(--ice);font:700 11.5px 'DM Sans',Arial,sans-serif;letter-spacing:.14em}
+.seal span{position:absolute;inset:0;display:grid;place-items:center;font:800 22px Manrope,Arial,sans-serif}
+
+.controls{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;padding:6px;border:1px solid var(--line);border-radius:30px;background:#0d1729cc;position:relative;z-index:10}
+.controls button{border:0;background:none;color:var(--muted);font:700 13px 'DM Sans',Arial,sans-serif;padding:10px 17px;border-radius:99px;cursor:pointer;position:relative;overflow:hidden}
+.controls button[aria-pressed="true"]{background:var(--blue);color:#fff}
+.controls .tab[aria-pressed="true"]:after{content:"";position:absolute;left:14px;right:14px;bottom:4px;height:2px;background:var(--ice);transform-origin:left;transform:scaleX(var(--p,0))}
+.note{font-size:11px;color:var(--muted);margin-top:10px}
+
+.services{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
+.service{display:flex;gap:16px;align-items:center;padding-block:24px}
+.service+.service{border-left:1px solid var(--line);padding-left:28px}
+.service h2{font:700 15px/1.35 Manrope,Arial,sans-serif}
+.service p{font-size:13px;color:var(--muted)}
+.cube{flex:none;width:30px;height:30px;margin:6px;position:relative;transform-style:preserve-3d;animation:cube 9s linear infinite}
+.cube i{position:absolute;inset:0;border:1px solid var(--ice);background:#254f9d44}
+.cube i:nth-child(1){transform:translateZ(15px)}.cube i:nth-child(2){transform:rotateY(180deg) translateZ(15px)}.cube i:nth-child(3){transform:rotateY(90deg) translateZ(15px)}.cube i:nth-child(4){transform:rotateY(-90deg) translateZ(15px)}.cube i:nth-child(5){transform:rotateX(90deg) translateZ(15px)}.cube i:nth-child(6){transform:rotateX(-90deg) translateZ(15px)}
+@keyframes cube{from{transform:rotateX(-24deg) rotateY(0)}to{transform:rotateX(-24deg) rotateY(360deg)}}
+.service:nth-child(2) .cube{animation-delay:-3s}.service:nth-child(3) .cube{animation-delay:-6s}
+
+.copy>*{animation:rise .9s cubic-bezier(.2,.7,.2,1) backwards}
+.copy>:nth-child(2){animation-delay:.1s}.copy>:nth-child(3){animation-delay:.2s}.copy>:nth-child(4){animation-delay:.3s}
+@keyframes rise{from{opacity:0;transform:translateY(26px)}}
+.copy h1 em{animation:sheen 9s linear infinite}
+
+.paused *,.paused *:before,.paused *:after{animation-play-state:paused!important}
+
+@media(max-width:960px){
+ main{grid-template-columns:minmax(0,1fr);text-align:center;padding-top:42px}
+ .where,.actions{justify-content:center}.lead{margin-inline:auto}
+ h1{font-size:clamp(39px,8.4vw,72px)}
+ .services{grid-template-columns:1fr}.service+.service{border-left:0;border-top:1px solid var(--line);padding-left:0}
+}
+@media(max-width:560px){.wrap{width:calc(100% - 32px)}.nav-r .phone-link{display:none}.brand small{font-size:8px}.pill{padding:9px 15px}.controls button{padding:10px 13px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}h1 em{background-position:70% 0}#pause{display:none}}
+
+/* Aplicaci?n compartida: recorrido sincronizado con el desplazamiento. */
+.journey { border-top: 1px solid var(--line); padding: clamp(55px, 9vw, 115px) 0 0; background: radial-gradient(ellipse at 20% 20%, #254f9d38, transparent 55%); }
+.journey-intro { max-width: 760px; margin-bottom: 34px; }
+.journey-label { color: var(--ice); font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.journey-intro h2, .journey-step h3 { font-family: Manrope, sans-serif; line-height: 1.08; letter-spacing: -.045em; }
+.journey-intro h2 { margin: 12px 0; font-size: clamp(34px, 6vw, 76px); }
+.journey-intro p:last-child, .journey-step p:last-child { color: var(--muted); }
+.journey-grid { display: grid; grid-template-columns: 1.12fr 1fr; align-items: start; gap: 7%; }
+.journey-console { position: sticky; top: clamp(16px, 14vh, 120px); min-width: 0; border: 1px solid #a6c7ff50; border-radius: 19px; background: #0d182c; box-shadow: 0 28px 80px #03081190; overflow: hidden; }
+.journey-top { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 4px 12px; padding: 15px 20px; border-bottom: 1px solid var(--line); font-size: .8rem; }
+.journey-top span { color: var(--ok); }
+.journey-panels { display: grid; }
+.journey-panel { grid-area: 1 / 1; min-width: 0; padding: 20px; transition: opacity .35s ease, transform .35s ease; }
+.journey-panel[inert] { opacity: 0; transform: translateY(7px); }
+.journey-panel h3 { margin-bottom: 12px; font-size: clamp(17px, 2.3vw, 24px); line-height: 1.2; }
+.journey-kpis { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.journey-kpis div { min-width: 0; padding: 10px; background: #a6c7ff0d; border: 1px solid var(--line); border-radius: 7px; }
+.journey-kpis dt { color: var(--muted); font-size: .72rem; }
+.journey-kpis dd { margin: 0; color: var(--ice); font-weight: 700; font-size: clamp(.86rem, 2vw, 1.35rem); }
+.journey-entries { margin: 8px 0; }
+.journey-entries div { display: flex; justify-content: space-between; gap: 8px; padding: 7px 0; border-bottom: 1px solid var(--line); font-size: .76rem; }
+.journey-entries dd { margin: 0; text-align: right; white-space: nowrap; }
+.journey-advisor { padding-top: 4px; color: var(--muted); font-size: .76rem; }
+.journey-advisor b { color: var(--ok); margin-right: .45em; }
+.journey-foot { padding: 8px 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: .68rem; }
+.journey-step { display: flex; flex-direction: column; justify-content: center; min-height: 65svh; padding: 28px 0; }
+.journey-step h3 { margin: 12px 0 16px; font-size: clamp(29px, 4.3vw, 54px); }
+.journey-end { padding: 42px 0 58px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
+.journey-end h2 { font-family: Manrope, sans-serif; font-size: clamp(23px, 4vw, 37px); }
+.journey-link { display: inline-block; margin-top: 14px; color: var(--ice); text-underline-offset: 4px; }
+@media (max-width: 760px) {
+ .journey-grid { grid-template-columns: minmax(0, 1fr); gap: 0; }
+ .journey-console { top: 8px; z-index: 2; }
+ .journey-top { padding: 8px 12px; }
+ .journey-panel { padding: 10px 12px; }
+ .journey-panel h3 { margin-bottom: 7px; }
+ .journey-kpis div { padding: 5px 8px; }
+ .journey-entries div { padding: 4px 0; }
+ .journey-foot { padding: 5px 12px; }
+ .journey-step { min-height: 55svh; justify-content: flex-start; padding: 28px 0; }
+}
+@media (max-height: 520px) { .journey-console { position: relative; top: 0; } }
+@media (prefers-reduced-motion: reduce) { .journey-panel { transition: none; } }
+</style>
+</head>
+<body>
+<div class="cover">
+<nav class="wrap" aria-label="Principal">
+ <a class="brand" href="#">
+  <svg width="46" height="46" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#1d2e48" stroke="#a6c7ff55"/><path d="M15 15v27q0 8-8 8M23 47V16l12 18 12-18v31M40 54h14" fill="none" stroke="#a6c7ff" stroke-width="2.5"/></svg>
+  <span><b>JM2.</b><small>FISCAL &amp; TECNOLOGÍA</small></span>
+ </a>
+ <div class="nav-r"><a class="phone-link" href="tel:+34711552468">711 55 24 68</a><a class="pill" href="https://wa.me/34711552468" target="_blank" rel="noopener">Hablemos ↗</a></div>
+</nav>
+
+<main class="wrap">
+ <div class="copy">
+  <p class="where"><i></i>Asesoría fiscal y tecnológica en Mérida</p>
+  <h1>Tu negocio merece algo más que <em>una asesoría.</em></h1>
+  <p class="lead">Tu asesor fiscal personal. Tu propio sistema de facturación a medida. Toda la tecnología que tu negocio necesita.</p>
+  <div class="actions">
+   <a class="cta" href="https://wa.me/34711552468" target="_blank" rel="noopener"><span>Solicitar una primera reunión ↗</span></a>
+   <a class="journey-link" href="#recorrido">Ver c&oacute;mo funciona &darr;</a>
+   <p class="tel">o llámanos al <b>711 55 24 68</b></p>
+  </div>
+ </div>
+
+ <div class="scene">
+  <div class="fit" id="fit">
+   <div class="stage" id="stage"><div class="tilt" id="tilt">
+    <div class="halo" aria-hidden="true"></div><div class="halo two" aria-hidden="true"></div>
+    <svg class="orbit back" viewBox="0 0 720 680" aria-hidden="true"><path d="M70 470A290 92 0 0 1 650 470"/></svg>
+
+    <div class="laptop" aria-hidden="true">
+     <div class="lid"><div class="desk">
+      <header><b>JM2. Despacho fiscal</b><span>Primer trimestre</span></header>
+      <div class="body"><aside><b>Mi despacho</b>Clientes<br>Facturas<br>Documentos<br>Fiscalidad<br>Modelos</aside>
+      <section><h4>Instalaciones García</h4>
+       <div class="kpis"><div>Ingresos<b>24.850 €</b></div><div>Gastos<b>8.420 €</b></div></div>
+       <div class="bars"><i style="height:38%"></i><i style="height:50%;animation-delay:-.5s"></i><i style="height:46%;animation-delay:-1s"></i><i style="height:64%;animation-delay:-1.5s"></i><i style="height:58%;animation-delay:-2s"></i><i style="height:76%;animation-delay:-2.5s"></i><i style="height:70%;animation-delay:-3s"></i><i style="height:94%;animation-delay:-3.5s"></i></div>
+      </section></div>
+     </div></div><div class="deck"></div>
+    </div>
+
+    <div class="phonebox" role="img" aria-label="Maqueta de la app de JM2 con datos ficticios">
+     <div class="phone" id="phone">
+      <div class="face front-face"><div class="screen"><div class="island"></div>
+       <div class="view on">
+        <small>JM2. Facturación</small><h3>Buenos días.</h3>
+        <div class="hero-card">Facturación del mes<b>8.450 €</b>Pendiente de cobro: 1.240 €</div>
+        <div class="row"><span>Factura F-042</span><b>850 €</b></div><div class="row"><span>Factura F-041</span><b>320 €</b></div><div class="row"><span>Presupuesto P-018</span><b>1.600 €</b></div>
+        <div class="btn">+ Crear factura</div>
+       </div>
+       <div class="view">
+        <small>JM2. Documentos</small><h3>Una foto. Y listo.</h3>
+        <div class="scan"><div><b>FACTURA</b><br>Material profesional<br>Base: 240,00 €<br>IVA: 50,40 €<br><b>Total: 290,40 €</b></div></div>
+        <div class="row"><span>Categoría</span><b>Materiales</b></div><div class="row"><span>Estado</span><b>En revisión</b></div>
+        <div class="btn">Enviar a mi asesor</div>
+       </div>
+       <div class="view center">
+        <small>JM2. Tu asesoría</small><div class="done">✓</div><h3>Tus impuestos están presentados.</h3>
+        <div class="row"><span>Modelo 303 · IVA</span><b>1.840 €</b></div><div class="row"><span>Modelo 130 · IRPF</span><b>1.260 €</b></div><div class="row"><span>Justificantes</span><b>Disponibles</b></div>
+        <div class="btn">Ver justificantes</div>
+       </div>
+      </div></div>
+      <div class="face back-face"><div class="lens"></div><svg viewBox="0 0 64 64"><path d="M15 15v27q0 8-8 8M23 47V16l12 18 12-18v31M40 54h14" fill="none" stroke="#a6c7ff" stroke-width="2.5"/></svg></div>
+     </div>
+    </div>
+
+    <svg class="orbit front" viewBox="0 0 720 680" aria-hidden="true"><path d="M650 470A290 92 0 0 1 70 470"/></svg>
+
+    <div class="chip" aria-hidden="true"><i>€</i><span>Modelo 303 · IVA<b>1.840 €</b></span></div>
+    <div class="chip" aria-hidden="true"><i class="g">✓</i><span>Gastos deducibles<b>Comprobados</b></span></div>
+    <div class="chip" aria-hidden="true"><i>%</i><span>Modelo 130 · IRPF<b>1.260 €</b></span></div>
+    <div class="chip" aria-hidden="true"><i class="g">↗</i><span>Facturas emitidas<b>48</b></span></div>
+
+    <div class="seal" aria-hidden="true">
+     <svg viewBox="0 0 128 128"><defs><path id="ring" d="M64 64m-50 0a50 50 0 1 1 100 0a50 50 0 1 1-100 0"/></defs><text><textPath href="#ring" textLength="310">ASESORÍA FISCAL · TECNOLOGÍA A MEDIDA ·</textPath></text></svg><span>JM2.</span>
+    </div>
+   </div></div>
+  </div>
+  <div class="controls" role="group" aria-label="Pantalla de la app">
+   <button type="button" class="tab" aria-pressed="true">Facturar</button>
+   <button type="button" class="tab" aria-pressed="false">Escanear</button>
+   <button type="button" class="tab" aria-pressed="false">Presentado</button>
+   <button type="button" id="pause" aria-label="Pausar animaciones">❚❚</button>
+  </div>
+  <p class="note">Demostración con datos ficticios</p>
+ </div>
+</main>
+
+<div class="wrap services">
+ <article class="service"><div class="cube" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div><div><h2>Asesoría fiscal personalizada</h2><p>Acompañamiento durante todo el año.</p></div></article>
+ <article class="service"><div class="cube" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div><div><h2>Facturación a medida</h2><p>Tu sistema, conectado con tu asesoría.</p></div></article>
+ <article class="service"><div class="cube" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div><div><h2>Soporte tecnológico integral</h2><p>Automatización, presencia digital y asistencia.</p></div></article>
+</div>
+</div>
+
+
+<section class="journey" id="recorrido" aria-labelledby="recorrido-titulo">
+  <div class="wrap">
+    <div class="journey-intro">
+      <p class="journey-label">Otro concepto de asesor&iacute;a</p>
+      <h2 id="recorrido-titulo">T&uacute; llevas tu negocio.<br>Tu asesor va al d&iacute;a contigo.</h2>
+      <p>Una aplicaci&oacute;n propia, conectada con tu gestor&iacute;a desde la primera factura hasta la presentaci&oacute;n de los modelos.</p>
+    </div>
+    <div class="journey-grid">
+      <aside class="journey-console" aria-label="Demostraci&oacute;n de la aplicaci&oacute;n">
+        <div class="journey-top"><b>JM2. &middot; Instalaciones Garc&iacute;a</b><span>? Asesor&iacute;a conectada</span></div>
+        <div class="journey-panels">
+      <div class="journey-panel">
+        <h3>Actividad de hoy</h3>
+        <dl class="journey-kpis"><div><dt>Ingresos de hoy</dt><dd>850,00 &euro;</dd></div><div><dt>Gastos de hoy</dt><dd>290,40 &euro;</dd></div></dl>
+        <dl class="journey-entries"><div><dt>Factura F-042</dt><dd>850,00 &euro;</dd></div><div><dt>Materiales de instalaci&oacute;n</dt><dd>290,40 &euro;</dd></div></dl>
+        <p class="journey-advisor"><b>Tu asesor</b> Factura y justificante recibidos.</p>
+      </div>
+      <div class="journey-panel" inert>
+        <h3>Previsi&oacute;n fiscal &middot; T1</h3>
+        <dl class="journey-kpis"><div><dt>IVA estimado</dt><dd>1.840 &euro;</dd></div><div><dt>IRPF estimado</dt><dd>1.260 &euro;</dd></div></dl>
+        <dl class="journey-entries"><div><dt>Ingresos acumulados</dt><dd>24.850 &euro;</dd></div><div><dt>Gastos registrados</dt><dd>8.420 &euro;</dd></div></dl>
+        <p class="journey-advisor"><b>Tu asesor</b> He revisado los gastos y actualizado la previsi&oacute;n.</p>
+      </div>
+      <div class="journey-panel" inert>
+        <h3>Control de cobros</h3>
+        <dl class="journey-kpis"><div><dt>Cobrado</dt><dd>7.210 &euro;</dd></div><div><dt>Pendiente</dt><dd>1.240 &euro;</dd></div></dl>
+        <dl class="journey-entries"><div><dt>Factura F-042 &middot; Vence el viernes</dt><dd>850 &euro;</dd></div><div><dt>Factura F-039 &middot; Vencida</dt><dd>390 &euro;</dd></div></dl>
+        <p class="journey-advisor"><b>Tu asesor</b> El despacho distingue las facturas emitidas de los cobros registrados.</p>
+      </div>
+      <div class="journey-panel" inert>
+        <h3>Modelos del trimestre</h3>
+        <dl class="journey-kpis"><div><dt>Periodo</dt><dd>T1</dd></div><div><dt>Estado</dt><dd>Presentado</dd></div></dl>
+        <dl class="journey-entries"><div><dt>Modelo 303 &middot; IVA</dt><dd>Presentado</dd></div><div><dt>Modelo 130 &middot; IRPF</dt><dd>Presentado</dd></div></dl>
+        <p class="journey-advisor"><b>Tu asesor</b> Justificantes disponibles en tu aplicaci&oacute;n.</p>
+      </div>
+        </div>
+        <p class="journey-foot">Demostraci&oacute;n con datos ficticios</p>
+      </aside>
+      <div>
+      <article class="journey-step">
+        <p class="journey-label">D&iacute;a a d&iacute;a</p>
+        <h3>Facturas una vez. Tu asesor ya la tiene.</h3>
+        <p>Emites la factura desde tu aplicaci&oacute;n y guardas una foto del ticket de materiales. Los dos movimientos llegan al despacho sin tener que enviarlos de nuevo.</p>
+      </article>
+      <article class="journey-step">
+        <p class="journey-label">Previsi&oacute;n</p>
+        <h3>Sabes qu&eacute; reservar antes del cierre.</h3>
+        <p>Los ingresos y gastos se reflejan en tu previsi&oacute;n trimestral. Tu asesor revisa los justificantes y ajusta la estimaci&oacute;n a medida que avanza el trimestre.</p>
+      </article>
+      <article class="journey-step">
+        <p class="journey-label">Cobros</p>
+        <h3>Ves qu&eacute; ha entrado y qu&eacute; falta.</h3>
+        <p>Registra los cobros por factura. Tu aplicaci&oacute;n separa lo cobrado de lo pendiente, para que sepas a qui&eacute;n hacer seguimiento.</p>
+      </article>
+      <article class="journey-step">
+        <p class="journey-label">Presentaci&oacute;n</p>
+        <h3>El trimestre acaba con todo a mano.</h3>
+        <p>Tu asesor prepara los modelos, confirma contigo los importes y los presenta con tu autorizaci&oacute;n. Puedes consultar el estado y los justificantes en la misma aplicaci&oacute;n.</p>
+      </article>
+      </div>
+    </div>
+    <div class="journey-end">
+      <h2>&iquest;C&oacute;mo funcionar&iacute;a en tu negocio?</h2>
+      <a class="pill" href="https://wa.me/34711552468">Solicitar una reuni&oacute;n &nearr;</a>
+    </div>
+  </div>
+</section>
+
+<script>
+(()=>{
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const fit=$('#fit'),stage=$('#stage'),tilt=$('#tilt'),phone=$('#phone'),chips=$$('.chip'),views=$$('.view'),tabs=$$('.tab'),pause=$('#pause');
+const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* grosor del móvil: capas apiladas */
+for(let z=-9;z<=9;z+=1.5){const s=document.createElement('div');s.className='slab';s.style.transform=`translateZ(${z}px)`;phone.prepend(s)}
+
+/* la escena de 720x680 se adapta al ancho y al alto disponibles */
+function resize(){
+ const wide=innerWidth>960;
+ const byHeight=wide?Math.max(.62,(innerHeight-345)/660):1;
+ const k=Math.min(1,fit.clientWidth/(wide?700:672),byHeight);
+ stage.style.transform=`scale(${k})`;fit.style.height=680*k+'px';
+}
+addEventListener('resize',resize);resize();
+
+let t=0,last=null,current=0,spin=null,timer=0,paused=false,visible=true,mx=0,my=0,sx=0,sy=0;
+const HOLD=5.2,SPIN=1.5;
+
+function show(i){current=i;views.forEach((v,n)=>v.classList.toggle('on',n===i));tabs.forEach((b,n)=>{b.setAttribute('aria-pressed',n===i);b.style.setProperty('--p',0)})}
+function go(i){
+ timer=0;
+ if(reduced||paused){spin=null;show(i);render();return}
+ spin={p:0,to:i,swapped:false};
+ tabs.forEach((b,n)=>b.setAttribute('aria-pressed',n===i));
+}
+tabs.forEach((b,i)=>b.onclick=()=>{if(i!==current||spin)go(i)});
+
+function render(){
+ let turn=0,lift=0;
+ if(spin){
+  const p=spin.p,e=p<.5?4*p*p*p:1-Math.pow(-2*p+2,3)/2;
+  turn=e*360;lift=Math.sin(Math.PI*p);
+ }
+ const sway=reduced?-13:-13+Math.sin(t*.7)*11;
+ const float=reduced?0:Math.sin(t*1.1)*9;
+ phone.style.transform=`translateY(${float-lift*22}px) rotateX(${4+sy*-5}deg) rotateY(${sway+turn+sx*9}deg) rotateZ(2deg)`;
+ tilt.style.transform=`translate(${sx*8}px,${sy*6}px)`;
+ chips.forEach((c,i)=>{
+  const a=t*.32+i*Math.PI*2/chips.length+.55,d=Math.sin(a);
+  const x=360+Math.cos(a)*290-88,y=470+d*92-28,s=.84+d*.18;
+  c.style.transform=`translate(${x}px,${y}px) scale(${s})`;
+  c.style.zIndex=d>0?7:3;
+  c.style.opacity=.86+(d+1)*.07;
+ });
+}
+
+function frame(now){
+ const dt=last===null?0:Math.min(.05,(now-last)/1000);last=now;
+ if(!paused&&visible){
+  t+=dt;sx+=(mx-sx)*.05;sy+=(my-sy)*.05;
+  if(spin){
+   spin.p=Math.min(1,spin.p+dt/SPIN);
+   if(!spin.swapped&&spin.p>=.5){show(spin.to);spin.swapped=true}
+   if(spin.p===1)spin=null;
+  }else{
+   timer+=dt;tabs[current].style.setProperty('--p',Math.min(1,timer/HOLD));
+   if(timer>=HOLD)go((current+1)%views.length);
+  }
+  render();
+ }
+ requestAnimationFrame(frame);
+}
+
+pause.onclick=()=>{
+ paused=!paused;
+ if(paused&&spin){show(spin.to);spin=null;render()}
+ document.body.classList.toggle('paused',paused);
+ pause.textContent=paused?'▶':'❚❚';
+ pause.setAttribute('aria-label',paused?'Reanudar animaciones':'Pausar animaciones');
+};
+if(matchMedia('(pointer:fine)').matches&&!reduced){
+ addEventListener('pointermove',e=>{mx=e.clientX/innerWidth*2-1;my=e.clientY/innerHeight*2-1});
+}
+new IntersectionObserver(e=>visible=e[0].isIntersecting).observe(fit);
+render();
+if(!reduced){spin={p:0,to:0,swapped:true};requestAnimationFrame(frame)}
+})();
+</script>
+
+<script>
+(() => {
+  const chapters = [...document.querySelectorAll('.journey-step')];
+  const panels = [...document.querySelectorAll('.journey-panel')];
+  let active = -1;
+  let queued = false;
+
+  function syncJourney() {
+    queued = false;
+    const readingLine = innerHeight * (innerWidth <= 760 ? .72 : .52);
+    let next = 0;
+    chapters.forEach((chapter, index) => {
+      if (chapter.getBoundingClientRect().top <= readingLine) next = index;
+    });
+    if (next === active) return;
+    active = next;
+    panels.forEach((panel, index) => { panel.inert = index !== active; });
+  }
+
+  function scheduleJourney() {
+    if (queued) return;
+    queued = true;
+    requestAnimationFrame(syncJourney);
+  }
+
+  addEventListener('scroll', scheduleJourney, { passive: true });
+  addEventListener('resize', scheduleJourney);
+  addEventListener('pageshow', scheduleJourney);
+  syncJourney();
+})();
+</script>
+</body>
+</html>
