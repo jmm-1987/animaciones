@@ -278,11 +278,11 @@ h1,h2,.logo { letter-spacing: -.045em; }
 <!-- 3 -->
 <section class="chap" id="c3" data-time="17:30"><div class="pin">
  <div class="copy"><span class="time">17:30 · Repasas los cobros</span><h2>Sabes quién te ha pagado y quién no.</h2><p>Cada factura con su estado. De un vistazo ves lo cobrado, lo pendiente y lo que toca reclamar.</p>
-  <ol class="steps"><li>Entra un cobro</li><li>Reclamas el que está vencido</li><li>Queda cobrado</li></ol></div>
+  <ol class="steps"><li>Factura emitida</li><li>Factura pagada</li><li>Reclamas el cobro vencido</li><li>Queda cobrado</li></ol></div>
  <div class="fit"><div class="scene">
-  <div class="card money"><div class="coinwrap"><div class="coin" id="coin">€</div></div><div>Cobrado<span class="num" id="got">320 €</span></div><div>Pendiente<span class="num" id="due">2.090 €</span></div></div>
+  <div class="card money"><div class="coinwrap"><div class="coin" id="coin">€</div></div><div>Cobrado<span class="num" id="got">320 €</span></div><div>Pendiente<span class="num" id="due">1.240 €</span></div></div>
   <div id="invs"></div>
-  <div class="toast" id="toast" aria-live="off">4 facturas en seguimiento</div>
+  <div class="toast" id="toast" aria-live="off">Preparas la factura de Café Central</div>
  </div></div>
  <span class="demo">Demostración con datos ficticios</span>
 </div></section>
@@ -363,19 +363,31 @@ const scenes=[
   stepsOn(chaps[1],d<31?0:d<59?1:2);
  },
  function cobros(p){
-  const paid=[true,p>=.25,p>=.72,false];
-  const states=[['✓ Cobrada','ok'],paid[1]?['✓ Cobrada','ok']:['Pendiente',''],paid[2]?['✓ Cobrada','ok']:p>=.48?['Reclamada','blue']:['Vencida','warn'],['Vence en 6 días','']];
-  const focus=p<.15?-1:p<.42?1:p<.9?2:-1;
+  const issued=p>=.12;
+  const paid=[true,p>=.36,p>=.78,false];
+  const reminded=p>=.57;
+  const states=[
+   ['✓ Cobrada','ok'],
+   paid[1]?['✓ Pagada','ok']:issued?['Emitida','blue']:['Borrador',''],
+   paid[2]?['✓ Cobrada','ok']:reminded?['Reclamada','blue']:['Vencida','warn'],
+   ['Vence en 6 días','']
+  ];
+  const focus=reminded?(p<.92?2:-1):1;
   rows.forEach((r,i)=>{
    const tag=r.querySelector('.tag');tag.textContent=states[i][0];tag.className='tag '+states[i][1];
    r.classList.toggle('paid',paid[i]);r.classList.toggle('focus',focus===i);r.querySelector('i').textContent=paid[i]?'✓':'€';
    r.style.top=(narrow?140:168)+i*(narrow?84:78)+'px';r.style.height=(narrow?76:68)+'px';
   });
   const got=invoices.reduce((s,f,i)=>s+(paid[i]?f[2]:0),0);
-  $('got').textContent=eur(got);$('due').textContent=eur(2410-got);
+  const due=invoices.reduce((s,f,i)=>s+(!paid[i]&&(i!==1||issued)?f[2]:0),0);
+  $('got').textContent=eur(got);$('due').textContent=eur(due);
   $('coin').style.transform=`rotateY(${p*1080}deg)`;
-  $('toast').textContent=p>=.72?'Cobro de Clínica Norte registrado':p>=.48?'Recordatorio enviado a Clínica Norte':p>=.25?'Cobro de Café Central registrado':'4 facturas en seguimiento';
-  stepsOn(chaps[2],p<.48?0:p<.72?1:2);
+  $('toast').textContent=paid[2]?'Cobro de Clínica Norte registrado'
+   :reminded?'Recordatorio enviado a Clínica Norte'
+   :paid[1]?'Factura de Café Central pagada'
+   :issued?'Factura de Café Central emitida'
+   :'Preparas la factura de Café Central';
+  stepsOn(chaps[2],paid[2]?3:reminded?2:paid[1]?1:issued?0:-1);
  },
  function modelos(p){
   [$('s1'),$('s2')].forEach((s,i)=>{
