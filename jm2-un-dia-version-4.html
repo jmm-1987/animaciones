@@ -190,7 +190,27 @@ h1,h2,.logo { letter-spacing: -.045em; }
   display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px;
   margin-top: 10px; font-size: 14px; font-weight: 700;
 }
-#c3 .invoice-flow strong { color: #1D4ED8; }
+#c3 .invoice-flow button {
+  border: 1px solid #BFDBFE; border-radius: 8px; padding: 4px 9px;
+  background: #FFFFFF; color: #1D4ED8; font: inherit; cursor: pointer;
+}
+#c3 .invoice-flow button[aria-pressed="true"] { background: #1D4ED8; color: #FFFFFF; }
+.issued-screen { position: absolute; inset: 0 0 26px; padding: 24px; }
+.issued-screen header { display: flex; flex-wrap: wrap; gap: 8px; justify-content: space-between; align-items: center; }
+.issued-screen h3 { font: 800 28px/1.2 'Geist',Arial,sans-serif; }
+.issued-screen header small { color: var(--soft); font-weight: 700; }
+.issued-screen table { width: 100%; border-collapse: collapse; margin-top: 16px; font-size: 16px; }
+.issued-screen th,.issued-screen td { padding: 13px 6px; text-align: left; border-bottom: 1px solid var(--edge); }
+.issued-screen th { color: var(--soft); font-size: 13px; }
+.issued-screen th:last-child,.issued-screen td:last-child { text-align: right; white-space: nowrap; }
+.issued-screen tr.new-invoice { background: var(--tint); }
+.issued-total { margin-top: 18px; text-align: right; font-size: 18px; }
+.issued-note { margin-top: 8px; color: var(--soft); font-size: 14px; }
+@media(max-width:900px) {
+  .issued-screen { padding: 16px; }
+  .issued-screen table { font-size: 14px; }
+  .issued-screen th,.issued-screen td { padding-inline: 4px; }
+}
 #c4 .pin { background: var(--tint); color: var(--ink); }
 .chap .pin,.end {
   border-radius: var(--radius) var(--radius) 0 0;
@@ -283,12 +303,23 @@ h1,h2,.logo { letter-spacing: -.045em; }
 <!-- 3 -->
 <section class="chap" id="c3" data-time="17:30"><div class="pin">
  <div class="copy"><span class="time">17:30 · Repasas los cobros</span><h2>Sabes quién te ha pagado y quién no.</h2><p>Cada factura con su estado. De un vistazo ves lo cobrado, lo pendiente y lo que toca reclamar.</p>
-  <p class="invoice-flow"><strong>Factura emitida</strong><span aria-hidden="true">→</span><span>Factura pagada</span></p>
+  <p class="invoice-flow"><button type="button" id="show-issued" aria-controls="issued-screen" aria-pressed="false">Ver facturas emitidas</button><button type="button" id="show-payments" aria-controls="payment-screen" aria-pressed="true">Ver cobros</button></p>
   <ol class="steps"><li>Emites la factura de Café Central</li><li>Registras su pago</li><li>Reclamas el cobro vencido</li><li>Queda cobrado</li></ol></div>
  <div class="fit"><div class="scene">
+  <div class="card issued-screen" id="issued-screen" hidden>
+   <header><h3>Facturas emitidas</h3><small>JM2 &middot; Facturaci&oacute;n</small></header>
+   <table aria-label="Facturas emitidas">
+    <thead><tr><th scope="col">Factura</th><th scope="col">Cliente</th><th scope="col">Importe</th></tr></thead>
+    <tbody id="issued-invoices"></tbody>
+   </table>
+   <p class="issued-total">Total emitido <strong class="num" id="issued-total"></strong></p>
+   <p class="issued-note">La factura de Caf&eacute; Central se incorpora al listado al emitirla.</p>
+  </div>
+  <div id="payment-screen">
   <div class="card money"><div class="coinwrap"><div class="coin" id="coin">€</div></div><div>Cobrado<span class="num" id="got">320 €</span></div><div>Pendiente<span class="num" id="due">1.240 €</span></div></div>
   <div id="invs"></div>
   <div class="toast" id="toast" aria-live="off">Preparas la factura de Café Central</div>
+  </div>
  </div></div>
  <span class="demo">Demostración con datos ficticios</span>
 </div></section>
@@ -341,6 +372,22 @@ const path=(a,d)=>a.slice(0,d+1).map((v,i)=>(i?'L':'M')+(i*600/(N-1)).toFixed(1)
 const invoices=[['F-041','Reformas Sol',320],['F-042','Café Central',850],['F-043','Clínica Norte',600],['F-044','Taller Vega',640]];
 $('invs').innerHTML=invoices.map(f=>`<div class="card inv"><i>€</i><div><b>${f[1]}</b><small>Factura ${f[0]}</small></div><span class="num">${eur(f[2])}</span><span class="tag"></span></div>`).join('');
 const rows=[...document.querySelectorAll('.inv')];
+$('issued-invoices').innerHTML=invoices.map(([number,client,amount],i)=>
+ `<tr${i===1?' class="new-invoice" id="new-invoice"':''}><td>${number}</td><td>${client}</td><td>${eur(amount)}</td></tr>`
+).join('');
+let collectionsView=null, collectionsProgress=0;
+$('show-issued').onclick=()=>{collectionsView='issued';renderCollectionsView()};
+$('show-payments').onclick=()=>{collectionsView='payments';renderCollectionsView()};
+function renderCollectionsView(){
+ const showIssued=collectionsView===null?collectionsProgress<.36:collectionsView==='issued';
+ const issued=collectionsProgress>=.12||collectionsView==='issued';
+ $('issued-screen').hidden=!showIssued;
+ $('payment-screen').hidden=showIssued;
+ $('show-issued').setAttribute('aria-pressed',String(showIssued));
+ $('show-payments').setAttribute('aria-pressed',String(!showIssued));
+ $('new-invoice').hidden=!issued;
+ $('issued-total').textContent=eur(invoices.reduce((sum,invoice,i)=>sum+(i!==1||issued?invoice[2]:0),0));
+}
 
 const scenes=[
  function conexion(p){
@@ -369,6 +416,8 @@ const scenes=[
   stepsOn(chaps[1],d<31?0:d<59?1:2);
  },
  function cobros(p){
+  collectionsProgress=p;
+  renderCollectionsView();
   const issued=p>=.12;
   const paid=[true,p>=.36,p>=.78,false];
   const reminded=p>=.57;
