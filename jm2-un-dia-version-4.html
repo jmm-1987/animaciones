@@ -186,6 +186,11 @@ h1,h2,.logo { letter-spacing: -.045em; }
 #c1 .pin { background: var(--tint); color: var(--ink); }
 #c2 .pin { background: var(--night); }
 #c3 .pin { background: var(--second-tint); }
+#c3 .invoice-flow {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px;
+  margin-top: 10px; font-size: 14px; font-weight: 700;
+}
+#c3 .invoice-flow strong { color: #1D4ED8; }
 #c4 .pin { background: var(--tint); color: var(--ink); }
 .chap .pin,.end {
   border-radius: var(--radius) var(--radius) 0 0;
@@ -278,7 +283,8 @@ h1,h2,.logo { letter-spacing: -.045em; }
 <!-- 3 -->
 <section class="chap" id="c3" data-time="17:30"><div class="pin">
  <div class="copy"><span class="time">17:30 · Repasas los cobros</span><h2>Sabes quién te ha pagado y quién no.</h2><p>Cada factura con su estado. De un vistazo ves lo cobrado, lo pendiente y lo que toca reclamar.</p>
-  <ol class="steps"><li>Factura emitida</li><li>Factura pagada</li><li>Reclamas el cobro vencido</li><li>Queda cobrado</li></ol></div>
+  <p class="invoice-flow"><strong>Factura emitida</strong><span aria-hidden="true">→</span><span>Factura pagada</span></p>
+  <ol class="steps"><li>Emites la factura de Café Central</li><li>Registras su pago</li><li>Reclamas el cobro vencido</li><li>Queda cobrado</li></ol></div>
  <div class="fit"><div class="scene">
   <div class="card money"><div class="coinwrap"><div class="coin" id="coin">€</div></div><div>Cobrado<span class="num" id="got">320 €</span></div><div>Pendiente<span class="num" id="due">1.240 €</span></div></div>
   <div id="invs"></div>
